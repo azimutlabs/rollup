@@ -1,0 +1,130 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+max_line_length = 100
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[.editorconfig]
+ij_editorconfig_align_group_field_declarations = false
+ij_editorconfig_space_after_colon = false
+ij_editorconfig_space_after_comma = true
+ij_editorconfig_space_before_colon = false
+ij_editorconfig_space_before_comma = false
+ij_editorconfig_spaces_around_assignment_operators = true
+
+[{*.yml,*.yaml}]
+ij_yaml_keep_indents_on_empty_lines = false
+ij_yaml_keep_line_breaks = true
+
+[{.babelrc,.eslintrc,.prettierrc,jest.config,*.json}]
+ij_json_keep_blank_lines_in_code = 0
+ij_json_keep_indents_on_empty_lines = false
+ij_json_keep_line_breaks = true
+ij_json_space_after_colon = true
+ij_json_space_after_comma = true
+ij_json_space_before_colon = true
+ij_json_space_before_comma = false
+ij_json_spaces_within_braces = false
+ij_json_spaces_within_brackets = false
+ij_json_wrap_long_lines = false
+
+[{*.zsh,*.bash,*.sh}]
+ij_shell_binary_ops_start_line = false
+ij_shell_keep_column_alignment_padding = false
+ij_shell_minify_program = false
+ij_shell_redirect_followed_by_space = false
+ij_shell_switch_cases_indented = false
+
+[*.scss]
+ij_scss_use_double_quotes = false
+ij_scss_space_before_opening_brace = true
+ij_scss_hex_color_short_format = true
+ij_scss_hex_color_lower_case = true
+
+[{*.ts,*.tsx}]
+ij_typescript_chained_call_dot_on_new_line = true
+ij_typescript_spaces_within_imports = true
+ij_typescript_force_quote_style = true
+ij_typescript_use_double_quotes = false
+ij_typescript_ternary_operation_signs_on_next_line = true
+ij_typescript_import_sort_members = true
+ij_typescript_import_prefer_absolute_path = global
+ij_typescript_blank_lines_after_imports = 1
+ij_typescript_enforce_trailing_comma = whenmultiline
+ij_typescript_file_name_style = camel_case
+ij_typescript_force_semicolon_style = true
+ij_typescript_use_semicolon_after_statement = true
+ij_typescript_line_comment_add_space = true
+ij_typescript_reformat_c_style_comments = false
+ij_typescript_method_brace_style = end_of_line
+ij_typescript_space_after_colon = true
+ij_typescript_space_after_comma = true
+ij_typescript_space_after_dots_in_rest_parameter = false
+ij_typescript_space_after_generator_mult = true
+ij_typescript_space_after_property_colon = true
+ij_typescript_space_after_quest = true
+ij_typescript_space_after_type_colon = true
+ij_typescript_space_after_unary_not = false
+ij_typescript_space_before_async_arrow_lparen = true
+ij_typescript_space_before_catch_keyword = true
+ij_typescript_space_before_catch_left_brace = true
+ij_typescript_space_before_catch_parentheses = true
+ij_typescript_space_before_class_lbrace = true
+ij_typescript_space_before_class_left_brace = true
+ij_typescript_space_before_colon = true
+ij_typescript_space_before_comma = false
+ij_typescript_space_before_do_left_brace = true
+ij_typescript_space_before_else_keyword = true
+ij_typescript_space_before_else_left_brace = true
+ij_typescript_space_before_finally_keyword = true
+ij_typescript_space_before_finally_left_brace = true
+ij_typescript_space_before_for_left_brace = true
+ij_typescript_space_before_for_parentheses = true
+ij_typescript_space_before_for_semicolon = false
+ij_typescript_space_before_function_left_parenth = true
+ij_typescript_space_before_generator_mult = false
+ij_typescript_space_before_if_left_brace = true
+ij_typescript_space_before_if_parentheses = true
+ij_typescript_space_before_method_call_parentheses = false
+ij_typescript_space_before_method_left_brace = true
+ij_typescript_space_before_method_parentheses = false
+ij_typescript_space_before_property_colon = false
+ij_typescript_space_before_quest = true
+ij_typescript_space_before_switch_left_brace = true
+ij_typescript_space_before_switch_parentheses = true
+ij_typescript_space_before_try_left_brace = true
+ij_typescript_space_before_type_colon = false
+ij_typescript_space_before_unary_not = false
+ij_typescript_space_before_while_keyword = true
+ij_typescript_space_before_while_left_brace = true
+ij_typescript_space_before_while_parentheses = true
+ij_typescript_spaces_around_additive_operators = true
+ij_typescript_spaces_around_arrow_function_operator = true
+ij_typescript_spaces_around_assignment_operators = true
+ij_typescript_spaces_around_bitwise_operators = true
+ij_typescript_spaces_around_equality_operators = true
+ij_typescript_spaces_around_logical_operators = true
+ij_typescript_spaces_around_multiplicative_operators = true
+ij_typescript_spaces_around_relational_operators = true
+ij_typescript_spaces_around_shift_operators = true
+ij_typescript_spaces_around_unary_operator = false
+ij_typescript_spaces_within_array_initializer_brackets = false
+ij_typescript_spaces_within_brackets = false
+ij_typescript_spaces_within_catch_parentheses = false
+ij_typescript_spaces_within_for_parentheses = false
+ij_typescript_spaces_within_if_parentheses = false
+ij_typescript_spaces_within_interpolation_expressions = false
+ij_typescript_spaces_within_method_call_parentheses = false
+ij_typescript_spaces_within_method_parentheses = false
+ij_typescript_spaces_within_object_literal_braces = false
+ij_typescript_spaces_within_object_type_braces = true
+ij_typescript_spaces_within_parentheses = false
+ij_typescript_spaces_within_switch_parentheses = false
+ij_typescript_spaces_within_type_assertion = false
+ij_typescript_spaces_within_union_types = true
+ij_typescript_spaces_within_while_parentheses = false

@@ -1,0 +1,47 @@
+{
+  "name": "@azimutlabs/rollup",
+  "private": true,
+  "description": "Rollup configurations for the best package bundling experience",
+  "keywords": [
+    "config",
+    "rollup",
+    "rollup-config",
+    "alabs",
+    "azimutlabs"
+  ],
+  "homepage": "https://github.com/azimutlabs/rollup#readme",
+  "bugs": {
+    "url": "https://github.com/azimutlabs/rollup/issues",
+    "email": "npm@alabs.team"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azimutlabs/rollup.git"
+  },
+  "license": "MIT",
+  "author": "Azimut Labs <opensource@alabs.team>",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "yarn eslint --max-warnings 0 packages"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@azimutlabs/eslint-config-core",
+      "@azimutlabs/eslint-config-import",
+      "@azimutlabs/eslint-config-import"
+    ]
+  },
+  "devDependencies": {
+    "@azimutlabs/eslint-config-core": "^0.1.3",
+    "@azimutlabs/eslint-config-import": "^0.2.0",
+    "@azimutlabs/eslint-config-prettier": "^0.1.2",
+    "eslint": "^7.18.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "lerna": "^3.20.2",
+    "prettier": "^2.2.1"
+  }
+}
