@@ -3,11 +3,12 @@
     "lib": [
       "esnext"
     ],
-    "target": "esnext",
+    "target": "es5",
     "allowJs": true,
     "skipLibCheck": true,
-    "module": "esnext",
+    "module": "commonjs",
     "resolveJsonModule": true,
+    "declaration": true,
     "noEmit": true,
     "isolatedModules": true,
     "strict": true,
@@ -24,5 +25,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "include": [
+    "packages/rollup-config-core/src"
+  ]
 }
