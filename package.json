@@ -25,7 +25,8 @@
   ],
   "scripts": {
     "lint:files": "yarn eslint --cache --max-warnings 0",
-    "lint": "yarn lint:files ."
+    "lint": "yarn lint:files .",
+    "test": "yarn jest"
   },
   "jest": {
     "preset": "ts-jest"
