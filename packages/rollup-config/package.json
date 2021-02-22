@@ -1,7 +1,7 @@
 {
-  "name": "@azimutlabs/rollup-config-core",
+  "name": "@azimutlabs/rollup-config",
   "version": "0.0.0",
-  "description": "Rollup base configuration",
+  "description": "Rollup configuration base",
   "keywords": [
     "config",
     "rollup",
@@ -17,27 +17,29 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/azimutlabs/rollup.git",
-    "directory": "packages/rollup-config-core"
+    "directory": "packages/rollup-config"
   },
   "license": "MIT",
   "author": "Azimut Labs <opensource@alabs.team>",
-  "main": "index.js",
-  "module": "index.js",
-  "typings": "index.d.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "compile": "yarn tsc"
   },
   "dependencies": {
-    "@rollup/plugin-multi-entry": "^4.0.0",
+    "caller-path": "^3.0.0",
     "lodash.clonedeep": "^4.5.0",
-    "lodash.mergewith": "^4.6.2",
-    "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-delete": "^2.0.0"
+    "lodash.mergewith": "^4.6.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.mergewith": "^4.6.6",
+    "@types/node": "^14.14.31",
     "rollup": "^2.38.0",
     "typescript": "^4.1.4"
   }
