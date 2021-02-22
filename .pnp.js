@@ -57,7 +57,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@azimutlabs/eslint-config-import", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:0.2.1"],
             ["@azimutlabs/eslint-config-prettier", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:0.1.3"],
             ["@azimutlabs/eslint-config-typescript", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:0.2.8"],
-            ["@types/jest", "npm:26.0.20"],
             ["@typescript-eslint/eslint-plugin", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:4.15.1"],
             ["@typescript-eslint/parser", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:4.15.1"],
             ["eslint", "npm:7.20.0"],
@@ -65,10 +64,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:2.22.1"],
             ["eslint-plugin-prettier", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:3.3.1"],
             ["eslint-plugin-simple-import-sort", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:7.0.0"],
-            ["jest", "npm:26.6.3"],
             ["lerna", "npm:3.22.1"],
             ["prettier", "npm:2.2.1"],
-            ["ts-jest", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:26.5.1"],
             ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
           ],
           "linkType": "SOFT",
@@ -256,7 +253,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@azimutlabs/eslint-config-import", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:0.2.1"],
             ["@azimutlabs/eslint-config-prettier", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:0.1.3"],
             ["@azimutlabs/eslint-config-typescript", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:0.2.8"],
-            ["@types/jest", "npm:26.0.20"],
             ["@typescript-eslint/eslint-plugin", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:4.15.1"],
             ["@typescript-eslint/parser", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:4.15.1"],
             ["eslint", "npm:7.20.0"],
@@ -264,10 +260,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-import", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:2.22.1"],
             ["eslint-plugin-prettier", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:3.3.1"],
             ["eslint-plugin-simple-import-sort", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:7.0.0"],
-            ["jest", "npm:26.6.3"],
             ["lerna", "npm:3.22.1"],
             ["prettier", "npm:2.2.1"],
-            ["ts-jest", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:26.5.1"],
             ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
           ],
           "linkType": "SOFT",
@@ -278,7 +272,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/rollup-config/",
           "packageDependencies": [
             ["@azimutlabs/rollup-config", "workspace:packages/rollup-config"],
-            ["@types/jest", "npm:26.0.20"],
             ["@types/lodash.clonedeep", "npm:4.5.6"],
             ["@types/lodash.mergewith", "npm:4.6.6"],
             ["@types/node", "npm:14.14.31"],
@@ -11576,6 +11569,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/tests/",
           "packageDependencies": [
             ["tests", "workspace:packages/tests"],
+            ["@azimutlabs/rollup-config", "workspace:packages/rollup-config"],
             ["@azimutlabs/rollup-plugin-external", "workspace:packages/rollup-plugin-external"],
             ["@rollup/plugin-commonjs", "virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#npm:17.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#npm:11.2.0"],
@@ -11588,7 +11582,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "npm:26.6.3"],
             ["rollup", "npm:2.38.0"],
             ["rollup-plugin-node-polyfills", "npm:0.2.1"],
-            ["ts-jest", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:26.5.1"],
+            ["ts-jest", "virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#npm:26.5.1"],
             ["tslib", "npm:2.1.0"],
             ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
           ],
@@ -11828,10 +11822,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:26.5.1", {
-          "packageLocation": "./.yarn/$$virtual/ts-jest-virtual-ca99aa1473/0/cache/ts-jest-npm-26.5.1-109a413079-f054d4ef42.zip/node_modules/ts-jest/",
+        ["virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#npm:26.5.1", {
+          "packageLocation": "./.yarn/$$virtual/ts-jest-virtual-93269a15da/0/cache/ts-jest-npm-26.5.1-109a413079-f054d4ef42.zip/node_modules/ts-jest/",
           "packageDependencies": [
-            ["ts-jest", "virtual:41fc9a893d92b28283bda402f0f9cfdaa88f87d739267d1eac8d65bd6f80d3842dd02b352868d683d5127af167ac569b25544aa7143678aaa54941c378f47f63#npm:26.5.1"],
+            ["ts-jest", "virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#npm:26.5.1"],
             ["@types/jest", "npm:26.0.20"],
             ["@types/typescript", null],
             ["bs-logger", "npm:0.2.6"],
