@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`plugin-external should handle dependencies 1`] = `
+"import { right, reduce } from 'fp-ts/Either';
+import { pipe } from 'fp-ts/function';
+import isValid from 'is-valid-path';
+import { cwd } from 'process';
+
+var example = function () {
+    var startWith = 'prefix';
+    var dir = cwd();
+    var concat = function (aa, bb) { return dir + \\":\\" + aa + \\":\\" + bb; };
+    return isValid(pipe(right('e'), reduce(startWith, concat)));
+};
+
+export { example };
+"
+`;
+
+exports[`plugin-external should handle disabling builtins 1`] = `
+"import { right, reduce } from 'fp-ts/Either';
+import { pipe } from 'fp-ts/function';
+import isValid from 'is-valid-path';
+
+// shim for using process in browser
+
+function cwd () { return '/' }
+
+var example = function () {
+    var startWith = 'prefix';
+    var dir = cwd();
+    var concat = function (aa, bb) { return dir + \\":\\" + aa + \\":\\" + bb; };
+    return isValid(pipe(right('e'), reduce(startWith, concat)));
+};
+
+export { example };
+"
+`;
+
+exports[`plugin-external should handle disabling dependencies 1`] = `
+"import isValid from 'is-valid-path';
+import { cwd } from 'process';
+
+/**
+ * @since 2.0.0
+ */
+function pipe(a, ab, bc, cd, de, ef, fg, gh, hi, ij, jk, kl, lm, mn, no, op, pq, qr, rs, st) {
+    switch (arguments.length) {
+        case 1:
+            return a;
+        case 2:
+            return ab(a);
+        case 3:
+            return bc(ab(a));
+        case 4:
+            return cd(bc(ab(a)));
+        case 5:
+            return de(cd(bc(ab(a))));
+        case 6:
+            return ef(de(cd(bc(ab(a)))));
+        case 7:
+            return fg(ef(de(cd(bc(ab(a))))));
+        case 8:
+            return gh(fg(ef(de(cd(bc(ab(a)))))));
+        case 9:
+            return hi(gh(fg(ef(de(cd(bc(ab(a))))))));
+        case 10:
+            return ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))));
+        case 11:
+            return jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))));
+        case 12:
+            return kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))));
+        case 13:
+            return lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))))));
+        case 14:
+            return mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))))));
+        case 15:
+            return no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))))))));
+        case 16:
+            return op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))))))));
+        case 17:
+            return pq(op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))))))))));
+        case 18:
+            return qr(pq(op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))))))))));
+        case 19:
+            return rs(qr(pq(op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a))))))))))))))))));
+        case 20:
+            return st(rs(qr(pq(op(no(mn(lm(kl(jk(ij(hi(gh(fg(ef(de(cd(bc(ab(a)))))))))))))))))));
+    }
+    return;
+}
+
+// -------------------------------------------------------------------------------------
+// guards
+// -------------------------------------------------------------------------------------
+/**
+ * Returns \`true\` if the either is an instance of \`Left\`, \`false\` otherwise.
+ *
+ * @category guards
+ * @since 2.0.0
+ */
+var isLeft = function (ma) { return ma._tag === 'Left'; };
+/**
+ * Constructs a new \`Either\` holding a \`Right\` value. This usually represents a successful value due to the right bias
+ * of this structure.
+ *
+ * @category constructors
+ * @since 2.0.0
+ */
+var right = function (a) { return ({ _tag: 'Right', right: a }); };
+/**
+ * Left-associative fold of a structure.
+ *
+ * @example
+ * import { pipe } from 'fp-ts/function'
+ * import * as E from 'fp-ts/Either'
+ *
+ * const startWith = 'prefix'
+ * const concat = (a: string, b: string) => \`\${a}:\${b}\`
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.right('a'), E.reduce(startWith, concat)),
+ *   'prefix:a',
+ * )
+ *
+ * assert.deepStrictEqual(
+ *   pipe(E.left('e'), E.reduce(startWith, concat)),
+ *   'prefix',
+ * )
+ *
+ * @category Foldable
+ * @since 2.0.0
+ */
+var reduce = function (b, f) { return function (fa) {
+    return isLeft(fa) ? b : f(b, fa.right);
+}; };
+
+var example = function () {
+    var startWith = 'prefix';
+    var dir = cwd();
+    var concat = function (aa, bb) { return dir + \\":\\" + aa + \\":\\" + bb; };
+    return isValid(pipe(right('e'), reduce(startWith, concat)));
+};
+
+export { example };
+"
+`;
+
+exports[`plugin-external should handle disabling peer dependencies 1`] = `
+"import { right, reduce } from 'fp-ts/Either';
+import { pipe } from 'fp-ts/function';
+import { cwd } from 'process';
+
+/*!
+ * is-extglob <https://github.com/jonschlinkert/is-extglob>
+ *
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+var isExtglob = function isExtglob(str) {
+  return typeof str === 'string'
+    && /[@?!+*]\\\\(/.test(str);
+};
+
+/*!
+ * is-glob <https://github.com/jonschlinkert/is-glob>
+ *
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+
+var isGlob = function isGlob(str) {
+  return typeof str === 'string'
+    && (/[*!?{}(|)[\\\\]]/.test(str)
+     || isExtglob(str));
+};
+
+/*!
+ * is-invalid-path <https://github.com/jonschlinkert/is-invalid-path>
+ *
+ * Copyright (c) 2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+
+
+var re = /[‘“!#$%&+^<=>\`]/;
+
+var isInvalidPath = function (str) {
+  return (typeof str !== 'string') || isGlob(str) || re.test(str);
+};
+
+/*!
+ * is-valid-path <https://github.com/jonschlinkert/is-valid-path>
+ *
+ * Copyright (c) 2015 Jon Schlinkert, contributors.
+ * Licensed under the MIT license.
+ */
+
+
+
+var isValidPath = function (str) {
+  return isInvalidPath(str) === false;
+};
+
+var example = function () {
+    var startWith = 'prefix';
+    var dir = cwd();
+    var concat = function (aa, bb) { return dir + \\":\\" + aa + \\":\\" + bb; };
+    return isValidPath(pipe(right('e'), reduce(startWith, concat)));
+};
+
+export { example };
+"
+`;

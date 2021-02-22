@@ -29,9 +29,6 @@
     "lint": "yarn lint:files .",
     "test": "yarn jest"
   },
-  "jest": {
-    "preset": "ts-jest"
-  },
   "eslintConfig": {
     "extends": [
       "@azimutlabs/eslint-config-core",
