@@ -22,7 +22,6 @@
   "license": "MIT",
   "author": "Azimut Labs <opensource@alabs.team>",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
   "typings": "lib/index.d.ts",
   "files": [
     "lib"
@@ -36,7 +35,6 @@
     "lodash.mergewith": "^4.6.2"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.20",
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.mergewith": "^4.6.6",
     "@types/node": "^14.14.31",

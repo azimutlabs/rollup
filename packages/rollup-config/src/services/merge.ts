@@ -11,5 +11,9 @@ const customizer = <V, S>(target: readonly V[], source: S): readonly V[] | undef
   return undefined;
 };
 
-export const merge = <V>([target, ...values]: NonEmptyArray<V>): V =>
-  lodashMerge(lodashCloneDeep(target), ...values, customizer) as V;
+export const merge = <V>(args: NonEmptyArray<V | null | undefined>): V => {
+  const [target, ...values] = args.filter(
+    (value): value is NonNullable<V> => value !== null && typeof value !== 'undefined'
+  );
+  return lodashMerge(lodashCloneDeep(target), ...values, customizer) as V;
+};

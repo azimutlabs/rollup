@@ -15,13 +15,10 @@ export class Config {
     const input = additionalOptions?.input ?? this.options.input ?? this.getInput();
     if (input instanceof Error) return input;
 
-    const autoOutput = this.getOutput();
-    if (autoOutput instanceof Error) return autoOutput;
-
-    const output = merge<OutputOptions>([autoOutput, this.options.input, additionalOptions?.input]);
+    const output = additionalOptions?.output ?? this.options.output ?? this.getOutput();
+    if (output instanceof Error) return output;
 
     const essentialOptions: RollupOptions = { input, output };
-
     return merge<RollupOptions>([this.options, additionalOptions, essentialOptions]);
   };
 
