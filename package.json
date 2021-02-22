@@ -24,6 +24,7 @@
     "packages/*"
   ],
   "scripts": {
+    "compile": "yarn lerna run compile",
     "lint:files": "yarn eslint --cache --max-warnings 0",
     "lint": "yarn lint:files .",
     "test": "yarn jest"
