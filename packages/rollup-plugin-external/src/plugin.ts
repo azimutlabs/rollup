@@ -21,9 +21,9 @@ export const rollupPluginExternal = ({
 
     // Extract dependencies from package.json
     const pkg = foundPackage.packageJson;
-    const pkgDependencies = Object.keys(pkg.dependencies || {});
-    const pkgPeerDependencies = Object.keys(pkg.peerDependencies || {});
-    const macros = Object.keys(pkg.devDependencies || {}).filter((key) =>
+    const pkgDependencies = Object.keys(pkg.dependencies ?? {});
+    const pkgPeerDependencies = Object.keys(pkg.peerDependencies ?? {});
+    const macros = Object.keys(pkg.devDependencies ?? {}).filter((key) =>
       /[./]macro(?:\.c?js)?$/u.test(key)
     );
 
