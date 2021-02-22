@@ -9,7 +9,6 @@
     "module": "commonjs",
     "resolveJsonModule": true,
     "declaration": true,
-    "noEmit": true,
     "isolatedModules": true,
     "strict": true,
     "noImplicitAny": true,
