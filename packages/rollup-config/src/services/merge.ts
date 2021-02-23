@@ -1,6 +1,7 @@
 import lodashCloneDeep from 'lodash.clonedeep';
 import lodashMerge from 'lodash.mergewith';
 
+import { nonNullableArray } from './nonNullableArray';
 import type { NonEmptyArray } from './types/NonEmptyArray';
 
 const customizer = <V, S>(target: readonly V[], source: S): readonly V[] | undefined => {
@@ -12,8 +13,6 @@ const customizer = <V, S>(target: readonly V[], source: S): readonly V[] | undef
 };
 
 export const merge = <V>(args: NonEmptyArray<V | null | undefined>): V => {
-  const [target, ...values] = args.filter(
-    (value): value is NonNullable<V> => value !== null && typeof value !== 'undefined'
-  );
+  const [target, ...values] = nonNullableArray(args);
   return lodashMerge(lodashCloneDeep(target), ...values, customizer) as V;
 };
