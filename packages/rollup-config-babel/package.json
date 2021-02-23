@@ -1,0 +1,45 @@
+{
+  "name": "@azimutlabs/rollup-config-babel",
+  "version": "0.0.0",
+  "description": "Rollup configuration for Babel",
+  "keywords": [
+    "config",
+    "rollup",
+    "rollup-config",
+    "alabs",
+    "azimutlabs",
+    "babel",
+    "rollup-plugin-babel",
+    "@rollup/plugin-babel"
+  ],
+  "homepage": "https://github.com/azimutlabs/rollup#readme",
+  "bugs": {
+    "url": "https://github.com/azimutlabs/rollup/issues",
+    "email": "npm@alabs.team"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azimutlabs/rollup.git",
+    "directory": "packages/rollup-config-babel"
+  },
+  "license": "MIT",
+  "author": "Azimut Labs <opensource@alabs.team>",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "compile": "yarn tsc"
+  },
+  "dependencies": {
+    "@azimutlabs/rollup-config-essentials": "^0.0.0",
+    "@babel/core": "^7.13.1",
+    "@rollup/plugin-babel": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "rollup": "^2.38.0",
+    "typescript": "^4.1.4"
+  }
+}
