@@ -1,2 +1,2 @@
 export { default, rollupConfigBabel } from './config';
-export * from 'types/RollupConfigBabelPlugins';
+export * from './types/RollupConfigBabelPlugins';
