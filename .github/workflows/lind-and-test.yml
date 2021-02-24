@@ -26,5 +26,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn compile
+    # Update links.
+    - run: yarn
+    # Must be ran after compile, because of `import/no-unresolved`
     - run: yarn lint
     - run: yarn test
