@@ -1,6 +1,6 @@
 {
   "name": "@azimutlabs/rollup-config-typescript",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "Rollup configuration for TypeScript",
   "keywords": [
     "config",
@@ -33,7 +33,7 @@
     "compile": "yarn tsc"
   },
   "dependencies": {
-    "@azimutlabs/rollup-config-essentials": "^0.1.0-alpha.1",
+    "@azimutlabs/rollup-config-essentials": "^0.1.0-alpha.2",
     "@rollup/plugin-typescript": "^8.2.0",
     "tsconfig": "^7.0.0",
     "tslib": "^2.1.0"
