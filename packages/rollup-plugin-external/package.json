@@ -21,8 +21,8 @@
   },
   "license": "MIT",
   "author": "Azimut Labs <opensource@alabs.team>",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "compile": "yarn tsc"
   },
