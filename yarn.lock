@@ -92,7 +92,7 @@ __metadata:
     rollup: ^2.38.0
     typescript: ^4.1.4
   peerDependencies:
-    "@azimutlabs/rollup-config": ^0.0.0
+    rollup: ^2.15
   languageName: unknown
   linkType: soft
 
@@ -102,11 +102,12 @@ __metadata:
   dependencies:
     "@azimutlabs/rollup-config": ^0.1.0-alpha.0
     "@azimutlabs/rollup-plugin-external": ^0.1.0-alpha.0
+    "@rollup/plugin-node-resolve": ^11.2.0
     "@types/node": ^14.14.31
     rollup: ^2.38.0
     typescript: ^4.1.4
   peerDependencies:
-    "@azimutlabs/rollup-config": ^0.0.0
+    rollup: ^2.15
   languageName: unknown
   linkType: soft
 
@@ -121,16 +122,20 @@ __metadata:
     lodash.mergewith: ^4.6.2
     rollup: ^2.38.0
     typescript: ^4.1.4
+  peerDependencies:
+    rollup: ^2.15
   languageName: unknown
   linkType: soft
 
 "@azimutlabs/rollup-config@file:../rollup-config::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.0-alpha.0
-  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=b4aa0e&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=88fe13&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     lodash.clonedeep: ^4.5.0
     lodash.mergewith: ^4.6.2
-  checksum: acf1b84faf2cfd5cf932883f641103b3fe33671b6ba0d782c4c7e96159133c46ad125e655335ec7dadb3a86f13c9af0719f556e67c9a36bc8c414b21f4aee776
+  peerDependencies:
+    rollup: ^2.15
+  checksum: eb6f0ef8959ad15388a8fb52759b533c220046a25782f41a0dc89dee528e7037b7922ed5c888a266f27b002a1c3effb80ebb4e068e089e36cce6e22f58aa4a79
   languageName: node
   linkType: hard
 
