@@ -49,7 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@azimutlabs/rollup", ["workspace:."]],
       ["@azimutlabs/rollup-config", ["workspace:packages/rollup-config"]],
       ["@azimutlabs/rollup-config-babel", ["workspace:packages/rollup-config-babel"]],
-      ["@azimutlabs/rollup-config-essentials", ["workspace:packages/rollup-config-essentials"]],
+      ["@azimutlabs/rollup-config-essentials", ["virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config-essentials", "workspace:packages/rollup-config-essentials"]],
       ["@azimutlabs/rollup-plugin-external", ["workspace:packages/rollup-plugin-external"]],
       ["tests", ["workspace:packages/tests"]]
     ],
@@ -285,7 +285,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash.clonedeep", "npm:4.5.6"],
             ["@types/lodash.mergewith", "npm:4.6.6"],
             ["@types/node", "npm:14.14.31"],
-            ["caller-path", "npm:3.0.0"],
             ["lodash.clonedeep", "npm:4.5.0"],
             ["lodash.mergewith", "npm:4.6.2"],
             ["rollup", "npm:2.38.0"],
@@ -299,7 +298,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/rollup-config-babel/",
           "packageDependencies": [
             ["@azimutlabs/rollup-config-babel", "workspace:packages/rollup-config-babel"],
-            ["@azimutlabs/rollup-config-essentials", "workspace:packages/rollup-config-essentials"],
+            ["@azimutlabs/rollup-config", "workspace:packages/rollup-config"],
+            ["@azimutlabs/rollup-config-essentials", "virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config-essentials"],
             ["@babel/core", "npm:7.13.1"],
             ["@rollup/plugin-babel", "virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#npm:5.3.0"],
             ["@types/node", "npm:14.14.31"],
@@ -310,6 +310,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@azimutlabs/rollup-config-essentials", [
+        ["virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config-essentials", {
+          "packageLocation": "./.yarn/$$virtual/@azimutlabs-rollup-config-essentials-virtual-e8f8ea05bd/1/packages/rollup-config-essentials/",
+          "packageDependencies": [
+            ["@azimutlabs/rollup-config-essentials", "virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config-essentials"],
+            ["@azimutlabs/rollup-config", "workspace:packages/rollup-config"],
+            ["@azimutlabs/rollup-plugin-external", "workspace:packages/rollup-plugin-external"],
+            ["@types/azimutlabs__rollup-config", null],
+            ["@types/node", "npm:14.14.31"],
+            ["rollup", "npm:2.38.0"],
+            ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
+          ],
+          "packagePeers": [
+            "@azimutlabs/rollup-config",
+            "@types/azimutlabs__rollup-config"
+          ],
+          "linkType": "SOFT",
+        }],
         ["workspace:packages/rollup-config-essentials", {
           "packageLocation": "./packages/rollup-config-essentials/",
           "packageDependencies": [
@@ -4133,14 +4150,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["callsites", "npm:2.0.0"]
           ],
           "linkType": "HARD",
-        }],
-        ["npm:4.1.0", {
-          "packageLocation": "./.yarn/cache/caller-callsite-npm-4.1.0-ef4ffa8b40-3d458f7af5.zip/node_modules/caller-callsite/",
-          "packageDependencies": [
-            ["caller-callsite", "npm:4.1.0"],
-            ["callsites", "npm:3.1.0"]
-          ],
-          "linkType": "HARD",
         }]
       ]],
       ["caller-path", [
@@ -4149,14 +4158,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["caller-path", "npm:2.0.0"],
             ["caller-callsite", "npm:2.0.0"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["npm:3.0.0", {
-          "packageLocation": "./.yarn/cache/caller-path-npm-3.0.0-66d36f406a-28d4d14cf4.zip/node_modules/caller-path/",
-          "packageDependencies": [
-            ["caller-path", "npm:3.0.0"],
-            ["caller-callsite", "npm:4.1.0"]
           ],
           "linkType": "HARD",
         }]

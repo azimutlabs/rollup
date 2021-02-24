@@ -84,12 +84,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-babel@workspace:packages/rollup-config-babel"
   dependencies:
+    "@azimutlabs/rollup-config": ^0.0.0
     "@azimutlabs/rollup-config-essentials": ^0.0.0
     "@babel/core": ^7.13.1
     "@rollup/plugin-babel": ^5.3.0
     "@types/node": ^14.14.31
     rollup: ^2.38.0
     typescript: ^4.1.4
+  peerDependencies:
+    "@azimutlabs/rollup-config": ^0.0.0
   languageName: unknown
   linkType: soft
 
@@ -102,6 +105,8 @@ __metadata:
     "@types/node": ^14.14.31
     rollup: ^2.38.0
     typescript: ^4.1.4
+  peerDependencies:
+    "@azimutlabs/rollup-config": ^0.0.0
   languageName: unknown
   linkType: soft
 
@@ -112,7 +117,6 @@ __metadata:
     "@types/lodash.clonedeep": ^4.5.6
     "@types/lodash.mergewith": ^4.6.6
     "@types/node": ^14.14.31
-    caller-path: ^3.0.0
     lodash.clonedeep: ^4.5.0
     lodash.mergewith: ^4.6.2
     rollup: ^2.38.0
@@ -3346,30 +3350,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caller-callsite@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "caller-callsite@npm:4.1.0"
-  dependencies:
-    callsites: ^3.1.0
-  checksum: 3d458f7af5a23edabd6970c0dedaa1e4962ca64faa3a799cd90f92afd38288ef7d6e9c3da734939836b2f9895221d9e051710c96de6eff8f84d639f859829553
-  languageName: node
-  linkType: hard
-
 "caller-path@npm:^2.0.0":
   version: 2.0.0
   resolution: "caller-path@npm:2.0.0"
   dependencies:
     caller-callsite: ^2.0.0
   checksum: c4b19e43d4d2afc62c2b283d74844811a4517a162f9490f62c74421ddcfbd3e3334890fd9c474db98b20d62598a0ae659798c402623866b6f6068683a81ec5e7
-  languageName: node
-  linkType: hard
-
-"caller-path@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "caller-path@npm:3.0.0"
-  dependencies:
-    caller-callsite: ^4.1.0
-  checksum: 28d4d14cf4ae7792dfd574d5632f34b5c516be6a3c07cc4bf3677c07dd1afc2d5ab8f50e4950683c42acffa6cc69a206664e160f9f56d4f107f9b90eff047299
   languageName: node
   linkType: hard
 
@@ -3380,7 +3366,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"callsites@npm:^3.0.0, callsites@npm:^3.1.0":
+"callsites@npm:^3.0.0":
   version: 3.1.0
   resolution: "callsites@npm:3.1.0"
   checksum: f726bf10d752901174cae348e69c2e58206404d5eebcea485b3fedbcf7fcffdb397e10919fdf6ee2c8adb4be52a64eea2365d52583611939bfecd109260451c9
