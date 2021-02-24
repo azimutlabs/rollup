@@ -84,8 +84,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-babel@workspace:packages/rollup-config-babel"
   dependencies:
-    "@azimutlabs/rollup-config": ^0.1.0-alpha.0
-    "@azimutlabs/rollup-config-essentials": ^0.1.0-alpha.0
+    "@azimutlabs/rollup-config": ^0.1.0-alpha.1
+    "@azimutlabs/rollup-config-essentials": ^0.1.0-alpha.1
     "@babel/core": ^7.13.1
     "@rollup/plugin-babel": ^5.3.0
     "@types/node": ^14.14.31
@@ -96,11 +96,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup-config-essentials@^0.1.0-alpha.0, @azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials":
+"@azimutlabs/rollup-config-essentials@^0.1.0-alpha.1, @azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials"
   dependencies:
-    "@azimutlabs/rollup-config": ^0.1.0-alpha.0
+    "@azimutlabs/rollup-config": ^0.1.0-alpha.1
     "@azimutlabs/rollup-plugin-external": ^0.1.0-alpha.0
     "@rollup/plugin-node-resolve": ^11.2.0
     "@types/node": ^14.14.31
@@ -111,7 +111,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup-config@^0.1.0-alpha.0, @azimutlabs/rollup-config@workspace:packages/rollup-config":
+"@azimutlabs/rollup-config@^0.1.0-alpha.1, @azimutlabs/rollup-config@workspace:packages/rollup-config":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config@workspace:packages/rollup-config"
   dependencies:
@@ -128,14 +128,14 @@ __metadata:
   linkType: soft
 
 "@azimutlabs/rollup-config@file:../rollup-config::locator=tests%40workspace%3Apackages%2Ftests":
-  version: 0.1.0-alpha.0
-  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=4a697a&locator=tests%40workspace%3Apackages%2Ftests"
+  version: 0.1.0-alpha.1
+  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=ee8d98&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     lodash.clonedeep: ^4.5.0
     lodash.mergewith: ^4.6.2
   peerDependencies:
     rollup: ^2.15
-  checksum: ca014c87259636bd1c71e1a02f6839f6b1af4a9a523174d6f8cc4eb8190b604e50e7687434b034f5641f3fa9214f4b17742802f43178f0582eba927df0ea3353
+  checksum: ec3045b9c540622da64468c0127304a95f5d32cdc7411ceed32c5c4fa9dbfe455b38a3462a0101910e669f4854d6480eff7a51c07cfef3afcfdfd7c80cc187ee
   languageName: node
   linkType: hard
 
