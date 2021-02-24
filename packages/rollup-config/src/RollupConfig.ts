@@ -1,77 +1,63 @@
-import callerPath from 'caller-path';
 import { readdirSync } from 'fs';
-import { dirname, resolve } from 'path';
+import { resolve } from 'path';
 import type { InputOption, OutputOptions, Plugin, RollupOptions } from 'rollup';
 
 import { merge } from './services/merge';
 import { nonNullableArray } from './services/nonNullableArray';
-import type { RollupConfigPlugin } from './types/RollupConfigPlugin';
+import type { RollupConfigFinalize } from './types/RollupConfigFinalize';
 import type { RollupConfigPluginBuilder } from './types/RollupConfigPluginBuilder';
+import type { RollupConfigPluginBuilders } from './types/RollupConfigPluginBuilders';
 import type { RollupConfigPlugins } from './types/RollupConfigPlugins';
 
 const sourceDir = 'src';
 const outputDir = 'lib';
 
-type MakeAdditionalPlugins<P extends Record<string, unknown>> = {
-  readonly [K in keyof P]: RollupConfigPlugin<Partial<P[K]>>;
-};
-
 export class RollupConfig<P extends Record<string, unknown>> {
   public constructor(
-    private readonly plugins: RollupConfigPlugins<P>,
+    private readonly plugins: RollupConfigPluginBuilders<P>,
     private readonly options?: Partial<RollupOptions>
   ) {}
 
   public readonly derive = <C extends Record<string, unknown>>(
-    plugins: RollupConfigPlugins<C>,
+    plugins: RollupConfigPluginBuilders<C>,
     options?: Partial<RollupOptions>
   ): RollupConfig<C & P> =>
     new RollupConfig(
-      merge([this.plugins, plugins]) as RollupConfigPlugins<C & P>,
+      merge([this.plugins, plugins]) as RollupConfigPluginBuilders<C & P>,
       merge([this.options, options])
     );
 
   public readonly finalize = (
-    additionalPlugins?: MakeAdditionalPlugins<P>,
+    additionalPlugins?: RollupConfigPlugins<P>,
     additionalOptions?: RollupOptions
-  ): Error | RollupOptions => {
-    const input = additionalOptions?.input ?? this.options?.input ?? this.getInput();
-    if (input instanceof Error) return input;
+  ): RollupConfigFinalize => (dirname) => {
+    if (!dirname) throw Error(`Received undefined 'dirname'`);
 
-    const output = additionalOptions?.output ?? this.options?.output ?? this.getOutput();
-    if (output instanceof Error) return output;
+    const input = additionalOptions?.input ?? this.options?.input ?? this.getInput(dirname);
+    if (input instanceof Error) throw input;
 
+    const output = additionalOptions?.output ?? this.options?.output ?? this.getOutput(dirname);
     const plugins = this.getPlugins(additionalPlugins).concat(
       ...nonNullableArray([additionalOptions?.plugins, this.options?.plugins])
     );
-
     const essentialOptions: RollupOptions = { input, output, plugins };
+
     return merge<RollupOptions>([this.options, additionalOptions, essentialOptions]);
   };
 
-  protected readonly getInput = (): Error | InputOption => {
-    const callerFile = this.getCallerPath();
-    if (callerFile instanceof Error) return callerFile;
+  protected readonly getInput = (dirname: string): Error | InputOption => {
+    const rootIndex = this.lookForIndex(dirname);
 
-    const callerDir = dirname(callerFile);
-    const rootIndex = this.lookForIndex(callerDir);
-
-    return rootIndex instanceof Error
-      ? this.lookForIndex(resolve(callerDir, sourceDir))
-      : rootIndex;
+    return rootIndex instanceof Error ? this.lookForIndex(resolve(dirname, sourceDir)) : rootIndex;
   };
 
-  protected readonly getOutput = (): Error | OutputOptions => {
-    const callerFile = this.getCallerPath();
-    if (callerFile instanceof Error) return callerFile;
-    return {
-      preserveModules: true,
-      dir: resolve(callerFile, outputDir),
-    };
-  };
+  protected readonly getOutput = (dirname: string): OutputOptions => ({
+    preserveModules: true,
+    dir: resolve(dirname, outputDir),
+  });
 
   protected readonly getPlugins = (
-    additionalPlugins: MakeAdditionalPlugins<P> = {} as MakeAdditionalPlugins<P>
+    additionalPlugins: RollupConfigPlugins<P> = {} as RollupConfigPlugins<P>
   ): readonly Plugin[] => {
     const entries = Object.entries(this.plugins);
     if (entries.length === 0) return [];
@@ -93,9 +79,6 @@ export class RollupConfig<P extends Record<string, unknown>> {
 
   private readonly isPluginBuilder = <O>(value: unknown): value is RollupConfigPluginBuilder<O> =>
     typeof value === 'function';
-
-  private readonly getCallerPath = (): Error | string =>
-    callerPath({ depth: 1 }) ?? Error(`'caller-path' returned 'undefined'`);
 
   private readonly lookForIndex = (dir: string): Error | string => {
     const files = readdirSync(dir);

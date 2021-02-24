@@ -30,7 +30,6 @@
     "compile": "yarn tsc"
   },
   "dependencies": {
-    "caller-path": "^3.0.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.mergewith": "^4.6.2"
   },
