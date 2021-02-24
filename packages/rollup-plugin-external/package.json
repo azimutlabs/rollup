@@ -17,12 +17,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/azimutlabs/rollup.git",
-    "directory": "packages/rollup-rollup-plugin-auto-external"
+    "directory": "packages/rollup-plugin-external"
   },
   "license": "MIT",
   "author": "Azimut Labs <opensource@alabs.team>",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "compile": "yarn tsc"
   },
@@ -39,5 +42,8 @@
     "@types/read-pkg-up": "^6.0.0",
     "rollup": "^2.38.0",
     "typescript": "^4.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
