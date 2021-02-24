@@ -7,4 +7,6 @@ export * from './services/types/Envs';
 export * from './types/RollupConfigPlugin';
 export * from './types/RollupConfigPluginBuilder';
 export * from './types/RollupConfigPluginBuilders';
+export * from './types/RollupConfigPluginBuildersGetter';
+export * from './types/RollupConfigPluginBuildersOptions';
 export * from './types/RollupConfigPluginBuilderWithOptions';

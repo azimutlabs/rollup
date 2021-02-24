@@ -129,13 +129,13 @@ __metadata:
 
 "@azimutlabs/rollup-config@file:../rollup-config::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.0-alpha.0
-  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=88fe13&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=4a697a&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     lodash.clonedeep: ^4.5.0
     lodash.mergewith: ^4.6.2
   peerDependencies:
     rollup: ^2.15
-  checksum: eb6f0ef8959ad15388a8fb52759b533c220046a25782f41a0dc89dee528e7037b7922ed5c888a266f27b002a1c3effb80ebb4e068e089e36cce6e22f58aa4a79
+  checksum: ca014c87259636bd1c71e1a02f6839f6b1af4a9a523174d6f8cc4eb8190b604e50e7687434b034f5641f3fa9214f4b17742802f43178f0582eba927df0ea3353
   languageName: node
   linkType: hard
 
@@ -168,9 +168,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@azimutlabs/rollup@workspace:.":
+"@azimutlabs/rollup-root@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@azimutlabs/rollup@workspace:."
+  resolution: "@azimutlabs/rollup-root@workspace:."
   dependencies:
     "@azimutlabs/eslint-config-core": ^0.1.6
     "@azimutlabs/eslint-config-functional": ^0.1.1

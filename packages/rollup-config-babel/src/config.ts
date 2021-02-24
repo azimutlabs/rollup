@@ -3,7 +3,10 @@ import rollupPluginBabel from '@rollup/plugin-babel';
 
 import type { RollupConfigBabelPlugins } from './types/RollupConfigBabelPlugins';
 
-export const rollupConfigBabel = rollupConfigEssentials.derive<RollupConfigBabelPlugins>({
+export const rollupConfigBabel = rollupConfigEssentials.derive<RollupConfigBabelPlugins>(() => ({
+  external: {
+    checkForBabelMacro: true,
+  },
   babel: [
     rollupPluginBabel,
     {
@@ -11,6 +14,6 @@ export const rollupConfigBabel = rollupConfigEssentials.derive<RollupConfigBabel
       babelHelpers: 'runtime',
     },
   ],
-});
+}));
 
-export default rollupConfigBabel.finalize;
+export const babel = rollupConfigBabel.finalize.bind(rollupConfigBabel);

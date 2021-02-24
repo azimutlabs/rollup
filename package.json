@@ -1,5 +1,5 @@
 {
-  "name": "@azimutlabs/rollup",
+  "name": "@azimutlabs/rollup-root",
   "private": true,
   "description": "Rollup configurations for the best package bundling experience",
   "keywords": [
