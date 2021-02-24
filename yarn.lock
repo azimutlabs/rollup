@@ -84,7 +84,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-babel@workspace:packages/rollup-config-babel"
   dependencies:
-    "@azimutlabs/rollup-config": ^0.1.0-alpha.1
     "@azimutlabs/rollup-config-essentials": ^0.1.0-alpha.1
     "@babel/core": ^7.13.1
     "@rollup/plugin-babel": ^5.3.0
@@ -92,6 +91,7 @@ __metadata:
     rollup: ^2.38.0
     typescript: ^4.1.4
   peerDependencies:
+    "@babel/core": ^7.0.0
     rollup: ^2.15
   languageName: unknown
   linkType: soft
@@ -108,6 +108,23 @@ __metadata:
     typescript: ^4.1.4
   peerDependencies:
     rollup: ^2.15
+  languageName: unknown
+  linkType: soft
+
+"@azimutlabs/rollup-config-typescript@workspace:packages/rollup-config-typescript":
+  version: 0.0.0-use.local
+  resolution: "@azimutlabs/rollup-config-typescript@workspace:packages/rollup-config-typescript"
+  dependencies:
+    "@azimutlabs/rollup-config-essentials": ^0.1.0-alpha.1
+    "@rollup/plugin-typescript": ^8.2.0
+    "@types/node": ^14.14.31
+    rollup: ^2.38.0
+    tsconfig: ^7.0.0
+    tslib: ^2.1.0
+    typescript: ^4.1.4
+  peerDependencies:
+    rollup: ^2.15
+    typescript: ">=3.4.0"
   languageName: unknown
   linkType: soft
 
@@ -129,13 +146,13 @@ __metadata:
 
 "@azimutlabs/rollup-config@file:../rollup-config::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.0-alpha.1
-  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=ee8d98&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=2ee8fa&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     lodash.clonedeep: ^4.5.0
     lodash.mergewith: ^4.6.2
   peerDependencies:
     rollup: ^2.15
-  checksum: ec3045b9c540622da64468c0127304a95f5d32cdc7411ceed32c5c4fa9dbfe455b38a3462a0101910e669f4854d6480eff7a51c07cfef3afcfdfd7c80cc187ee
+  checksum: 2f608feb81364f1acb5f85890efba1462056a544cac23176ffa33091e5b4921d3f799bfea048cba67f0e84cf6003a8fa11dcbee48ffe5e22a23c969b71decbc8
   languageName: node
   linkType: hard
 
@@ -2442,6 +2459,20 @@ __metadata:
   version: 2.0.0
   resolution: "@types/stack-utils@npm:2.0.0"
   checksum: 662312302e07685c99a1c45c6753eb997b31d2af66e646c5937f62d593a63a111289503d0b06a8d1e6f3922b67fc2ed94889d84653a08861a7fee67b81ce5b92
+  languageName: node
+  linkType: hard
+
+"@types/strip-bom@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@types/strip-bom@npm:3.0.0"
+  checksum: 4aef75266bd5f06d57b133f68ae47eb6a4b966de4c407d1b2f681165bf106e5c7c5508c755da5ae5e32b636c72b1286656157a340bbb80cf5db7f09066c72619
+  languageName: node
+  linkType: hard
+
+"@types/strip-json-comments@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@types/strip-json-comments@npm:0.0.30"
+  checksum: 2b9eff26906f14903835a3ecd316e7df130bdfbbd0b784fba15b9ff99ac1ef041aeb7a37c9535dfc0e733211ef3cb881cc91940a52aa9076982ea0cbca50e088
   languageName: node
   linkType: hard
 
@@ -10190,6 +10221,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"strip-json-comments@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "strip-json-comments@npm:2.0.1"
+  checksum: e60d99aa2849c27a04dce0620334f45822197df6b83664dd3746971e9a0a766d989dbb8d87f9cb7350725d2b5df401a2343222ad06e36a1ba7d62c6633267fcb
+  languageName: node
+  linkType: hard
+
 "strip-json-comments@npm:^3.1.0, strip-json-comments@npm:^3.1.1":
   version: 3.1.1
   resolution: "strip-json-comments@npm:3.1.1"
@@ -10591,6 +10629,18 @@ fsevents@~2.1.2:
     minimist: ^1.2.0
     strip-bom: ^3.0.0
   checksum: 5383ba626b3ac70e08094b9dfd1e30ce82878407b6c8db8cd84279cc7c7340d5f53f67dbeb8174a233c082a068322a6b00ec8514b96d9a80a453e0476dc116d2
+  languageName: node
+  linkType: hard
+
+"tsconfig@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "tsconfig@npm:7.0.0"
+  dependencies:
+    "@types/strip-bom": ^3.0.0
+    "@types/strip-json-comments": 0.0.30
+    strip-bom: ^3.0.0
+    strip-json-comments: ^2.0.0
+  checksum: c2d07c1030896f6341a819d403679cf0ff9ede086d0860f909f293c4a2e456001f173e2efb8073738b5d20ed7e4218254bc1163ef7fc3fefd97426b38cb89234
   languageName: node
   linkType: hard
 
