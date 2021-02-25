@@ -25,9 +25,21 @@
   ],
   "scripts": {
     "compile": "yarn lerna run compile",
+    "postinstall": "husky install",
     "lint": "yarn lint:files .",
     "lint:files": "yarn eslint --cache --max-warnings 0",
     "test": "yarn packages/tests test"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional",
+      "@commitlint/config-lerna-scopes"
+    ]
+  },
+  "lint-staged": {
+    "packages/**/*.[jt]s?(x)": [
+      "yarn lint:files"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +59,9 @@
     "@azimutlabs/eslint-config-import": "^0.2.1",
     "@azimutlabs/eslint-config-prettier": "^0.1.3",
     "@azimutlabs/eslint-config-typescript": "^0.2.8",
+    "@commitlint/cli": "^12.0.0",
+    "@commitlint/config-conventional": "^12.0.0",
+    "@commitlint/config-lerna-scopes": "^12.0.0",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "eslint": "^7.19.0",
@@ -54,7 +69,9 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^5.1.1",
     "lerna": "^3.20.2",
+    "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "typescript": "^4.1.4"
   }
