@@ -5,6 +5,10 @@
     "preset": "ts-jest",
     "testEnvironment": "node"
   },
+  "workspaces": [
+    "src/*",
+    "packages/*"
+  ],
   "scripts": {
     "test": "yarn jest"
   },
