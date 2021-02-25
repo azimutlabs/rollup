@@ -12,6 +12,7 @@ import { getCurrentEnv } from './services/getCurrentEnv';
 import { merge } from './services/merge';
 import { nonNullableArray } from './services/nonNullableArray';
 import type { RollupConfigFinalize } from './types/RollupConfigFinalize';
+import type { RollupConfigFinalizeOptions } from './types/RollupConfigFinalizeOptions';
 import type { RollupConfigPluginBuilder } from './types/RollupConfigPluginBuilder';
 import type { RollupConfigPluginBuilders } from './types/RollupConfigPluginBuilders';
 import type { RollupConfigPluginBuildersGetter } from './types/RollupConfigPluginBuildersGetter';
@@ -39,44 +40,28 @@ export class RollupConfig<P extends Record<string, unknown>> {
       merge([this.options, options])
     );
 
-  public finalize(
-    additionalOptions?: RollupOptions,
-    additionalPlugins?: RollupConfigPlugins<P>
-  ): RollupConfigFinalize;
-  public finalize(
-    format: InternalModuleFormat,
-    additionalOptions?: RollupOptions,
-    additionalPlugins?: RollupConfigPlugins<P>
-  ): RollupConfigFinalize;
-  public finalize(
-    arg1?: InternalModuleFormat | RollupOptions,
-    arg2?: RollupConfigPlugins<P> | RollupOptions,
-    arg3?: RollupConfigPlugins<P>
-  ): RollupConfigFinalize {
-    // Depending on whether the first argument is `format` we have to change the overload behaviour.
-    const isFirstFormat = typeof arg1 === 'string';
-    const format = (isFirstFormat ? arg1 : defaultFormat) as InternalModuleFormat;
-    const additionalOptions = (isFirstFormat ? arg2 : arg1) as RollupOptions | undefined;
-    const additionalPlugins = (isFirstFormat ? arg3 : arg2) as RollupConfigPlugins<P> | undefined;
+  public readonly finalize = (
+    format: InternalModuleFormat = defaultFormat,
+    options: RollupConfigFinalizeOptions<P> = {}
+  ): RollupConfigFinalize => (dirname, env = getCurrentEnv()) => {
+    // eslint-disable-next-line functional/no-throw-statement
+    if (!dirname) throw Error(`Received undefined 'dirname'`);
 
-    return (dirname, env = getCurrentEnv()) => {
-      // eslint-disable-next-line functional/no-throw-statement
-      if (!dirname) throw Error(`Received undefined 'dirname'`);
+    const { pluginBuilders: additionalPlugins, ...additionalOptions } = options;
 
-      const input = additionalOptions?.input ?? this.options?.input ?? this.getInput(dirname);
-      // eslint-disable-next-line functional/no-throw-statement
-      if (input instanceof Error) throw input;
+    const input = additionalOptions.input ?? this.options?.input ?? this.getInput(dirname);
+    // eslint-disable-next-line functional/no-throw-statement
+    if (input instanceof Error) throw input;
 
-      const output =
-        additionalOptions?.output ?? this.options?.output ?? this.getOutput(dirname, format);
-      const plugins = this.getPlugins({ dirname, env }, additionalPlugins).concat(
-        ...nonNullableArray([additionalOptions?.plugins, this.options?.plugins])
-      );
-      const essentialOptions: RollupOptions = { input, output, plugins };
+    const output =
+      additionalOptions.output ?? this.options?.output ?? this.getOutput(dirname, format);
+    const plugins = this.getPlugins({ dirname, env }, additionalPlugins).concat(
+      ...nonNullableArray([additionalOptions.plugins, this.options?.plugins])
+    );
+    const essentialOptions: RollupOptions = { input, output, plugins };
 
-      return merge<RollupOptions>([this.options, additionalOptions, essentialOptions]);
-    };
-  }
+    return merge<RollupOptions>([this.options, additionalOptions, essentialOptions]);
+  };
 
   protected readonly getOutput = (
     dirname: string,

@@ -11,7 +11,8 @@ const isComposeFinalizeWithEnv = (value: unknown): value is ComposeFinalizeWithE
 
 export const compose = (
   dirname: string,
-  configs: readonly ComposeFinalize[]
+  // eslint-disable-next-line functional/functional-parameters
+  ...configs: readonly [ComposeFinalize, ...(readonly ComposeFinalize[])]
 ): readonly RollupOptions[] => {
   const currentEnv = getCurrentEnv();
   return (

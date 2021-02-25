@@ -1,11 +1,10 @@
 import type { RollupConfigFinalize } from '../types/RollupConfigFinalize';
 import { merge } from './merge';
-import type { NonEmptyArray } from './types/NonEmptyArray';
 
-export const combine = (configs: NonEmptyArray<RollupConfigFinalize>): RollupConfigFinalize => (
-  dirname,
-  env
-) => {
+export const combine = (
+  // eslint-disable-next-line functional/functional-parameters
+  ...configs: readonly [RollupConfigFinalize, ...(readonly RollupConfigFinalize[])]
+): RollupConfigFinalize => (dirname, env) => {
   const [first, ...rest] = configs.map((cfg) => cfg(dirname, env));
   const config = merge([first, ...rest]);
   const configSet = new Set<string>(config.plugins?.map((plg) => plg.name));
