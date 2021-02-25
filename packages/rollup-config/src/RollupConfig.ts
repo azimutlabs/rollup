@@ -1,4 +1,4 @@
-import { readdirSync } from 'fs';
+import { existsSync, readdirSync } from 'fs';
 import { resolve } from 'path';
 import type {
   InputOption,
@@ -78,11 +78,6 @@ export class RollupConfig<P extends Record<string, unknown>> {
     };
   }
 
-  protected readonly getInput = (dirname: string): Error | InputOption => {
-    const rootIndex = this.lookForIndex(dirname);
-    return rootIndex instanceof Error ? this.lookForIndex(resolve(dirname, sourceDir)) : rootIndex;
-  };
-
   protected readonly getOutput = (
     dirname: string,
     format: InternalModuleFormat
@@ -100,6 +95,24 @@ export class RollupConfig<P extends Record<string, unknown>> {
     const mergedPlugins = this.mergePlugins(this.plugins(options), additionalPlugins);
     return Object.values(mergedPlugins).map(([builder, opts]) => builder(opts));
   };
+
+  protected readonly getInput = (dirname: string): Error | InputOption => {
+    const sourceDirectory = this.getSourceDir(dirname);
+    if (sourceDirectory instanceof Error) return sourceDirectory;
+
+    const indexFile = this.findIndexFile(readdirSync(sourceDirectory));
+    return indexFile ?? Error(`Couldn't find any index.* file at '${sourceDirectory}'`);
+  };
+
+  protected readonly getSourceDir = (dirname: string): Error | string => {
+    const potentialSourceDir = resolve(dirname, sourceDir);
+    return existsSync(potentialSourceDir)
+      ? potentialSourceDir
+      : Error(`Couldn't find source (./${sourceDir}) directory relative to '${dirname}'`);
+  };
+
+  private readonly findIndexFile = (files: readonly string[]): string | undefined =>
+    files.find((file) => file.match(/^index\.(?:\w+)$/gu));
 
   private readonly mergePlugins = <C extends Record<string, unknown>>(
     pluginBuilders: RollupConfigPluginBuilders<P>,
@@ -128,12 +141,6 @@ export class RollupConfig<P extends Record<string, unknown>> {
       };
     }, {}) as RollupConfigPluginBuilders<C & P>;
     return { ...pluginBuilders, ...plugins };
-  };
-
-  private readonly lookForIndex = (dir: string): Error | string => {
-    const files = readdirSync(dir);
-    const index = files.find((file) => file.match(/^index\.(?:\w+)$/gu));
-    return index ? resolve(dir, index) : Error(`No potential index files found at '${dir}'`);
   };
 
   private readonly isPluginBuilder = <O>(value: unknown): value is RollupConfigPluginBuilder<O> =>
