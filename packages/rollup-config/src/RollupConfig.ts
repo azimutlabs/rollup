@@ -59,7 +59,7 @@ export class RollupConfig<P extends Record<string, unknown>> {
     const additionalOptions = (isFirstFormat ? arg2 : arg1) as RollupOptions | undefined;
     const additionalPlugins = (isFirstFormat ? arg3 : arg2) as RollupConfigPlugins<P> | undefined;
 
-    return (dirname) => {
+    return (dirname, env = getCurrentEnv()) => {
       if (!dirname) throw Error(`Received undefined 'dirname'`);
 
       const input = additionalOptions?.input ?? this.options?.input ?? this.getInput(dirname);
@@ -67,7 +67,7 @@ export class RollupConfig<P extends Record<string, unknown>> {
 
       const output =
         additionalOptions?.output ?? this.options?.output ?? this.getOutput(dirname, format);
-      const plugins = this.getPlugins(dirname, additionalPlugins).concat(
+      const plugins = this.getPlugins({ dirname, env }, additionalPlugins).concat(
         ...nonNullableArray([additionalOptions?.plugins, this.options?.plugins])
       );
       const essentialOptions: RollupOptions = { input, output, plugins };
@@ -92,12 +92,11 @@ export class RollupConfig<P extends Record<string, unknown>> {
   });
 
   protected readonly getPlugins = (
-    dirname: string,
+    options: RollupConfigPluginBuildersOptions,
     additionalPlugins: RollupConfigPlugins<P> = {} as RollupConfigPlugins<P>
   ): readonly Plugin[] => {
-    const plugins = this.plugins(this.buildPluginGetterOptions(dirname));
-    const mergedPlugins = this.mergePlugins(plugins, additionalPlugins);
-    return Object.values(mergedPlugins).map(([builder, options]) => builder(options));
+    const mergedPlugins = this.mergePlugins(this.plugins(options), additionalPlugins);
+    return Object.values(mergedPlugins).map(([builder, opts]) => builder(opts));
   };
 
   private readonly mergePlugins = <C extends Record<string, unknown>>(
@@ -128,13 +127,6 @@ export class RollupConfig<P extends Record<string, unknown>> {
     }, {}) as RollupConfigPluginBuilders<C & P>;
     return { ...pluginBuilders, ...plugins };
   };
-
-  private readonly buildPluginGetterOptions = (
-    dirname: string
-  ): RollupConfigPluginBuildersOptions => ({
-    env: getCurrentEnv(),
-    dirname,
-  });
 
   private readonly lookForIndex = (dir: string): Error | string => {
     const files = readdirSync(dir);
