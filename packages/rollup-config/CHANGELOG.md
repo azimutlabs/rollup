@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.3](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config@0.1.0-alpha.2...@azimutlabs/rollup-config@0.1.0-alpha.3) (2021-02-25)
+
+
+### Bug Fixes
+
+* **rollup-config:** apply config if Envs.All is present ([#15](https://github.com/azimutlabs/rollup/issues/15)) ([f4af647](https://github.com/azimutlabs/rollup/commit/f4af64744e861ce9b897bf05dad655dfd5cd4c01))
+* **rollup-config:** use nullish coalescing for getCurrentEnv ([067155a](https://github.com/azimutlabs/rollup/commit/067155a835a114c31af8e62dc29601ad5ee0de1d))
+
+
+
+
+
 # [0.1.0-alpha.2](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config@0.1.0-alpha.1...@azimutlabs/rollup-config@0.1.0-alpha.2) (2021-02-24)
 
 

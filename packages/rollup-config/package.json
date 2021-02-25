@@ -1,6 +1,6 @@
 {
   "name": "@azimutlabs/rollup-config",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "Rollup configuration base",
   "keywords": [
     "config",

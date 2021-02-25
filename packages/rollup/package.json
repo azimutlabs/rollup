@@ -1,6 +1,6 @@
 {
   "name": "@azimutlabs/rollup",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "Package for searching and handling rollup configurations in workspaces",
   "keywords": [
     "config",
