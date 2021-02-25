@@ -175,13 +175,13 @@ __metadata:
 
 "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.0-alpha.0
-  resolution: "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external#../rollup-plugin-external::hash=f7872f&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external#../rollup-plugin-external::hash=49e902&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     builtin-modules: ^3.2.0
     is-valid-path: ^0.1.1
     lodash.concat: ^4.5.0
     read-pkg-up: ^7.0.1
-  checksum: 656385ef7055cc5dc0fd2b8998d6f72916a4cbb3ff52c1b4dabb9406bc8d2e8a36c8dcfd193929789d7ecf09825f8a035942448bb850c1c45f9a508ffc5db4cd
+  checksum: 4a4b5f6c77b768718fdd6a6e12869ccde0b95befbbd44d5202c3d3dbec05dab6587966d7e0ede3b223863ecbe933dbb4c3b1faf432d90a2f1fd29fbd50c968e9
   languageName: node
   linkType: hard
 
@@ -204,6 +204,31 @@ __metadata:
     lerna: ^3.20.2
     prettier: ^2.2.1
     typescript: ^4.1.4
+  languageName: unknown
+  linkType: soft
+
+"@azimutlabs/rollup@file:../rollup::locator=tests%40workspace%3Apackages%2Ftests":
+  version: 0.0.0
+  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=81488e&locator=tests%40workspace%3Apackages%2Ftests"
+  dependencies:
+    glob: ^7.1.6
+  peerDependencies:
+    rollup: ^2.15
+  checksum: 79f01415bf289795c7a4cdbf666e8e9278e3b8bdd7595c032fb0e175ff65c893b5bbde9a778ac296663885dfdd794a40fc94938bb5c60a379df8a8ad25c77ea7
+  languageName: node
+  linkType: hard
+
+"@azimutlabs/rollup@workspace:packages/rollup":
+  version: 0.0.0-use.local
+  resolution: "@azimutlabs/rollup@workspace:packages/rollup"
+  dependencies:
+    "@types/glob": ^7.1.3
+    "@types/node": ^14.14.31
+    glob: ^7.1.6
+    rollup: ^2.38.0
+    typescript: ^4.1.4
+  peerDependencies:
+    rollup: ^2.15
   languageName: unknown
   linkType: soft
 
@@ -2279,7 +2304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/glob@npm:^7.1.1":
+"@types/glob@npm:^7.1.1, @types/glob@npm:^7.1.3":
   version: 7.1.3
   resolution: "@types/glob@npm:7.1.3"
   dependencies:
@@ -10370,6 +10395,7 @@ fsevents@~2.1.2:
   version: 0.0.0-use.local
   resolution: "tests@workspace:packages/tests"
   dependencies:
+    "@azimutlabs/rollup": "file:../rollup"
     "@azimutlabs/rollup-config": "file:../rollup-config"
     "@azimutlabs/rollup-plugin-external": "file:../rollup-plugin-external"
     "@rollup/plugin-commonjs": ^17.1.0

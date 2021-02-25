@@ -15,6 +15,7 @@
     "is-valid-path": "^0.1.1"
   },
   "devDependencies": {
+    "@azimutlabs/rollup": "file:../rollup",
     "@azimutlabs/rollup-config": "file:../rollup-config",
     "@azimutlabs/rollup-plugin-external": "file:../rollup-plugin-external",
     "@rollup/plugin-commonjs": "^17.1.0",
