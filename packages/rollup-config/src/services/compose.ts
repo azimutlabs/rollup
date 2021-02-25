@@ -14,8 +14,22 @@ export const compose = (
   configs: readonly ComposeFinalize[]
 ): readonly RollupOptions[] => {
   const currentEnv = getCurrentEnv();
-  return configs
-    .map<ComposeFinalizeWithEnv>((cfg) => (isComposeFinalizeWithEnv(cfg) ? cfg : [cfg, Envs.All]))
-    .filter(([, env]) => (Array.isArray(env) ? env.includes(currentEnv) : env === currentEnv))
-    .map(([finalize]) => finalize(dirname));
+  return (
+    configs
+      // Default to `Envs.All` if no env provided.
+      .map<ComposeFinalizeWithEnv>((cfg) => (isComposeFinalizeWithEnv(cfg) ? cfg : [cfg, Envs.All]))
+      // Strip down configurations that doesn't match to the current or default env.
+      .filter(([, env]) => {
+        if (Array.isArray(env)) return env.includes(Envs.All) || env.includes(currentEnv);
+        return env === Envs.All || env === currentEnv;
+      })
+      // Normalize to get the env that triggered the configuration that is about to be applied.
+      .map(([finalize, env]) =>
+        Array.isArray(env)
+          ? [finalize, env.find((it) => it === Envs.All || it === currentEnv)]
+          : [finalize, env]
+      )
+      // Apply.
+      .map(([finalize, env]) => finalize(dirname, env))
+  );
 };

@@ -3,9 +3,10 @@ import { merge } from './merge';
 import type { NonEmptyArray } from './types/NonEmptyArray';
 
 export const combine = (configs: NonEmptyArray<RollupConfigFinalize>): RollupConfigFinalize => (
-  dirname
+  dirname,
+  env
 ) => {
-  const [first, ...rest] = configs.map((cfg) => cfg(dirname));
+  const [first, ...rest] = configs.map((cfg) => cfg(dirname, env));
   const config = merge([first, ...rest]);
   const configSet = new Set<string>(config.plugins?.map((plg) => plg.name));
   const plugins = config.plugins?.filter(({ name }) => {
