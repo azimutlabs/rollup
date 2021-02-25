@@ -23,6 +23,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."
       },
       {
+        "name": "@azimutlabs/rollup",
+        "reference": "workspace:packages/rollup"
+      },
+      {
         "name": "@azimutlabs/rollup-config",
         "reference": "workspace:packages/rollup-config"
       },
@@ -50,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
+      ["@azimutlabs/rollup", ["workspace:packages/rollup"]],
       ["@azimutlabs/rollup-config", ["virtual:e8f8ea05bdb232a0d6f1744f0fb4f697df334f01b230479a04574be3a7c47dc3c342ac1e44bf889ed7568c7802bae62a90ccfa7b3c2ca4b2b74d3ffbffd96681#workspace:packages/rollup-config", "workspace:packages/rollup-config"]],
       ["@azimutlabs/rollup-config-babel", ["workspace:packages/rollup-config-babel"]],
       ["@azimutlabs/rollup-config-essentials", ["virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config-essentials", "workspace:packages/rollup-config-essentials"]],
@@ -258,6 +263,41 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@azimutlabs/rollup", [
+        ["file:../rollup#../rollup::hash=81488e&locator=tests%40workspace%3Apackages%2Ftests", {
+          "packageLocation": "./.yarn/cache/@azimutlabs-rollup-file-fcf70e57b0-79f01415bf.zip/node_modules/@azimutlabs/rollup/",
+          "packageDependencies": [
+            ["@azimutlabs/rollup", "file:../rollup#../rollup::hash=81488e&locator=tests%40workspace%3Apackages%2Ftests"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#file:../rollup#../rollup::hash=81488e&locator=tests%40workspace%3Apackages%2Ftests", {
+          "packageLocation": "./.yarn/$$virtual/@azimutlabs-rollup-virtual-c4af435c99/0/cache/@azimutlabs-rollup-file-fcf70e57b0-79f01415bf.zip/node_modules/@azimutlabs/rollup/",
+          "packageDependencies": [
+            ["@azimutlabs/rollup", "virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#file:../rollup#../rollup::hash=81488e&locator=tests%40workspace%3Apackages%2Ftests"],
+            ["@types/rollup", null],
+            ["glob", "npm:7.1.6"],
+            ["rollup", "npm:2.38.0"]
+          ],
+          "packagePeers": [
+            "@types/rollup",
+            "rollup"
+          ],
+          "linkType": "HARD",
+        }],
+        ["workspace:packages/rollup", {
+          "packageLocation": "./packages/rollup/",
+          "packageDependencies": [
+            ["@azimutlabs/rollup", "workspace:packages/rollup"],
+            ["@types/glob", "npm:7.1.3"],
+            ["@types/node", "npm:14.14.31"],
+            ["glob", "npm:7.1.6"],
+            ["rollup", "npm:2.38.0"],
+            ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@azimutlabs/rollup-config", [
         ["file:../rollup-config#../rollup-config::hash=ffee13&locator=tests%40workspace%3Apackages%2Ftests", {
           "packageLocation": "./.yarn/cache/@azimutlabs-rollup-config-file-624ab41a68-1ac4e7f06d.zip/node_modules/@azimutlabs/rollup-config/",
@@ -380,10 +420,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@azimutlabs/rollup-plugin-external", [
-        ["file:../rollup-plugin-external#../rollup-plugin-external::hash=f7872f&locator=tests%40workspace%3Apackages%2Ftests", {
-          "packageLocation": "./.yarn/cache/@azimutlabs-rollup-plugin-external-file-6f1cff273c-656385ef70.zip/node_modules/@azimutlabs/rollup-plugin-external/",
+        ["file:../rollup-plugin-external#../rollup-plugin-external::hash=49e902&locator=tests%40workspace%3Apackages%2Ftests", {
+          "packageLocation": "./.yarn/cache/@azimutlabs-rollup-plugin-external-file-681ce82f05-4a4b5f6c77.zip/node_modules/@azimutlabs/rollup-plugin-external/",
           "packageDependencies": [
-            ["@azimutlabs/rollup-plugin-external", "file:../rollup-plugin-external#../rollup-plugin-external::hash=f7872f&locator=tests%40workspace%3Apackages%2Ftests"],
+            ["@azimutlabs/rollup-plugin-external", "file:../rollup-plugin-external#../rollup-plugin-external::hash=49e902&locator=tests%40workspace%3Apackages%2Ftests"],
             ["builtin-modules", "npm:3.2.0"],
             ["is-valid-path", "npm:0.1.1"],
             ["lodash.concat", "npm:4.5.0"],
@@ -11960,8 +12000,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/tests/",
           "packageDependencies": [
             ["tests", "workspace:packages/tests"],
+            ["@azimutlabs/rollup", "virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#file:../rollup#../rollup::hash=81488e&locator=tests%40workspace%3Apackages%2Ftests"],
             ["@azimutlabs/rollup-config", "virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#file:../rollup-config#../rollup-config::hash=ffee13&locator=tests%40workspace%3Apackages%2Ftests"],
-            ["@azimutlabs/rollup-plugin-external", "file:../rollup-plugin-external#../rollup-plugin-external::hash=f7872f&locator=tests%40workspace%3Apackages%2Ftests"],
+            ["@azimutlabs/rollup-plugin-external", "file:../rollup-plugin-external#../rollup-plugin-external::hash=49e902&locator=tests%40workspace%3Apackages%2Ftests"],
             ["@rollup/plugin-commonjs", "virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#npm:17.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:e8f8ea05bdb232a0d6f1744f0fb4f697df334f01b230479a04574be3a7c47dc3c342ac1e44bf889ed7568c7802bae62a90ccfa7b3c2ca4b2b74d3ffbffd96681#npm:11.2.0"],
             ["@rollup/plugin-typescript", "virtual:69203cbdf49f16fcff0d506420e299355b01847ce58f415e21baed82e1bd08582e51489faa7313400dfaa12d7bb3ad09b19f6cb0219a1da2f5203af9662e4fb7#npm:8.2.0"],
