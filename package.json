@@ -36,12 +36,7 @@
       "@azimutlabs/eslint-config-typescript",
       "@azimutlabs/eslint-config-functional",
       "@azimutlabs/eslint-config-prettier"
-    ],
-    "rules": {
-      "class-methods-use-this": "off",
-      "functional/no-throw-statement": "off",
-      "functional/prefer-type-literal": "off"
-    }
+    ]
   },
   "eslintIgnore": [
     "**/lib"

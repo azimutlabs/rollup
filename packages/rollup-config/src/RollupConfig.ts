@@ -60,9 +60,11 @@ export class RollupConfig<P extends Record<string, unknown>> {
     const additionalPlugins = (isFirstFormat ? arg3 : arg2) as RollupConfigPlugins<P> | undefined;
 
     return (dirname, env = getCurrentEnv()) => {
+      // eslint-disable-next-line functional/no-throw-statement
       if (!dirname) throw Error(`Received undefined 'dirname'`);
 
       const input = additionalOptions?.input ?? this.options?.input ?? this.getInput(dirname);
+      // eslint-disable-next-line functional/no-throw-statement
       if (input instanceof Error) throw input;
 
       const output =
