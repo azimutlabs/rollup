@@ -111,7 +111,15 @@ import compose, { combine } from '@azimutlabs/rollup-config';
 import babel from '@azimutlabs/rollup-config-babel';
 import typescript from '@azimutlabs/rollup-config-babel';
 
-export default compose(__dirname, babel('cjs'), [combine(babel(), typescript(), Envs.Prod)]);
+// Compose multiple configurations into a singular array of 'RollupOptions'.
+export default compose(
+  // Take the 'rollup.config.js' files location as the package root.
+  __dirname,
+  // Change the default 'es' format to 'cjs'.
+  babel('cjs'),
+  // Will only be present in a final config whe the 'NODE_ENV' var is set to 'production'.
+  [combine(babel(), typescript(), Envs.Prod)]
+);
 ```
 Output would be:
 ```javascript
