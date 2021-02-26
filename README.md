@@ -28,129 +28,103 @@
 </p>
 
 ## Overview
-This repo provides [Rollup](https://github.com/rollup/rollup) configurations to bundle packages
-including basic configuration as well as configs for `Babel` and `Typescript`. It also provides useful
-functions to make operations on configs, such as `merge`, `combine`, `compose`, `collect` and more.
-In addition, package has plugins for rollup configuration.
+This repo provides everything you need to use [Rollup](https://github.com/rollup/rollup) as your
+main **library** bundler: plugins, configurations, and utilities to work with them.
+
+Simply import and call:
+```javascript
+// rollup.config.js
+import babel from '@azimutlabs/rollup-config-babel';
+// You can pass '__dirname' if 'rollup.config.js' file is placed at the root of the library dir.
+export default babel()('path/to/library');
+```
+...and output is a single `RollupOptions` objects:
+```javascript
+export default {
+  /* ...other RollupOptions */
+  input: '/root/project/src/index.js',
+  output: { format: 'es', dir: '/root/project/lib' },
+  plugins: [
+    // @azimutlabs/rollup-plugin-external
+    { name: '@azimutlabs/rollup-plugin-external' },
+    // @rollup/plugin-node-resolve
+    { name: 'node-resolve' },
+    // @rollup/plugin-babel
+    { name: 'babel' },
+  ],
+}
+```
 
 ## Installation
 All of our packages have `rollup` as a peer dependency, so you have to install it first:
 ```shell
-$ yarn add --save-dev rollup
+$ yarn add -D rollup
 ```
 ...then add whatever package you want. The naming always starts with `@azimutlabs/rollup`.
-For example, here is installation script for `babel` configuration pack.
+For example, here is the installation script for the `babel` configuration pack.
 ```shell
-$ yarn add --save-dev @azimutlabs/rollup-{config,config-babel}
+$ yarn add -D @azimutlabs/rollup-{config,config-babel}
 ```
+
+## Packages
+The list of our rollup packages.
+Click the badges to see more information about the curtain package.
+
+| | |
+| --- | --- |
+| [![@azimutlabs/rollup][rollup]](packages/rollup) | Collect Rollup configurations into a singular array |
+| [![@azimutlabs/rollup-config][rollup-config]](packages/rollup-config) | Compose, combine, merge and create Rollup configurations |
+| | |
+
+[rollup]: https://img.shields.io/npm/v/@azimutlabs/rollup?color=cyan&label=rollup
+[rollup-config]: https://img.shields.io/npm/v/@azimutlabs/rollup-config?color=cyan&label=rollup-config
+
+### Plugins `@azimutlabs/rollup-plugin-*`
+| | |
+| --- | --- |
+| [![@azimutlabs/rollup-plugin-external][plugin-external]](packages/rollup-plugin-external) | Control [`external`](https://rollupjs.org/guide/en/#external) field of Rollup configuration depending on `package.json` |
+| | |
+
+### Configurations `@azimutlabs/rollup-config-*`
+| | |
+| --- | --- |
+| [![@azimutlabs/rollup-config-essentials][config-essentials]](packages/rollup-config-essentials) | Essential features to properly work on a js library package |
+| [![@azimutlabs/rollup-config-babel][config-babel]](packages/rollup-config-babel) | Compile code using [Babel](https://github.com/babel/babel#readme) |
+| [![@azimutlabs/rollup-config-typescript][config-typescript]](packages/rollup-config-typescript) | Compile code using [TypeScript](https://github.com/microsoft/TypeScript/#readme) |
+| | |
+
+[plugin-external]: https://img.shields.io/npm/v/@azimutlabs/rollup-plugin-external?color=green&label=external
+[config-essentials]: https://img.shields.io/npm/v/@azimutlabs/rollup-config-essentials?color=blue&label=essentials
+[config-babel]: https://img.shields.io/npm/v/@azimutlabs/rollup-config-babel?color=blue&label=babel
+[config-typescript]: https://img.shields.io/npm/v/@azimutlabs/rollup-config-typescript?color=blue&label=typescript
 
 ## Usage
+**We highly suggest that you read specific readmes of packages that you want to use.**
+Here we have some general usage descriptions.
 
-### Configurations
-Package contains several configurations. All of them are used similarly:
-
-```javascript
-import { typescript } from '@azimutlabs/rollup-config-essentials';
-
-export default essentials(
-  // Format of the output file.
-  'cjs',
-  {/* Rollup options */}
-);
-```
-
-### `combine`
-Use `combine` in order to combine several finalized configs into one config:
-```javascript
-// packages/rollup.config.js
-export default rollupConfig
-  .finalize
-  .bind(rollupConfig);
-
-// packages/anotherRollup.config.js
-export default anotherRollupConfig
-  .finalize
-  .bind(anotherRollupConfig);
-
+Consider we are writing a **TypeScript** + **React** ui library. We want to have `commonjs` support
+to work properly inside of `node` environment and `es6` import/export to support tree-shaking.
+All those requirements are accomplished by these rollup config:
+```typescript
 // rollup.config.js
-import { combine } from '@azimutlabs/rollup-config';
+import compose, { combine } from '@azimutlabs/rollup-config';
+import babel from '@azimutlabs/rollup-config-babel';
+import typescript from '@azimutlabs/rollup-config-babel';
 
-export default combine(rollupConfig, anotherRollupConfig);
+export default compose(__dirname, babel('cjs'), [combine(babel(), typescript(), Envs.Prod)]);
 ```
-
-### `compose`
-Use `compose` to compose finalized Rollup configs
+Output would be:
 ```javascript
-import { compose, Envs } from '@azimutlabs/rollup-config';
-import { typescript } from '@azimutlabs/rollup-config-typescript';
-import { babel } from '@azimutlabs/rollup-config-babel';
-
-// Without specifying environment.
-export default compose(
-  __dirname,
-  typescript(),
-  babel()
-);
-
-// with environment
-export default compose(
-  __dirname,
-  // You can provide environment to include config only in necessary build.
-  [typescript(), Envs.Prod],
-  babel()
-);
-```
-
-Example of using combine with compose
-```javascript
-import { compose, combine, Envs } from '@azimutlabs/rollup-config';
-import { typescript } from '@azimutlabs/rollup-config-typescript';
-import { babel } from '@azimutlabs/rollup-config-babel';
-import { someConfig } from './libs/someConfig'
-import { anotherConfig } from './libs/anotherConfig'
-
-export default compose(
-  __dirname,
-  [combine(someConfig, anotherConfig), Envs.Dev],
-  [typescript(), Envs.Prod],
-  babel(),
-);
-```
-
-## Usage with Mono-repo
-If your project is built using monorepo, we suggest you to use `collect` from `@azimutlabs/rollup`
-package, which collects config files from other packages and merges it to one:
-```javascript
-// ./packages/ui/rollup.config.js
-import { compose } from '@azimutlabs/rollup-config';
-import { babel } from '@azimutlabs/rollup-config-babel';
-
-export default compose(__dirname, babel());
-
-// From the root of the mono-repo.
-// ./rollup.config.js
-import { collect } from '@azimutlabs/rollup';
-
-export default collect(['packages/*/rollup.config.js']);
-```
-You can also use `useWorkspaces` to get workspaces option from the nearest `package.json`:
-```json5
-// package.json
-{
-  // ...
-  "workspaces": [
-    "packages/*"
-  ]
-}
-```
-```javascript
-// rollup.config.js
-import { collect, useWorkspaces } from '@azimutlabs/rollup';
-
-export default collect(
-  // Final collect scope will be: ['packages/*/rollup.config.js']
-  useWorkspaces(/* glob pattern for config files, e.g. rollup.config*.js */)
-);
+// NODE_ENV === 'production'
+// lib/
+//   ...
+//   index.d.ts - output from typescript
+//   index.es.js - output from babel + typescript
+//   index.cjs.js - output from babel
+export default [
+  { /* babel commonjs config */ },
+  { /* babel + typescript config */ }
+]
 ```
 
 ## Contributing

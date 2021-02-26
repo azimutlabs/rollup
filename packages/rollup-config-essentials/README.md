@@ -28,7 +28,7 @@
   <a href="https://www.npmjs.com/package/@azimutlabs/rollup-config-essentials">
     <img
       src="https://img.shields.io/npm/v/@azimutlabs/rollup-config-essentials?color=blue&logo=npm&label="
-      alt="@azimutlabs/rollup-plugin-external"
+      alt="@azimutlabs/rollup-config-essentials"
     />
   </a>
 </p>
@@ -48,7 +48,26 @@ $ yarn add -D @azimutlabs/rollup-{config,config-essentials}
 // rollup.config.js
 import essentials from '@azimutlabs/rollup-config-essentials';
 
-export default essentials()(__dirname);
+export default essentials(
+  // Output format. Defaults to 'es'
+  'cjs',
+  {
+    // Optional RollupOptions that will be merged with configuration options.
+    shimMissingExports: true,
+    // Optional RollupConfigPlugins<P> object that will be merged with
+    // configuration plugins.
+    pluginBuilders: {
+      // Merge with default 'external' plugin options.
+      external: {
+        checkForBabelMacro: true,
+      },
+      // Merge with default '@rollup/plugin-node-resolve' plugin options.
+      nodeResolve: {
+        modulesOnly: true,
+      },
+    },
+  }
+)('path/to/package');
 ```
 
 ## Contributing

@@ -28,7 +28,7 @@
   <a href="https://www.npmjs.com/package/@azimutlabs/rollup-config-babel">
     <img
       src="https://img.shields.io/npm/v/@azimutlabs/rollup-config-babel?color=blue&logo=npm&label="
-      alt="@azimutlabs/rollup-plugin-external"
+      alt="@azimutlabs/rollup-config-babel"
     />
   </a>
 </p>
@@ -48,7 +48,22 @@ $ yarn add -D @azimutlabs/rollup-{config,config-babel}
 // rollup.config.js
 import babel from '@azimutlabs/rollup-config-babel';
 
-export default babel()(__dirname);
+export default babel(
+  // Output format. Defaults to 'es'
+  'cjs',
+  {
+    // Optional RollupOptions that will be merged with configuration options.
+    shimMissingExports: true,
+    // Optional RollupConfigPlugins<P> object that will be merged with
+    // configuration plugins.
+    pluginBuilders: {
+      // Merge with default '@rollup/plugin-babel' plugin options.
+      babel: {
+        babelHelpers: ['bundled'],
+      },
+    },
+  }
+)('path/to/package');
 ```
 
 ## Contributing

@@ -28,7 +28,7 @@
   <a href="https://www.npmjs.com/package/@azimutlabs/rollup-config-typescript">
     <img
       src="https://img.shields.io/npm/v/@azimutlabs/rollup-config-typescript?color=blue&logo=npm&label="
-      alt="@azimutlabs/rollup-plugin-external"
+      alt="@azimutlabs/rollup-config-typescript"
     />
   </a>
 </p>
@@ -48,7 +48,22 @@ $ yarn add -D @azimutlabs/rollup-{config,config-typescript}
 // rollup.config.js
 import typescript from '@azimutlabs/rollup-config-typescript';
 
-export default typescript()(__dirname);
+export default typescript(
+  // Output format. Defaults to 'es'
+  'cjs',
+  {
+    // Optional RollupOptions that will be merged with configuration options.
+    shimMissingExports: true,
+    // Optional RollupConfigPlugins<P> object that will be merged with
+    // configuration plugins.
+    pluginBuilders: {
+      // Merge with default '@rollup/plugin-typescript' plugin options.
+      typescript: {
+        tsconfig: false,
+      },
+    },
+  }
+)('path/to/package');
 ```
 
 ## Contributing
