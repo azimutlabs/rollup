@@ -84,6 +84,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-babel@workspace:packages/rollup-config-babel"
   dependencies:
+    "@azimutlabs/rollup-config": ^0.1.0-alpha.3
     "@azimutlabs/rollup-config-essentials": ^0.1.0-alpha.3
     "@babel/core": ^7.13.1
     "@rollup/plugin-babel": ^5.3.0
@@ -91,6 +92,7 @@ __metadata:
     rollup: ^2.38.0
     typescript: ^4.1.4
   peerDependencies:
+    "@azimutlabs/rollup-config": ">=0"
     "@babel/core": ^7.0.0
     rollup: ^2.15
   languageName: unknown
@@ -107,6 +109,7 @@ __metadata:
     rollup: ^2.38.0
     typescript: ^4.1.4
   peerDependencies:
+    "@azimutlabs/rollup-config": ">=0"
     rollup: ^2.15
   languageName: unknown
   linkType: soft
@@ -115,6 +118,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-typescript@workspace:packages/rollup-config-typescript"
   dependencies:
+    "@azimutlabs/rollup-config": ^0.1.0-alpha.3
     "@azimutlabs/rollup-config-essentials": ^0.1.0-alpha.3
     "@rollup/plugin-typescript": ^8.2.0
     "@types/node": ^14.14.31
@@ -123,6 +127,7 @@ __metadata:
     tslib: ^2.1.0
     typescript: ^4.1.4
   peerDependencies:
+    "@azimutlabs/rollup-config": ">=0"
     rollup: ^2.15
     typescript: ">=3.4.0"
   languageName: unknown

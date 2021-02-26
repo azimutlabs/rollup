@@ -37,10 +37,12 @@
     "@rollup/plugin-babel": "^5.3.0"
   },
   "peerDependencies": {
+    "@azimutlabs/rollup-config": ">=0",
     "@babel/core": "^7.0.0",
     "rollup": "^2.15"
   },
   "devDependencies": {
+    "@azimutlabs/rollup-config": "^0.1.0-alpha.3",
     "@babel/core": "^7.13.1",
     "@types/node": "^14.14.31",
     "rollup": "^2.38.0",
