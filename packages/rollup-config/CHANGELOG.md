@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config@0.1.0-alpha.3...@azimutlabs/rollup-config@0.1.0) (2021-02-26)
+
+
+### Bug Fixes
+
+* **rollup-config:** export missing types ([3325506](https://github.com/azimutlabs/rollup/commit/3325506e1de16dc8a903b9e5d2120ed54251948c))
+* **rollup-config:** remove All option from current environment ([3306e15](https://github.com/azimutlabs/rollup/commit/3306e1594a247c7cf95567016660bcba470fca9a))
+* **rollup-config:** resolve index file when found ([d06bc78](https://github.com/azimutlabs/rollup/commit/d06bc78881205243cbc4f16f2479364c01ea1f35))
+* **rollup-config:** reverse array to filter plugins in combine ([9442590](https://github.com/azimutlabs/rollup/commit/94425905723017e4d0867fbc0f48083ba8f5f760))
+
+
+
+
+
 # [0.1.0-alpha.3](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config@0.1.0-alpha.2...@azimutlabs/rollup-config@0.1.0-alpha.3) (2021-02-25)
 
 

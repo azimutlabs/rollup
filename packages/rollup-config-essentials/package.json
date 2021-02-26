@@ -1,6 +1,6 @@
 {
   "name": "@azimutlabs/rollup-config-essentials",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0",
   "description": "Rollup configuration essentials",
   "keywords": [
     "config",
@@ -30,7 +30,7 @@
     "compile": "yarn tsc"
   },
   "dependencies": {
-    "@azimutlabs/rollup-plugin-external": "^0.1.0-alpha.0",
+    "@azimutlabs/rollup-plugin-external": "^0.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0"
   },
   "peerDependencies": {
@@ -38,7 +38,7 @@
     "rollup": "^2.15"
   },
   "devDependencies": {
-    "@azimutlabs/rollup-config": "^0.1.0-alpha.3",
+    "@azimutlabs/rollup-config": "^0.1.0",
     "@types/node": "^14.14.31",
     "rollup": "^2.38.0",
     "typescript": "^4.1.4"
