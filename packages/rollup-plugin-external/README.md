@@ -35,7 +35,7 @@
 
 ## Installation
 ```shell
-$ yarn add --save-dev @azimutlabs/rollup-plugin-external
+$ yarn add -D @azimutlabs/rollup-plugin-external
 ```
 
 ## Usage
@@ -78,7 +78,7 @@ export default {
 |`usePeerDependencies`|Indicates whether to include `peer dependencies` from `package.json`|`boolean`|`true`|
 |`useBuiltins`|Indicates whether to include **Node.js** builtin modules|`boolean`|`true`|
 |`checkForBabelMacro`|Indicates whether to check `package.json` for [**Babel Macro**](https://github.com/kentcdodds/babel-plugin-macros) packages|`boolean`|`false`|
-|`packagePath`|Directory or path to `package.json`. If not provided, looks for closest `package.json` starting from current directory|`string`|`process.cwd()`|
+|`packagePath`|Directory or path to `package.json`. If not provided, looks for the closest `package.json` starting from current directory|`string`|`process.cwd()`|
 
 ## Acknowledgement
 This plugin was inspired by [`rollup-plugin-auto-external`](https://github.com/stevenbenisek/rollup-plugin-auto-external)
