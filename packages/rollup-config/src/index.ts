@@ -1,7 +1,6 @@
 export * from './RollupConfig';
 export * from './services/combine';
 export { compose, compose as default } from './services/compose';
-export * from './services/merge';
 export * from './services/types/ComposeFinalize';
 export * from './services/types/ComposeFinalizeWithEnv';
 export * from './services/types/Envs';
