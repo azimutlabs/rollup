@@ -86,7 +86,9 @@ export class RollupConfig<P extends Record<string, unknown>> {
     if (sourceDirectory instanceof Error) return sourceDirectory;
 
     const indexFile = this.findIndexFile(readdirSync(sourceDirectory));
-    return indexFile ?? Error(`Couldn't find any index.* file at '${sourceDirectory}'`);
+    if (!indexFile) return Error(`Couldn't find any index.* file at '${sourceDirectory}'`);
+
+    return resolve(sourceDirectory, indexFile);
   };
 
   protected readonly getSourceDir = (dirname: string): Error | string => {
