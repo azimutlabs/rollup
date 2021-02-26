@@ -18,6 +18,11 @@
   "peerDependencies": {
     "is-valid-path": "^0.1.1"
   },
+  "eslintConfig": {
+    "rules": {
+      "@typescript-eslint/no-magic-numbers": "off"
+    }
+  },
   "devDependencies": {
     "@azimutlabs/rollup": "file:../rollup",
     "@azimutlabs/rollup-config": "file:../rollup-config",
