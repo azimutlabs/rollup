@@ -102,9 +102,9 @@ Click the badges to see more information about the curtain package.
 **We highly suggest that you read specific readmes of packages that you want to use.**
 Here we have some general usage descriptions.
 
-Consider we are writing a **TypeScript** + **React** ui library. We want to have `commonjs` support
-to work properly inside of `node` environment and `es6` import/export to support tree-shaking.
-All those requirements are accomplished by these rollup config:
+Consider that we are writing a **TypeScript** + **React** ui library. We want to have `commonjs` support
+to work properly inside of a `node` environment and `es6` import/export to support tree-shaking.
+All those requirements are accomplished by this rollup config:
 ```typescript
 // rollup.config.js
 import compose, { combine } from '@azimutlabs/rollup-config';
@@ -121,7 +121,7 @@ export default compose(
   [combine(babel(), typescript(), Envs.Prod)]
 );
 ```
-Output would be:
+Output will be:
 ```javascript
 // NODE_ENV === 'production'
 // lib/
