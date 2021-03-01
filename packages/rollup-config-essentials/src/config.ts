@@ -7,8 +7,8 @@ import type { RollupConfigEssentialsPlugins } from './types/RollupConfigEssentia
 export const rollupConfigEssentialsExtensions = DEFAULTS.extensions;
 
 export const rollupConfigEssentials = new RollupConfig<RollupConfigEssentialsPlugins>(
-  ({ dirname }) => ({
-    external: [rollupPluginExternal, { packagePath: dirname }],
+  ({ rootDir }) => ({
+    external: [rollupPluginExternal, { packagePath: rootDir }],
     nodeResolve: [
       nodeResolve,
       {

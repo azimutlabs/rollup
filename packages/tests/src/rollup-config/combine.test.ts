@@ -8,11 +8,22 @@ describe('combine', () => {
 
     const banner = 'export const _a = `banner`';
 
-    const cfg1Options: RollupOptions = { output: { strict: true, sourcemap: 'inline' } };
-    const cfg2Options: RollupOptions = { output: { sourcemap: 'hidden', banner } };
+    const cfg1Options: RollupOptions = { output: { strict: true, sourcemap: 'inline', dir: '1' } };
+    const cfg2Options: RollupOptions = { output: { sourcemap: 'hidden', banner, dir: '2' } };
 
     const expectedMergeOptions: RollupOptions = {
-      output: { sourcemap: 'hidden', banner, strict: true },
+      output: {
+        // From cfg1Options.
+        strict: true,
+        // From cfg2Options override.
+        banner,
+        dir: '2',
+        sourcemap: 'hidden',
+        // From default this.getOutput behaviour.
+        entryFileNames: '[name].[format].js',
+        format: 'es',
+        preserveModules: true,
+      },
     };
 
     type Cfg1Plugins = {

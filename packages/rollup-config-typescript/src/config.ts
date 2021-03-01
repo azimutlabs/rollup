@@ -13,13 +13,13 @@ export const rollupConfigTypescriptExtensions = [
 ];
 
 export const rollupConfigTypescript = rollupConfigEssentials.derive<RollupConfigTypescriptPlugins>(
-  ({ dirname }) => ({
+  ({ rootDir }) => ({
     nodeResolve: {
       extensions: rollupConfigTypescriptExtensions,
     },
     typescript: [
       rollupPluginTypescript,
-      { tsconfig: findSync(dirname) || false, tslib: require.resolve('tslib') },
+      { tsconfig: findSync(rootDir) || false, tslib: require.resolve('tslib') },
     ],
   })
 );
