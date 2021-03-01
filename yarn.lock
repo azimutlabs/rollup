@@ -84,8 +84,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-babel@workspace:packages/rollup-config-babel"
   dependencies:
-    "@azimutlabs/rollup-config": ^0.1.0
-    "@azimutlabs/rollup-config-essentials": ^0.1.0
+    "@azimutlabs/rollup-config": ^0.2.0
+    "@azimutlabs/rollup-config-essentials": ^0.2.0
     "@babel/core": ^7.13.1
     "@rollup/plugin-babel": ^5.3.0
     "@types/node": ^14.14.31
@@ -98,11 +98,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup-config-essentials@^0.1.0, @azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials":
+"@azimutlabs/rollup-config-essentials@^0.2.0, @azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials"
   dependencies:
-    "@azimutlabs/rollup-config": ^0.1.0
+    "@azimutlabs/rollup-config": ^0.2.0
     "@azimutlabs/rollup-plugin-external": ^0.1.0
     "@rollup/plugin-node-resolve": ^11.2.0
     "@types/node": ^14.14.31
@@ -118,8 +118,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-typescript@workspace:packages/rollup-config-typescript"
   dependencies:
-    "@azimutlabs/rollup-config": ^0.1.0
-    "@azimutlabs/rollup-config-essentials": ^0.1.0
+    "@azimutlabs/rollup-config": ^0.2.0
+    "@azimutlabs/rollup-config-essentials": ^0.2.0
     "@rollup/plugin-typescript": ^8.2.0
     "@types/node": ^14.14.31
     rollup: ^2.38.0
@@ -133,7 +133,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup-config@^0.1.0, @azimutlabs/rollup-config@workspace:packages/rollup-config":
+"@azimutlabs/rollup-config@^0.2.0, @azimutlabs/rollup-config@workspace:packages/rollup-config":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config@workspace:packages/rollup-config"
   dependencies:
@@ -150,14 +150,14 @@ __metadata:
   linkType: soft
 
 "@azimutlabs/rollup-config@file:../rollup-config::locator=tests%40workspace%3Apackages%2Ftests":
-  version: 0.1.0
-  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=9fde4b&locator=tests%40workspace%3Apackages%2Ftests"
+  version: 0.2.0
+  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=9d10de&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     lodash.clonedeep: ^4.5.0
     lodash.mergewith: ^4.6.2
   peerDependencies:
     rollup: ^2.15
-  checksum: 7a01ca6fa6551fb81f47051528367bf6e40aba4ec92594298bda5d798967925d12995a4c7e49f1503e67d5092bbbd091f7b4126c67abf9b0242e63d523a0730e
+  checksum: 42508c5562f3405de2da2b3887708a5619e7ac30908612090bed5c44133ee15bad194f7291d10d7b05cf98e31dd1d06e8a1cbe2457d17e194a2eb2bddf08766d
   languageName: node
   linkType: hard
 
