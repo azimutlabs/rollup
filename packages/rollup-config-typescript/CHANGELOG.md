@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-typescript@0.1.0...@azimutlabs/rollup-config-typescript@0.2.0) (2021-03-01)
+
+
+### Features
+
+* **rollup-config-typescript:** export used extensions ([f203998](https://github.com/azimutlabs/rollup/commit/f203998a48b4b51f100c0db3b4628571cee68925))
+
+
+
+
+
 # [0.1.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-typescript@0.1.0-alpha.1...@azimutlabs/rollup-config-typescript@0.1.0) (2021-02-26)
 
 **Note:** Version bump only for package @azimutlabs/rollup-config-typescript

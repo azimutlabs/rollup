@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-essentials@0.1.0...@azimutlabs/rollup-config-essentials@0.2.0) (2021-03-01)
+
+
+### Features
+
+* **rollup-config-essentials:** export used extensions ([4588624](https://github.com/azimutlabs/rollup/commit/4588624d060b0a4c2e8b9e8d0bc8573f24857bee))
+
+
+
+
+
 # [0.1.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-essentials@0.1.0-alpha.3...@azimutlabs/rollup-config-essentials@0.1.0) (2021-02-26)
 
 **Note:** Version bump only for package @azimutlabs/rollup-config-essentials

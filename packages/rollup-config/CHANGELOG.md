@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config@0.1.0...@azimutlabs/rollup-config@0.2.0) (2021-03-01)
+
+
+### Features
+
+* **rollup-config:** add optional 'sourceDir', 'outputDir' and 'env' options ([#35](https://github.com/azimutlabs/rollup/issues/35)) ([f21c466](https://github.com/azimutlabs/rollup/commit/f21c4668382b50cfa0628572cf42fbbd20ef19aa))
+
+
+
+
+
 # [0.1.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config@0.1.0-alpha.3...@azimutlabs/rollup-config@0.1.0) (2021-02-26)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@azimutlabs/rollup-config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Compose, combine, merge and create Rollup configurations",
   "keywords": [
     "config",
