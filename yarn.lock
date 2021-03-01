@@ -151,13 +151,13 @@ __metadata:
 
 "@azimutlabs/rollup-config@file:../rollup-config::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.0
-  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=826ff0&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=9fde4b&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     lodash.clonedeep: ^4.5.0
     lodash.mergewith: ^4.6.2
   peerDependencies:
     rollup: ^2.15
-  checksum: 750e6f58358b1b2a53ba2bf92750105999b1576b76862c20b6e03e0f352109fbea49d00cd6e50685911759c158877f6a0ed5222d512bdbc494a20e6ffb7b55ff
+  checksum: 7a01ca6fa6551fb81f47051528367bf6e40aba4ec92594298bda5d798967925d12995a4c7e49f1503e67d5092bbbd091f7b4126c67abf9b0242e63d523a0730e
   languageName: node
   linkType: hard
 
