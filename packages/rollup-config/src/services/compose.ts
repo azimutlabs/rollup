@@ -24,13 +24,7 @@ export const compose = (
         if (Array.isArray(env)) return env.includes(Envs.All) || env.includes(currentEnv);
         return env === Envs.All || env === currentEnv;
       })
-      // Normalize to get the env that triggered the configuration that is about to be applied.
-      .map(([finalize, env]) =>
-        Array.isArray(env)
-          ? [finalize, env.find((it) => it === Envs.All || it === currentEnv)]
-          : [finalize, env]
-      )
       // Apply.
-      .map(([finalize, env]) => finalize(dirname, env))
+      .map(([finalize]) => finalize(dirname))
   );
 };
