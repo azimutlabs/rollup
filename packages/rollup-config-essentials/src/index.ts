@@ -1,2 +1,3 @@
-export { essentials as default, essentials, rollupConfigEssentials } from './config';
+export * from './config';
+export { essentials as default } from './config';
 export * from './types/RollupConfigEssentialsPlugins';
