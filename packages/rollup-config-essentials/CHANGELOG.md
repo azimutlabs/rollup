@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-essentials@0.2.0...@azimutlabs/rollup-config-essentials@0.3.0) (2021-03-02)
+
+
+### Features
+
+* **rollup-config-essentials:** add @rollup/plugin-alias to support absolute imports ([#34](https://github.com/azimutlabs/rollup/issues/34)) ([16bed12](https://github.com/azimutlabs/rollup/commit/16bed128ac5130484ed4877529ce74eef3a0c21a))
+
+
+
+
+
 # [0.2.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-essentials@0.1.0...@azimutlabs/rollup-config-essentials@0.2.0) (2021-03-01)
 
 
