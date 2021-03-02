@@ -104,6 +104,7 @@ __metadata:
   dependencies:
     "@azimutlabs/rollup-config": ^0.2.0
     "@azimutlabs/rollup-plugin-external": ^0.1.0
+    "@rollup/plugin-alias": ^3.1.2
     "@rollup/plugin-node-resolve": ^11.2.0
     "@types/node": ^14.14.31
     rollup: ^2.38.0
@@ -2341,6 +2342,17 @@ __metadata:
     "@octokit/openapi-types": ^4.0.0
     "@types/node": ">= 8"
   checksum: 27876139be723ca39da61e1e7d9bf52b2983b83c703c77641095f2f5d6b3bb34e432ca6d9d823e6b076ae8349cd20ac34ce25c707b168166f7c8a268b9e853c8
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-alias@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@rollup/plugin-alias@npm:3.1.2"
+  dependencies:
+    slash: ^3.0.0
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0
+  checksum: cb0e59b25308d10c5bde8cc1f6e200d74fc98d4739800b4bd4b91d6b8ff07514a068d3a63a0c8fb125e7bc5602566c69687c291330580ca85425269413d7639c
   languageName: node
   linkType: hard
 

@@ -386,6 +386,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@azimutlabs/rollup-config-essentials", "virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config-essentials"],
             ["@azimutlabs/rollup-config", "virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config"],
             ["@azimutlabs/rollup-plugin-external", "workspace:packages/rollup-plugin-external"],
+            ["@rollup/plugin-alias", "virtual:e8f8ea05bdb232a0d6f1744f0fb4f697df334f01b230479a04574be3a7c47dc3c342ac1e44bf889ed7568c7802bae62a90ccfa7b3c2ca4b2b74d3ffbffd96681#npm:3.1.2"],
             ["@rollup/plugin-node-resolve", "virtual:e8f8ea05bdb232a0d6f1744f0fb4f697df334f01b230479a04574be3a7c47dc3c342ac1e44bf889ed7568c7802bae62a90ccfa7b3c2ca4b2b74d3ffbffd96681#npm:11.2.0"],
             ["@types/azimutlabs__rollup-config", null],
             ["@types/node", "npm:14.14.31"],
@@ -407,6 +408,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@azimutlabs/rollup-config-essentials", "workspace:packages/rollup-config-essentials"],
             ["@azimutlabs/rollup-config", "virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config"],
             ["@azimutlabs/rollup-plugin-external", "workspace:packages/rollup-plugin-external"],
+            ["@rollup/plugin-alias", "virtual:e8f8ea05bdb232a0d6f1744f0fb4f697df334f01b230479a04574be3a7c47dc3c342ac1e44bf889ed7568c7802bae62a90ccfa7b3c2ca4b2b74d3ffbffd96681#npm:3.1.2"],
             ["@rollup/plugin-node-resolve", "virtual:e8f8ea05bdb232a0d6f1744f0fb4f697df334f01b230479a04574be3a7c47dc3c342ac1e44bf889ed7568c7802bae62a90ccfa7b3c2ca4b2b74d3ffbffd96681#npm:11.2.0"],
             ["@types/node", "npm:14.14.31"],
             ["rollup", "npm:2.38.0"],
@@ -2890,6 +2892,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@octokit/types", "npm:6.8.2"],
             ["@octokit/openapi-types", "npm:4.0.1"],
             ["@types/node", "npm:14.14.22"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@rollup/plugin-alias", [
+        ["npm:3.1.2", {
+          "packageLocation": "./.yarn/cache/@rollup-plugin-alias-npm-3.1.2-10d0b877c3-cb0e59b253.zip/node_modules/@rollup/plugin-alias/",
+          "packageDependencies": [
+            ["@rollup/plugin-alias", "npm:3.1.2"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:e8f8ea05bdb232a0d6f1744f0fb4f697df334f01b230479a04574be3a7c47dc3c342ac1e44bf889ed7568c7802bae62a90ccfa7b3c2ca4b2b74d3ffbffd96681#npm:3.1.2", {
+          "packageLocation": "./.yarn/$$virtual/@rollup-plugin-alias-virtual-a6e5584792/0/cache/@rollup-plugin-alias-npm-3.1.2-10d0b877c3-cb0e59b253.zip/node_modules/@rollup/plugin-alias/",
+          "packageDependencies": [
+            ["@rollup/plugin-alias", "virtual:e8f8ea05bdb232a0d6f1744f0fb4f697df334f01b230479a04574be3a7c47dc3c342ac1e44bf889ed7568c7802bae62a90ccfa7b3c2ca4b2b74d3ffbffd96681#npm:3.1.2"],
+            ["@types/rollup", null],
+            ["rollup", "npm:2.38.0"],
+            ["slash", "npm:3.0.0"]
+          ],
+          "packagePeers": [
+            "@types/rollup",
+            "rollup"
           ],
           "linkType": "HARD",
         }]
