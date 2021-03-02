@@ -85,7 +85,7 @@ __metadata:
   resolution: "@azimutlabs/rollup-config-babel@workspace:packages/rollup-config-babel"
   dependencies:
     "@azimutlabs/rollup-config": ^0.2.0
-    "@azimutlabs/rollup-config-essentials": ^0.2.0
+    "@azimutlabs/rollup-config-essentials": ^0.3.0
     "@babel/core": ^7.13.1
     "@rollup/plugin-babel": ^5.3.0
     "@types/node": ^14.14.31
@@ -98,7 +98,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup-config-essentials@^0.2.0, @azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials":
+"@azimutlabs/rollup-config-essentials@^0.3.0, @azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-essentials@workspace:packages/rollup-config-essentials"
   dependencies:
@@ -120,7 +120,7 @@ __metadata:
   resolution: "@azimutlabs/rollup-config-typescript@workspace:packages/rollup-config-typescript"
   dependencies:
     "@azimutlabs/rollup-config": ^0.2.0
-    "@azimutlabs/rollup-config-essentials": ^0.2.0
+    "@azimutlabs/rollup-config-essentials": ^0.3.0
     "@rollup/plugin-typescript": ^8.2.0
     "@types/node": ^14.14.31
     rollup: ^2.38.0
