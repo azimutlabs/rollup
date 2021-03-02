@@ -219,14 +219,14 @@ __metadata:
   linkType: soft
 
 "@azimutlabs/rollup@file:../rollup::locator=tests%40workspace%3Apackages%2Ftests":
-  version: 0.1.0
-  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=622944&locator=tests%40workspace%3Apackages%2Ftests"
+  version: 0.1.1
+  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=095783&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     glob: ^7.1.6
     read-pkg-up: ^7.0.1
   peerDependencies:
     rollup: ^2.15
-  checksum: 4100c3946d9e74f52b7043079e9b0485a8b4d79b4b4dc6c3470fcd349ad17dcbddc3cc1a8cb857d23b347e886c4a855a7c91f174234f1a84defb5eb222f3f20b
+  checksum: 67d16fe08ac7bee8f792550875eb93a3b903317d8a01dca25027c9e6f7407ebbfd948024564ac199c8d8e4c34b49b10b97dcf675a2bd7d65d1981190f46d3206
   languageName: node
   linkType: hard
 
