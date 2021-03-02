@@ -38,6 +38,10 @@
  $ yarn add -D @azimutlabs/rollup
  ```
 
+## Known issues
++ `collect` does not work with `esm`, so in order to use it, it is required to use `CommonJS` modules
+  in rollup config. See [#41](https://github.com/azimutlabs/rollup/issues/41) for more info.
+
 ## Usage
 
 ### `collect`
