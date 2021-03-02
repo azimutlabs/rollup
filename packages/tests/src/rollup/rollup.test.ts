@@ -1,4 +1,4 @@
-import { collect, useWorkspaces } from '@azimutlabs/rollup';
+import { collect, fromWorkspaces } from '@azimutlabs/rollup';
 import { resolve } from 'path';
 
 const result = [
@@ -23,6 +23,13 @@ const result = [
       format: 'cjs',
     },
   },
+  {
+    input: 'c.js',
+    output: {
+      file: 'c.js',
+      format: 'cjs',
+    },
+  },
 ];
 
 describe('rollup', () => {
@@ -31,22 +38,22 @@ describe('rollup', () => {
     expect(config).toStrictEqual(result);
   });
 
-  it('useWorkspaces should work properly with default parameter', () => {
-    expect(useWorkspaces()).toStrictEqual([
-      resolve('src/*/rollup.config.js'),
-      resolve('packages/*/rollup.config.js'),
+  it('fromWorkspaces should work properly with default parameter', () => {
+    expect(fromWorkspaces()).toStrictEqual([
+      resolve('src/*/rollup.config.@(js|mjs|cjs)'),
+      resolve('packages/*/rollup.config.@(js|mjs|cjs)'),
     ]);
   });
 
-  it('useWorkspaces should work properly with given parameter', () => {
-    expect(useWorkspaces('rollup.*.js')).toStrictEqual([
+  it('fromWorkspaces should work properly with given parameter', () => {
+    expect(fromWorkspaces('rollup.*.js')).toStrictEqual([
       resolve('src/*/rollup.*.js'),
       resolve('packages/*/rollup.*.js'),
     ]);
   });
 
-  it('collect should work with useWorkspaces', async () => {
-    const config = await collect(useWorkspaces('packages/*/rollup.config.js'));
+  it('collect should work with fromWorkspaces', async () => {
+    const config = await collect(fromWorkspaces('packages/*/rollup.config.js'));
     expect(config).toStrictEqual(result);
   });
 });

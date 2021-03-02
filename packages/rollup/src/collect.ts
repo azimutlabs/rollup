@@ -10,4 +10,4 @@ export const collect = async (
     filePatterns
       .flatMap((pattern) => sync(pattern) as readonly string[])
       .map(async (file) => import(resolve(dirname, file)).then((config) => config.default))
-  );
+  ).then((res) => res.flat());
