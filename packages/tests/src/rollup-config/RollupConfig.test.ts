@@ -39,6 +39,7 @@ describe('RollupConfig', () => {
     expect(options.shimMissingExports).toStrictEqual(finalizeOptions.shimMissingExports);
     expect(options.output).toStrictEqual({
       format,
+      exports: 'auto',
       entryFileNames: `[name].[format].js`,
       preserveModules: true,
       dir: pathToLib,

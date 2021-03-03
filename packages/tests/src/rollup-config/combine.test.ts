@@ -20,6 +20,7 @@ describe('combine', () => {
         dir: '2',
         sourcemap: 'hidden',
         // From default this.getOutput behaviour.
+        exports: 'auto',
         entryFileNames: '[name].[format].js',
         format: 'es',
         preserveModules: true,
