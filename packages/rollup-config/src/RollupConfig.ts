@@ -98,6 +98,7 @@ export class RollupConfig<P extends Record<string, unknown>> {
     outputDir: string
   ): OutputOptions => ({
     format,
+    exports: 'auto',
     preserveModules: true,
     entryFileNames: `[name].[format].js`,
     dir: resolve(rootDir, outputDir),
