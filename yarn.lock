@@ -130,6 +130,7 @@ __metadata:
   peerDependencies:
     "@azimutlabs/rollup-config": ">=0"
     rollup: ^2.15
+    tslib: ^2
     typescript: ">=3.4.0"
   languageName: unknown
   linkType: soft
