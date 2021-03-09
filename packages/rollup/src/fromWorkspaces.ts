@@ -1,6 +1,8 @@
 import { resolve } from 'path';
 import readPackage from 'read-pkg-up';
 
+import { sortDependencies } from './sortDependencies';
+
 const defaultConfigFile = 'rollup.config.@(js|mjs|cjs)';
 
 export const fromWorkspaces = (pattern = defaultConfigFile): readonly string[] => {
@@ -11,5 +13,5 @@ export const fromWorkspaces = (pattern = defaultConfigFile): readonly string[] =
   if (!workspaces) return [];
 
   const spaces = Array.isArray(workspaces) ? workspaces : workspaces.packages;
-  return spaces.map((workspace: string) => resolve(workspace, pattern));
+  return sortDependencies(spaces).map((workspace: string) => resolve(workspace, pattern));
 };
