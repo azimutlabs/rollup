@@ -182,13 +182,13 @@ __metadata:
 
 "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.0
-  resolution: "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external#../rollup-plugin-external::hash=8bdaa6&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external#../rollup-plugin-external::hash=ecc24b&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     builtin-modules: ^3.2.0
     is-valid-path: ^0.1.1
     lodash.concat: ^4.5.0
     read-pkg-up: ^7.0.1
-  checksum: f763370bd774d3d256f5d4f3724bf221ec49cffcb79d791c5c63c09c07c20442c33d69cd7f4d782d2498c8fa9acaa5db594f8e95cd07f18020edcc4fd24255ee
+  checksum: e25a037c895df10acf17bd92391576ad0fe87fe45b014aaab1c15ee5d5f7c30114ccf96c71d2be07d77a611b05ada6e971cdc1c24b1e2e522200101d60e3394a
   languageName: node
   linkType: hard
 
@@ -221,13 +221,14 @@ __metadata:
 
 "@azimutlabs/rollup@file:../rollup::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.1
-  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=095783&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=5e9058&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     glob: ^7.1.6
+    read-pkg: ^5.2.0
     read-pkg-up: ^7.0.1
   peerDependencies:
     rollup: ^2.15
-  checksum: 67d16fe08ac7bee8f792550875eb93a3b903317d8a01dca25027c9e6f7407ebbfd948024564ac199c8d8e4c34b49b10b97dcf675a2bd7d65d1981190f46d3206
+  checksum: d31348e178df946c5cd71b782f6bdc9200657b4b5fa324e84d93e0e248735daee619b0639757b684097de07b22c4222ce804727e55531efdd0bff6fdff5fadd8
   languageName: node
   linkType: hard
 
@@ -237,8 +238,10 @@ __metadata:
   dependencies:
     "@types/glob": ^7.1.3
     "@types/node": ^14.14.31
+    "@types/read-pkg": ^5.1.0
     "@types/read-pkg-up": ^6.0.0
     glob: ^7.1.6
+    read-pkg: ^5.2.0
     read-pkg-up: ^7.0.1
     rollup: ^2.38.0
     typescript: ^4.1.4
@@ -2690,6 +2693,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/read-pkg@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@types/read-pkg@npm:5.1.0"
+  dependencies:
+    read-pkg: "*"
+  checksum: 0849374dbf2f6db5c4705b1eff570eacf8660de68037bcd54b095c8576506d526f8eadff7057461fbe3b29108ce93cd19bb96324b12d3c91915fc27e510b4317
+  languageName: node
+  linkType: hard
+
 "@types/resolve@npm:1.17.1":
   version: 1.17.1
   resolution: "@types/resolve@npm:1.17.1"
@@ -2919,6 +2931,23 @@ __metadata:
   checksum: e9849f8a52cde19c95d7fbf0bdab7bde1f31c9fbf2062e47044817eeebb31217c99aaa041366f377243aa852c64fa144c4397ef76965d6491eb47827464d8479
   languageName: node
   linkType: hard
+
+"a@file:../a::locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb":
+  version: 0.0.0
+  resolution: "a@file:../a#../a::hash=49c627&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb"
+  dependencies:
+    c: "file:../c"
+  checksum: 35e9ca42e57cbd492b9d499dca48b5233116e4fb59f03c3b3e81e4ef602adb967f1ca877ef7ae492e180f5b30df942cc6eecd7a18960d850d8ae439684dfe0da
+  languageName: node
+  linkType: hard
+
+"a@workspace:packages/tests/src/rollup/packages/a":
+  version: 0.0.0-use.local
+  resolution: "a@workspace:packages/tests/src/rollup/packages/a"
+  dependencies:
+    c: "file:../c"
+  languageName: unknown
+  linkType: soft
 
 "abab@npm:^2.0.3":
   version: 2.0.5
@@ -3355,6 +3384,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"b@workspace:packages/tests/src/rollup/packages/b":
+  version: 0.0.0-use.local
+  resolution: "b@workspace:packages/tests/src/rollup/packages/b"
+  dependencies:
+    a: "file:../a"
+    c: "file:../c"
+  languageName: unknown
+  linkType: soft
+
 "babel-jest@npm:^26.6.3":
   version: 26.6.3
   resolution: "babel-jest@npm:26.6.3"
@@ -3602,6 +3640,33 @@ __metadata:
   checksum: 915e1367eb6918fc7d0763da47abeab5399b925cbbe534a3ea98ff0e96edfca1941ee0e83617a155e89779a4fa505e323c2c29b54f10778f326272f1a4877395
   languageName: node
   linkType: hard
+
+"c@file:../c::locator=a%40file%3A..%2Fa%23..%2Fa%3A%3Ahash%3D49c627%26locator%3Db%2540workspace%253Apackages%252Ftests%252Fsrc%252Frollup%252Fpackages%252Fb":
+  version: 0.0.0
+  resolution: "c@file:../c#../c::hash=269aec&locator=a%40file%3A..%2Fa%23..%2Fa%3A%3Ahash%3D49c627%26locator%3Db%2540workspace%253Apackages%252Ftests%252Fsrc%252Frollup%252Fpackages%252Fb"
+  checksum: 7d3da9612be7b952116aaa48056651fe813dfbbb87a6809e7f1681a391501e29c80b912eabffb33364b43fec8705aad37119e2acbc50a0a5d21820b11110a22d
+  languageName: node
+  linkType: hard
+
+"c@file:../c::locator=a%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fa":
+  version: 0.0.0
+  resolution: "c@file:../c#../c::hash=269aec&locator=a%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fa"
+  checksum: 7d3da9612be7b952116aaa48056651fe813dfbbb87a6809e7f1681a391501e29c80b912eabffb33364b43fec8705aad37119e2acbc50a0a5d21820b11110a22d
+  languageName: node
+  linkType: hard
+
+"c@file:../c::locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb":
+  version: 0.0.0
+  resolution: "c@file:../c#../c::hash=269aec&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb"
+  checksum: 7d3da9612be7b952116aaa48056651fe813dfbbb87a6809e7f1681a391501e29c80b912eabffb33364b43fec8705aad37119e2acbc50a0a5d21820b11110a22d
+  languageName: node
+  linkType: hard
+
+"c@workspace:packages/tests/src/rollup/packages/c":
+  version: 0.0.0-use.local
+  resolution: "c@workspace:packages/tests/src/rollup/packages/c"
+  languageName: unknown
+  linkType: soft
 
 "cacache@npm:^12.0.0, cacache@npm:^12.0.3":
   version: 12.0.4
@@ -9643,6 +9708,18 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"read-pkg@npm:*, read-pkg@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "read-pkg@npm:5.2.0"
+  dependencies:
+    "@types/normalize-package-data": ^2.4.0
+    normalize-package-data: ^2.5.0
+    parse-json: ^5.0.0
+    type-fest: ^0.6.0
+  checksum: 641102f0955f64304f97ed388bfe3b7ce55d74b1ffe1be06be1ae75479ce4910aa7177460d1982af6963f80b293a25f25d593a52a4328d941fd9b7d89fde2dbf
+  languageName: node
+  linkType: hard
+
 "read-pkg@npm:^1.0.0":
   version: 1.1.0
   resolution: "read-pkg@npm:1.1.0"
@@ -9673,18 +9750,6 @@ fsevents@~2.1.2:
     normalize-package-data: ^2.3.2
     path-type: ^3.0.0
   checksum: 8cc577b41ddd70a0037d6c0414acfab8db3a25a30c7854decf3d613f1f4240c8a47e20fddbd82724e02d4eb5a0c489e2621b4a5bb3558e09ce81f53306d1b850
-  languageName: node
-  linkType: hard
-
-"read-pkg@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "read-pkg@npm:5.2.0"
-  dependencies:
-    "@types/normalize-package-data": ^2.4.0
-    normalize-package-data: ^2.5.0
-    parse-json: ^5.0.0
-    type-fest: ^0.6.0
-  checksum: 641102f0955f64304f97ed388bfe3b7ce55d74b1ffe1be06be1ae75479ce4910aa7177460d1982af6963f80b293a25f25d593a52a4328d941fd9b7d89fde2dbf
   languageName: node
   linkType: hard
 

@@ -6,8 +6,8 @@
     "testEnvironment": "node"
   },
   "workspaces": [
-    "src/*",
-    "packages/*"
+    "src/rollup/packages/*",
+    "src/*"
   ],
   "scripts": {
     "test": "yarn jest"

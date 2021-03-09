@@ -1,0 +1,7 @@
+{
+  "name": "a",
+  "dependencies": {
+    "c": "file:../c"
+  },
+  "main": "./rollup.config.js"
+}
