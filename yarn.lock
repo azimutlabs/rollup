@@ -88,6 +88,7 @@ __metadata:
     "@azimutlabs/rollup-config-essentials": ^0.3.1
     "@babel/core": ^7.13.1
     "@rollup/plugin-babel": ^5.3.0
+    "@types/babel__core": ^7.1.12
     "@types/node": ^14.14.31
     rollup: ^2.38.0
     typescript: ^4.1.4
@@ -220,15 +221,15 @@ __metadata:
   linkType: soft
 
 "@azimutlabs/rollup@file:../rollup::locator=tests%40workspace%3Apackages%2Ftests":
-  version: 0.1.1
-  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=7fe44a&locator=tests%40workspace%3Apackages%2Ftests"
+  version: 0.1.2
+  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=531a1d&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     glob: ^7.1.6
     read-pkg: ^5.2.0
     read-pkg-up: ^7.0.1
   peerDependencies:
     rollup: ^2.15
-  checksum: b2bf957182e8e5a6204d57b6e3d74274712c6e9e636951d216ca49d7809781457533d5e0f50b200b451a77563bc002e5398108c5e5de86a09b9b587590721cfd
+  checksum: 1b428c32b2914895475dafe4572ce946e29d4269a3736aceac711e9ce931942362fc923fe7463ea2127b506838b63f8fdce6e5f1a07a56885cf264f19dfc8fdb
   languageName: node
   linkType: hard
 
@@ -2455,7 +2456,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.7":
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.12, @types/babel__core@npm:^7.1.7":
   version: 7.1.12
   resolution: "@types/babel__core@npm:7.1.12"
   dependencies:
