@@ -183,13 +183,13 @@ __metadata:
 
 "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.0
-  resolution: "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external#../rollup-plugin-external::hash=ecc24b&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external#../rollup-plugin-external::hash=8bdaa6&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     builtin-modules: ^3.2.0
     is-valid-path: ^0.1.1
     lodash.concat: ^4.5.0
     read-pkg-up: ^7.0.1
-  checksum: e25a037c895df10acf17bd92391576ad0fe87fe45b014aaab1c15ee5d5f7c30114ccf96c71d2be07d77a611b05ada6e971cdc1c24b1e2e522200101d60e3394a
+  checksum: f763370bd774d3d256f5d4f3724bf221ec49cffcb79d791c5c63c09c07c20442c33d69cd7f4d782d2498c8fa9acaa5db594f8e95cd07f18020edcc4fd24255ee
   languageName: node
   linkType: hard
 
@@ -222,14 +222,14 @@ __metadata:
 
 "@azimutlabs/rollup@file:../rollup::locator=tests%40workspace%3Apackages%2Ftests":
   version: 0.1.2
-  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=419e8e&locator=tests%40workspace%3Apackages%2Ftests"
+  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=501886&locator=tests%40workspace%3Apackages%2Ftests"
   dependencies:
     glob: ^7.1.6
     read-pkg: ^5.2.0
     read-pkg-up: ^7.0.1
   peerDependencies:
     rollup: ^2.15
-  checksum: bd6939f5587e17b050ec93115aa1ce1e8b34845203a8360bd0879538ddc813ad29150cbf45c14a8b90b0bb9b066c1d1e70447f3679e29730e9ace6af4c57c760
+  checksum: 06788ff9a5c174bc39b69c2f753d940f0b5f24b1e2c382d039741459ae26be96895a13ecc9d2a617e99abcd99c6297e07651f660f493f6f910385ed6b10859ec
   languageName: node
   linkType: hard
 
