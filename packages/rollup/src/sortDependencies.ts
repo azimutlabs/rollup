@@ -44,8 +44,15 @@ export const sortDependencies = (spaces: readonly string[]): readonly string[] =
     }
   });
 
+  const sortedPackages = graph.topologicalSort();
+
+  const nonDependencyPackages = workspacesPackages
+    .filter((packageJson) => !sortedPackages.includes(packageJson.name))
+    .map((packageJson) => workspaceNames.get(packageJson.name) as string);
+
   return [
     ...workspaces.unresolvedPackages,
-    ...graph.topologicalSort().map((packageName) => workspaceNames.get(packageName) as string),
+    ...nonDependencyPackages,
+    ...sortedPackages.map((packageName) => workspaceNames.get(packageName) as string),
   ];
 };

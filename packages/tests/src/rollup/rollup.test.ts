@@ -31,6 +31,20 @@ const result = [
       format: 'cjs',
     },
   },
+  {
+    input: 'd.js',
+    output: {
+      file: 'd.js',
+      format: 'cjs',
+    },
+  },
+  {
+    input: 'e.js',
+    output: {
+      file: 'e.js',
+      format: 'cjs',
+    },
+  },
 ];
 
 describe('rollup', () => {
@@ -72,9 +86,25 @@ describe('rollup', () => {
     const sorted = sortDependencies(['src/rollup/packages/*']);
 
     expect(sorted).toStrictEqual([
+      'src/rollup/packages/d',
+      'src/rollup/packages/e',
       'src/rollup/packages/c',
       'src/rollup/packages/a',
       'src/rollup/packages/b',
+    ]);
+  });
+
+  it('sortDependencies should work correctly with independent packages', () => {
+    const sorted = sortDependencies([
+      'src/rollup/packages/c',
+      'src/rollup/packages/d',
+      'src/rollup/packages/e',
+    ]);
+
+    expect(sorted).toStrictEqual([
+      'src/rollup/packages/c',
+      'src/rollup/packages/d',
+      'src/rollup/packages/e',
     ]);
   });
 
@@ -83,6 +113,8 @@ describe('rollup', () => {
       resolve('src/rollup/rollup.config.@(js|mjs|cjs)'),
       resolve('src/rollup-config/rollup.config.@(js|mjs|cjs)'),
       resolve('src/rollup-plugin-external/rollup.config.@(js|mjs|cjs)'),
+      resolve('src/rollup/packages/d/rollup.config.@(js|mjs|cjs)'),
+      resolve('src/rollup/packages/e/rollup.config.@(js|mjs|cjs)'),
       resolve('src/rollup/packages/c/rollup.config.@(js|mjs|cjs)'),
       resolve('src/rollup/packages/a/rollup.config.@(js|mjs|cjs)'),
       resolve('src/rollup/packages/b/rollup.config.@(js|mjs|cjs)'),
@@ -94,6 +126,8 @@ describe('rollup', () => {
       resolve('src/rollup/rollup.*.js'),
       resolve('src/rollup-config/rollup.*.js'),
       resolve('src/rollup-plugin-external/rollup.*.js'),
+      resolve('src/rollup/packages/d/rollup.*.js'),
+      resolve('src/rollup/packages/e/rollup.*.js'),
       resolve('src/rollup/packages/c/rollup.*.js'),
       resolve('src/rollup/packages/a/rollup.*.js'),
       resolve('src/rollup/packages/b/rollup.*.js'),
