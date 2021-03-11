@@ -1,6 +1,6 @@
 {
   "name": "@azimutlabs/rollup",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Collect Rollup configurations into a singular array",
   "keywords": [
     "config",

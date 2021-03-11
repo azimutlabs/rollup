@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup@0.1.2...@azimutlabs/rollup@0.1.3) (2021-03-11)
+
+
+### Bug Fixes
+
+* **rollup:** add independent packages to final sorted list ([#50](https://github.com/azimutlabs/rollup/issues/50)) ([d906f4a](https://github.com/azimutlabs/rollup/commit/d906f4a6bfb2ed449921505dc3b04f3d6849d417))
+
+
+
+
+
 ## [0.1.2](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup@0.1.1...@azimutlabs/rollup@0.1.2) (2021-03-10)
 
 
