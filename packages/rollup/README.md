@@ -78,13 +78,13 @@ export default [
 ];
 ```
 
-### `useWorkspaces`
+### `fromWorkspaces`
 **Get packages glob patterns from the `workspaces` field in the nearest `package.json`**
 ```typescript
 /**
  * @param pattern - rollup config files pattern. defaults to 'rollup.config.js'
  */
-function useWorkspaces(pattern?: string): readonly string[];
+function fromWorkspaces(pattern?: string): readonly string[];
 ```
 
 This is recommended usage when using yarn/npm
@@ -99,11 +99,11 @@ This is recommended usage when using yarn/npm
 ```
 ```javascript
 // rollup.config.js
-import { collect, useWorkspaces } from '@azimutlabs/rollup';
+import { collect, fromWorkspaces } from '@azimutlabs/rollup';
 
 export default collect(
   // Final collect scope will be: ['packages/*/rollup.config.js']
-  useWorkspaces(/* glob pattern for config files, e.g. rollup.config*.js */)
+  fromWorkspaces(/* glob pattern for config files, e.g. rollup.config*.js */)
 );
 ```
 
