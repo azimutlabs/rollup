@@ -117,7 +117,7 @@ export default compose(
   __dirname,
   // Change the default 'es' format to 'cjs'.
   babel('cjs'),
-  // Will only be present in a final config whe the 'NODE_ENV' var is set to 'production'.
+  // Will only be present in the final config when the 'NODE_ENV' var is set to 'production'.
   [combine(babel(), typescript(), Envs.Prod)]
 );
 ```
