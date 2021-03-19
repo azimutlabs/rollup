@@ -136,7 +136,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup-config@^0.2.1, @azimutlabs/rollup-config@workspace:packages/rollup-config":
+"@azimutlabs/rollup-config@*, @azimutlabs/rollup-config@^0.2.1, @azimutlabs/rollup-config@workspace:packages/rollup-config":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config@workspace:packages/rollup-config"
   dependencies:
@@ -152,19 +152,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup-config@file:../rollup-config::locator=tests%40workspace%3Apackages%2Ftests":
-  version: 0.2.1
-  resolution: "@azimutlabs/rollup-config@file:../rollup-config#../rollup-config::hash=29f026&locator=tests%40workspace%3Apackages%2Ftests"
-  dependencies:
-    lodash.clonedeep: ^4.5.0
-    lodash.mergewith: ^4.6.2
-  peerDependencies:
-    rollup: ^2.15
-  checksum: f9e9cf36ca03fc8b3ac9c864ab7e463e62f9f90db980856286cc537f9de986f282b7379ec81116aeb935fb8762d1edb355b6960ed6ce2d9ce236cae7abe48571
-  languageName: node
-  linkType: hard
-
-"@azimutlabs/rollup-plugin-external@^0.1.0, @azimutlabs/rollup-plugin-external@workspace:packages/rollup-plugin-external":
+"@azimutlabs/rollup-plugin-external@*, @azimutlabs/rollup-plugin-external@^0.1.0, @azimutlabs/rollup-plugin-external@workspace:packages/rollup-plugin-external":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-plugin-external@workspace:packages/rollup-plugin-external"
   dependencies:
@@ -180,18 +168,6 @@ __metadata:
     typescript: ^4.1.4
   languageName: unknown
   linkType: soft
-
-"@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external::locator=tests%40workspace%3Apackages%2Ftests":
-  version: 0.1.0
-  resolution: "@azimutlabs/rollup-plugin-external@file:../rollup-plugin-external#../rollup-plugin-external::hash=8bdaa6&locator=tests%40workspace%3Apackages%2Ftests"
-  dependencies:
-    builtin-modules: ^3.2.0
-    is-valid-path: ^0.1.1
-    lodash.concat: ^4.5.0
-    read-pkg-up: ^7.0.1
-  checksum: f763370bd774d3d256f5d4f3724bf221ec49cffcb79d791c5c63c09c07c20442c33d69cd7f4d782d2498c8fa9acaa5db594f8e95cd07f18020edcc4fd24255ee
-  languageName: node
-  linkType: hard
 
 "@azimutlabs/rollup-root@workspace:.":
   version: 0.0.0-use.local
@@ -220,20 +196,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup@file:../rollup::locator=tests%40workspace%3Apackages%2Ftests":
-  version: 0.1.3
-  resolution: "@azimutlabs/rollup@file:../rollup#../rollup::hash=c95c52&locator=tests%40workspace%3Apackages%2Ftests"
-  dependencies:
-    glob: ^7.1.6
-    read-pkg: ^5.2.0
-    read-pkg-up: ^7.0.1
-  peerDependencies:
-    rollup: ^2.15
-  checksum: 445338f898c85c193469e6e526cc35d61eab485d71e074755deef2692846000d308e86cd596837e780c31448e784959f6fe77bed72b8d6d929f466f0c2f97b3c
-  languageName: node
-  linkType: hard
-
-"@azimutlabs/rollup@workspace:packages/rollup":
+"@azimutlabs/rollup@*, @azimutlabs/rollup@workspace:packages/rollup":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup@workspace:packages/rollup"
   dependencies:
@@ -11111,9 +11074,9 @@ fsevents@~2.1.2:
   version: 0.0.0-use.local
   resolution: "tests@workspace:packages/tests"
   dependencies:
-    "@azimutlabs/rollup": "file:../rollup"
-    "@azimutlabs/rollup-config": "file:../rollup-config"
-    "@azimutlabs/rollup-plugin-external": "file:../rollup-plugin-external"
+    "@azimutlabs/rollup": "*"
+    "@azimutlabs/rollup-config": "*"
+    "@azimutlabs/rollup-plugin-external": "*"
     "@rollup/plugin-commonjs": ^17.1.0
     "@rollup/plugin-node-resolve": ^11.2.0
     "@rollup/plugin-typescript": ^8.2.0
