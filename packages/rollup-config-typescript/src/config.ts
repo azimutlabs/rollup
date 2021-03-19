@@ -2,9 +2,9 @@ import {
   rollupConfigEssentials,
   rollupConfigEssentialsExtensions,
 } from '@azimutlabs/rollup-config-essentials';
-import rollupPluginTypescript from '@rollup/plugin-typescript';
-import { findSync } from 'tsconfig';
-import type { RollupConfigTypescriptPlugins } from 'types/RollupConfigTypescriptPlugins';
+import typescriptRollupPlugin from '@wessberg/rollup-plugin-ts';
+
+import type { RollupConfigTypescriptPlugins } from './types/RollupConfigTypescriptPlugins';
 
 export const rollupConfigTypescriptExtensions = [
   ...rollupConfigEssentialsExtensions,
@@ -18,10 +18,24 @@ export const rollupConfigTypescript = rollupConfigEssentials.derive<RollupConfig
       extensions: rollupConfigTypescriptExtensions,
     },
     typescript: [
-      rollupPluginTypescript,
-      { tsconfig: findSync(rootDir) || false, tslib: require.resolve('tslib') },
+      typescriptRollupPlugin,
+      {
+        transpiler: 'typescript',
+        cwd: rootDir,
+      },
     ],
   })
 );
 
+// We don't any new plugins for typescriptBabel.
+// eslint-disable-next-line @typescript-eslint/ban-types
+export const rollupConfigTypescriptBabel = rollupConfigTypescript.derive<{}>(() => ({
+  typescript: {
+    transpiler: 'babel',
+  },
+}));
+
 export const typescript = rollupConfigTypescript.finalize.bind(rollupConfigTypescript);
+export const typescriptBabel = rollupConfigTypescriptBabel.finalize.bind(
+  rollupConfigTypescriptBabel
+);

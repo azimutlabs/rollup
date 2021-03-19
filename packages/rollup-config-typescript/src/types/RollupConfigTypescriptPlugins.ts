@@ -1,5 +1,5 @@
-import type { RollupTypescriptOptions } from '@rollup/plugin-typescript';
+import type { TypescriptPluginOptions } from '@wessberg/rollup-plugin-ts';
 
 export type RollupConfigTypescriptPlugins = {
-  readonly typescript: RollupTypescriptOptions;
+  readonly typescript: Partial<TypescriptPluginOptions>;
 };
