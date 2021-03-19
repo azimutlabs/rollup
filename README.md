@@ -49,6 +49,8 @@ export default {
     { name: '@azimutlabs/rollup-plugin-external' },
     // @rollup/plugin-node-resolve
     { name: 'node-resolve' },
+    // @rollup/plugin-alias
+    { name: 'alias' },
     // @rollup/plugin-babel
     { name: 'babel' },
   ],
@@ -103,13 +105,13 @@ Click the badges to see more information about the curtain package.
 Here we have some general usage descriptions.
 
 Consider that we are writing a **TypeScript** + **React** ui library. We want to have `commonjs` support
-to work properly inside of a `node` environment and `es6` import/export to support tree-shaking.
+to work properly inside a `node` environment and `es6` import/export to support tree-shaking.
 All those requirements are accomplished by this rollup config:
 ```typescript
 // rollup.config.js
-import compose, { combine } from '@azimutlabs/rollup-config';
-import babel from '@azimutlabs/rollup-config-babel';
-import typescript from '@azimutlabs/rollup-config-babel';
+import { compose } from '@azimutlabs/rollup-config';
+import { babel } from '@azimutlabs/rollup-config-babel';
+import { typescriptBabel } from '@azimutlabs/rollup-config-typescript';
 
 // Compose multiple configurations into a singular array of 'RollupOptions'.
 export default compose(
@@ -118,7 +120,7 @@ export default compose(
   // Change the default 'es' format to 'cjs'.
   babel('cjs'),
   // Will only be present in the final config when the 'NODE_ENV' var is set to 'production'.
-  [combine(babel(), typescript(), Envs.Prod)]
+  [typescriptBabel(), Envs.Prod]
 );
 ```
 Output will be:
