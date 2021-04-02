@@ -6,11 +6,11 @@
       src="https://raw.githubusercontent.com/azimutlabs/logos/master/little_logo.png"
       alt="azimutlabs logo"
     />
-    /rollup-example-typescript
+    /rollup-example-typescript-babel
   </a>
 </h1>
 
-<p align="center">Node.js TypeScript library package example</p>
+<p align="center">React Typescript CSS-in-JS (using Emotion and TailwindCSS) library package example</p>
 
 <p align="center">
   <a href="https://github.com/azimutlabs/rollup/actions?query=workflow%3A%22Lint+and+Test%22">
@@ -29,21 +29,28 @@
 
 ## [Configuration](rollup.config.js)
 ```js
-import { typescript } from '@azimutlabs/rollup-config-typescript';
+import { compose } from '@azimutlabs/rollup-config';
+import { babel } from '@azimutlabs/rollup-config-babel';
+import { typescriptBabel } from '@azimutlabs/rollup-config-typescript';
 
-export default typescript('cjs')(__dirname);
+export default compose(__dirname, babel('cjs'), typescriptBabel('es'));
 ```
 
 ## Output
 ```shell
 lib/
-  # index.ts
-  index.cjs.d.ts
+  # index.ts - module entry
   index.cjs.js
+  index.es.d.ts
+  index.es.js
 
-  # Result.ts
-  Result.cjs.d.ts
-  Result.cjs.js
+  # props.ts - contains only types
+  props-${hash}.d.ts
+
+  # component.tsx - React JSX and Emotion/Tailwind macros
+  component.cjs.js
+  component.es.d.ts
+  component.es.js
 ```
 
 ## Scripts
