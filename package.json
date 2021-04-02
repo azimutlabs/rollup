@@ -25,7 +25,7 @@
     "packages/*"
   ],
   "scripts": {
-    "compile": "yarn lerna run compile",
+    "compile": "yarn lerna run --no-private compile",
     "postinstall": "husky install",
     "lint": "yarn lint:files .",
     "lint:files": "yarn eslint --cache --max-warnings 0",
