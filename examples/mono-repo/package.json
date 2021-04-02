@@ -1,0 +1,16 @@
+{
+  "name": "@azimutlabs/rollup-example-mono-repo",
+  "private": true,
+  "workspaces": [
+    "colors",
+    "components"
+  ],
+  "scripts": {
+    "compile": "yarn rollup -c",
+    "start": "yarn rollup -cw"
+  },
+  "devDependencies": {
+    "@azimutlabs/rollup": "*",
+    "rollup": "^2.44.0"
+  }
+}

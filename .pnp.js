@@ -23,6 +23,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."
       },
       {
+        "name": "@azimutlabs/rollup-example-mono-repo",
+        "reference": "workspace:examples/mono-repo"
+      },
+      {
         "name": "@azimutlabs/rollup-example-typescript",
         "reference": "workspace:examples/typescript"
       },
@@ -59,6 +63,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/tests"
       },
       {
+        "name": "@azimutlabs/rollup-example-mono-repo.colors",
+        "reference": "workspace:examples/mono-repo/colors"
+      },
+      {
+        "name": "@azimutlabs/rollup-example-mono-repo.components",
+        "reference": "workspace:examples/mono-repo/components"
+      },
+      {
         "name": "a",
         "reference": "workspace:packages/tests/src/rollup/packages/a"
       },
@@ -82,11 +94,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["@azimutlabs/rollup", ["virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#workspace:packages/rollup", "workspace:packages/rollup"]],
+      ["@azimutlabs/rollup", ["virtual:5aca97935bdda6ea6c9f7b18a617a0c9d0c4afc3585389cce9565d3b4ec7689e69ceb7c2bfaddd3aea7e7d2cabdcb832301d3e38c3249aa247ed79c72cd95dcc#workspace:packages/rollup", "virtual:5c47eedd716adace8a452fea810f5c75b5b3c760568a869fdf0cfc783052175d6dced5c24680898aced35d0f82d942cdaf73325c8c408b74c5d988ace605996a#workspace:packages/rollup", "workspace:packages/rollup"]],
       ["@azimutlabs/rollup-config", ["virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config", "virtual:8e97506542127dc5099ca61b2da9307e6ef4db8183e4aeff168b02b7efb16160f38e9e74dde4ee78f3b73c333939a2ddde3458feccb2898d5e0df13efb455d88#workspace:packages/rollup-config", "workspace:packages/rollup-config"]],
       ["@azimutlabs/rollup-config-babel", ["virtual:b38af597627172daa9e31cb33fc840779e6668161926acaed4175ac0bb4f58fde4491cdb455a55ff4525ecdfe1f5b4dcd431e21450ad2de75da0e13e7fb2927d#workspace:packages/rollup-config-babel", "workspace:packages/rollup-config-babel"]],
       ["@azimutlabs/rollup-config-essentials", ["virtual:20e3971a4eb766b33a0dc5d98bca723633886efdb871996ae88b391c4f400d900de87ee9fb0954fdc178f290c6f0b6545cd0f8a91a2ad63a163c6754a405ebe8#workspace:packages/rollup-config-essentials", "virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config-essentials", "workspace:packages/rollup-config-essentials"]],
       ["@azimutlabs/rollup-config-typescript", ["virtual:8e97506542127dc5099ca61b2da9307e6ef4db8183e4aeff168b02b7efb16160f38e9e74dde4ee78f3b73c333939a2ddde3458feccb2898d5e0df13efb455d88#workspace:packages/rollup-config-typescript", "workspace:packages/rollup-config-typescript"]],
+      ["@azimutlabs/rollup-example-mono-repo", ["workspace:examples/mono-repo"]],
+      ["@azimutlabs/rollup-example-mono-repo.colors", ["workspace:examples/mono-repo/colors"]],
+      ["@azimutlabs/rollup-example-mono-repo.components", ["workspace:examples/mono-repo/components"]],
       ["@azimutlabs/rollup-example-typescript", ["workspace:examples/typescript"]],
       ["@azimutlabs/rollup-example-typescript-babel", ["workspace:examples/typescript-babel"]],
       ["@azimutlabs/rollup-plugin-external", ["workspace:packages/rollup-plugin-external"]],
@@ -325,6 +340,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["virtual:5c47eedd716adace8a452fea810f5c75b5b3c760568a869fdf0cfc783052175d6dced5c24680898aced35d0f82d942cdaf73325c8c408b74c5d988ace605996a#workspace:packages/rollup", {
+          "packageLocation": "./.yarn/$$virtual/@azimutlabs-rollup-virtual-f0f48f1550/1/packages/rollup/",
+          "packageDependencies": [
+            ["@azimutlabs/rollup", "virtual:5c47eedd716adace8a452fea810f5c75b5b3c760568a869fdf0cfc783052175d6dced5c24680898aced35d0f82d942cdaf73325c8c408b74c5d988ace605996a#workspace:packages/rollup"],
+            ["@types/glob", "npm:7.1.3"],
+            ["@types/node", "npm:14.14.31"],
+            ["@types/read-pkg", "npm:5.1.0"],
+            ["@types/read-pkg-up", "npm:6.0.0"],
+            ["@types/rollup", null],
+            ["glob", "npm:7.1.6"],
+            ["read-pkg", "npm:5.2.0"],
+            ["read-pkg-up", "npm:7.0.1"],
+            ["rollup", "npm:2.44.0"],
+            ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
+          ],
+          "packagePeers": [
+            "@types/rollup",
+            "rollup"
+          ],
+          "linkType": "SOFT",
+        }],
         ["workspace:packages/rollup", {
           "packageLocation": "./packages/rollup/",
           "packageDependencies": [
@@ -531,6 +567,57 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.31"],
             ["@wessberg/rollup-plugin-ts", "virtual:69203cbdf49f16fcff0d506420e299355b01847ce58f415e21baed82e1bd08582e51489faa7313400dfaa12d7bb3ad09b19f6cb0219a1da2f5203af9662e4fb7#npm:1.3.10"],
             ["rollup", "npm:2.38.0"],
+            ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@azimutlabs/rollup-example-mono-repo", [
+        ["workspace:examples/mono-repo", {
+          "packageLocation": "./examples/mono-repo/",
+          "packageDependencies": [
+            ["@azimutlabs/rollup-example-mono-repo", "workspace:examples/mono-repo"],
+            ["@azimutlabs/rollup", "virtual:5c47eedd716adace8a452fea810f5c75b5b3c760568a869fdf0cfc783052175d6dced5c24680898aced35d0f82d942cdaf73325c8c408b74c5d988ace605996a#workspace:packages/rollup"],
+            ["rollup", "npm:2.44.0"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@azimutlabs/rollup-example-mono-repo.colors", [
+        ["workspace:examples/mono-repo/colors", {
+          "packageLocation": "./examples/mono-repo/colors/",
+          "packageDependencies": [
+            ["@azimutlabs/rollup-example-mono-repo.colors", "workspace:examples/mono-repo/colors"],
+            ["@azimutlabs/rollup-config", "virtual:8e97506542127dc5099ca61b2da9307e6ef4db8183e4aeff168b02b7efb16160f38e9e74dde4ee78f3b73c333939a2ddde3458feccb2898d5e0df13efb455d88#workspace:packages/rollup-config"],
+            ["@azimutlabs/rollup-config-typescript", "virtual:8e97506542127dc5099ca61b2da9307e6ef4db8183e4aeff168b02b7efb16160f38e9e74dde4ee78f3b73c333939a2ddde3458feccb2898d5e0df13efb455d88#workspace:packages/rollup-config-typescript"],
+            ["rollup", "npm:2.44.0"],
+            ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@azimutlabs/rollup-example-mono-repo.components", [
+        ["workspace:examples/mono-repo/components", {
+          "packageLocation": "./examples/mono-repo/components/",
+          "packageDependencies": [
+            ["@azimutlabs/rollup-example-mono-repo.components", "workspace:examples/mono-repo/components"],
+            ["@azimutlabs/rollup-config", "virtual:8e97506542127dc5099ca61b2da9307e6ef4db8183e4aeff168b02b7efb16160f38e9e74dde4ee78f3b73c333939a2ddde3458feccb2898d5e0df13efb455d88#workspace:packages/rollup-config"],
+            ["@azimutlabs/rollup-config-babel", "virtual:b38af597627172daa9e31cb33fc840779e6668161926acaed4175ac0bb4f58fde4491cdb455a55ff4525ecdfe1f5b4dcd431e21450ad2de75da0e13e7fb2927d#workspace:packages/rollup-config-babel"],
+            ["@azimutlabs/rollup-config-typescript", "virtual:8e97506542127dc5099ca61b2da9307e6ef4db8183e4aeff168b02b7efb16160f38e9e74dde4ee78f3b73c333939a2ddde3458feccb2898d5e0df13efb455d88#workspace:packages/rollup-config-typescript"],
+            ["@azimutlabs/rollup-example-mono-repo.colors", "workspace:examples/mono-repo/colors"],
+            ["@babel/core", "npm:7.13.14"],
+            ["@babel/plugin-transform-runtime", "virtual:b38af597627172daa9e31cb33fc840779e6668161926acaed4175ac0bb4f58fde4491cdb455a55ff4525ecdfe1f5b4dcd431e21450ad2de75da0e13e7fb2927d#npm:7.13.10"],
+            ["@babel/preset-env", "virtual:b38af597627172daa9e31cb33fc840779e6668161926acaed4175ac0bb4f58fde4491cdb455a55ff4525ecdfe1f5b4dcd431e21450ad2de75da0e13e7fb2927d#npm:7.13.12"],
+            ["@babel/preset-react", "virtual:b38af597627172daa9e31cb33fc840779e6668161926acaed4175ac0bb4f58fde4491cdb455a55ff4525ecdfe1f5b4dcd431e21450ad2de75da0e13e7fb2927d#npm:7.13.13"],
+            ["@babel/preset-typescript", "virtual:b38af597627172daa9e31cb33fc840779e6668161926acaed4175ac0bb4f58fde4491cdb455a55ff4525ecdfe1f5b4dcd431e21450ad2de75da0e13e7fb2927d#npm:7.13.0"],
+            ["@babel/runtime", "npm:7.13.10"],
+            ["@emotion/react", "virtual:b38af597627172daa9e31cb33fc840779e6668161926acaed4175ac0bb4f58fde4491cdb455a55ff4525ecdfe1f5b4dcd431e21450ad2de75da0e13e7fb2927d#npm:11.1.5"],
+            ["@emotion/styled", "virtual:b38af597627172daa9e31cb33fc840779e6668161926acaed4175ac0bb4f58fde4491cdb455a55ff4525ecdfe1f5b4dcd431e21450ad2de75da0e13e7fb2927d#npm:11.1.5"],
+            ["@types/react", "npm:17.0.3"],
+            ["babel-plugin-macros", "npm:3.0.1"],
+            ["react", "npm:17.0.2"],
+            ["rollup", "npm:2.44.0"],
+            ["twin.macro", "npm:2.3.2"],
             ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
           ],
           "linkType": "SOFT",
