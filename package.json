@@ -21,6 +21,7 @@
   "license": "MIT",
   "author": "Azimut Labs <opensource@alabs.team>",
   "workspaces": [
+    "examples/*",
     "packages/*"
   ],
   "scripts": {

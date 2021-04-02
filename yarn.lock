@@ -116,7 +116,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@azimutlabs/rollup-config-typescript@workspace:packages/rollup-config-typescript":
+"@azimutlabs/rollup-config-typescript@*, @azimutlabs/rollup-config-typescript@workspace:packages/rollup-config-typescript":
   version: 0.0.0-use.local
   resolution: "@azimutlabs/rollup-config-typescript@workspace:packages/rollup-config-typescript"
   dependencies:
@@ -146,6 +146,17 @@ __metadata:
     typescript: ^4.1.4
   peerDependencies:
     rollup: ^2.15
+  languageName: unknown
+  linkType: soft
+
+"@azimutlabs/rollup-example-typescript@workspace:examples/typescript":
+  version: 0.0.0-use.local
+  resolution: "@azimutlabs/rollup-example-typescript@workspace:examples/typescript"
+  dependencies:
+    "@azimutlabs/rollup-config": "*"
+    "@azimutlabs/rollup-config-typescript": "*"
+    rollup: ^2.44.0
+    typescript: ^4.1.4
   languageName: unknown
   linkType: soft
 
@@ -6658,7 +6669,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-fsevents@^2.1.2:
+"fsevents@^2.1.2, fsevents@~2.3.1":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
   dependencies:
@@ -6667,7 +6678,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@^2.1.2#builtin<compat/fsevents>":
+"fsevents@patch:fsevents@^2.1.2#builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.1#builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"
   dependencies:
@@ -11210,6 +11221,20 @@ fsevents@~2.1.2:
   bin:
     rollup: dist/bin/rollup
   checksum: 253664a16eaa741506c417e0bb801b17aae655ecb11a50bbc7d578acb7d613a196e06132ce4c38185ab1a6e72f0ca3bef81865992e9062928934eb8faeebcf18
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.44.0":
+  version: 2.44.0
+  resolution: "rollup@npm:2.44.0"
+  dependencies:
+    fsevents: ~2.3.1
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 8142c058b297e478b4b0a1fcf114aac26a3ac2b9bb18b15af3895751a4c161708789f6a72f3bc02148cff8482a8dc69c303bd052cb56f2e61fcb4218c734cb11
   languageName: node
   linkType: hard
 
