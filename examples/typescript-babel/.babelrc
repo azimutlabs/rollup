@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "@babel/env",
+    "@babel/typescript",
+    [
+      "@babel/react",
+      {
+        "runtime": "automatic",
+        "importSource": "@emotion/react"
+      }
+    ]
+  ],
+  "plugins": [
+    "macros",
+    "@babel/transform-runtime"
+  ]
+}

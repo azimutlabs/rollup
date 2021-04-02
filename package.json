@@ -21,10 +21,11 @@
   "license": "MIT",
   "author": "Azimut Labs <opensource@alabs.team>",
   "workspaces": [
+    "examples/*",
     "packages/*"
   ],
   "scripts": {
-    "compile": "yarn lerna run compile",
+    "compile": "yarn lerna run --no-private compile && yarn lerna run --scope='@azimutlabs/rollup-example-*' compile",
     "postinstall": "husky install",
     "lint": "yarn lint:files .",
     "lint:files": "yarn eslint --cache --max-warnings 0",
