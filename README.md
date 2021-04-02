@@ -100,6 +100,10 @@ Click the badges to see more information about the curtain package.
 [config-babel]: https://img.shields.io/npm/v/@azimutlabs/rollup-config-babel?color=blue&label=babel
 [config-typescript]: https://img.shields.io/npm/v/@azimutlabs/rollup-config-typescript?color=blue&label=typescript
 
+## Examples
+Check the [**examples**](examples) directory to see the demo packages created using
+the configurations we provide.
+
 ## Usage
 **We highly suggest that you read specific readmes of packages that you want to use.**
 Here we have some general usage descriptions.
