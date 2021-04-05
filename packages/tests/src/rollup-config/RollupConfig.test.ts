@@ -40,6 +40,7 @@ describe('RollupConfig', () => {
     expect(options.output).toStrictEqual({
       format,
       exports: 'auto',
+      sourcemap: true,
       entryFileNames: `[name].[format].js`,
       preserveModules: true,
       dir: pathToLib,

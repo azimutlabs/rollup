@@ -22,4 +22,8 @@ export type RollupConfigFinalizeOptions<
    * Override plugin builder options.
    */
   readonly pluginBuilders?: RollupConfigPlugins<P>;
+  /**
+   * Indicate whether to generate sourcemaps. Defaults to `true`
+   */
+  readonly shouldGenerateSourcemaps?: boolean;
 };
