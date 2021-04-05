@@ -50,10 +50,13 @@ export class RollupConfig<P extends Record<string, unknown>> {
     const {
       sourceDir,
       outputDir,
+      shouldGenerateSourcemaps,
       env = getCurrentEnv(),
       pluginBuilders: additionalPlugins,
       ...additionalOptions
     } = options;
+
+    const shouldGenerateSourcemap = shouldGenerateSourcemaps ?? true;
 
     const safeSourceDir = sourceDir ?? defaultSourceDir;
     const safeOutputDir = outputDir ?? defaultOutputDir;
@@ -71,7 +74,12 @@ export class RollupConfig<P extends Record<string, unknown>> {
     if (Array.isArray(outputOptions) && !outputDir)
       throw Error(`'outputDir' must be specified if 'RollupOptions.output' is an Array`);
 
-    const predicatedOutput = this.getOutput(rootDir, format, safeOutputDir);
+    const predicatedOutput = this.getOutput(
+      rootDir,
+      safeOutputDir,
+      shouldGenerateSourcemap,
+      format
+    );
     // If 'RollupOptions.output' turns out to be an Array, we have to iterate it and merge with 'predicatedOutput'.
     const output = Array.isArray(outputOptions)
       ? outputOptions.map((opts) => merge([predicatedOutput, opts]))
@@ -94,10 +102,12 @@ export class RollupConfig<P extends Record<string, unknown>> {
 
   protected readonly getOutput = (
     rootDir: string,
-    format: InternalModuleFormat,
-    outputDir: string
+    outputDir: string,
+    sourcemap: boolean,
+    format: InternalModuleFormat
   ): OutputOptions => ({
     format,
+    sourcemap,
     exports: 'auto',
     preserveModules: true,
     entryFileNames: `[name].[format].js`,
