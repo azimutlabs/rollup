@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-typescript@0.2.3...@azimutlabs/rollup-config-typescript@0.2.4) (2021-04-06)
+
+
+### Reverts
+
+* use @wessberg/rollup-plugin-ts ([#53](https://github.com/azimutlabs/rollup/issues/53)) ([85c9e17](https://github.com/azimutlabs/rollup/commit/85c9e17f0904393318638e89c75f059042b5077a))
+
+
+
+
+
 ## [0.2.3](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-typescript@0.2.2...@azimutlabs/rollup-config-typescript@0.2.3) (2021-04-06)
 
 **Note:** Version bump only for package @azimutlabs/rollup-config-typescript
