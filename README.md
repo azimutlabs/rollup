@@ -113,7 +113,7 @@ to work properly inside a `node` environment and `es6` import/export to support 
 All those requirements are accomplished by this rollup config:
 ```typescript
 // rollup.config.js
-import { compose } from '@azimutlabs/rollup-config';
+import { combine, compose } from '@azimutlabs/rollup-config';
 import { babel } from '@azimutlabs/rollup-config-babel';
 import { typescriptBabel } from '@azimutlabs/rollup-config-typescript';
 
@@ -124,7 +124,7 @@ export default compose(
   // Change the default 'es' format to 'cjs'.
   babel('cjs'),
   // Will only be present in the final config when the 'NODE_ENV' var is set to 'production'.
-  [typescriptBabel(), Envs.Prod]
+  [combine(babel(), typescript()), Envs.Prod]
 );
 ```
 Output will be:

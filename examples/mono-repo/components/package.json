@@ -1,6 +1,8 @@
 {
   "name": "@azimutlabs/rollup-example-mono-repo.components",
   "private": true,
+  "module": "lib/index.es.js",
+  "typings": "lib/index.d.ts",
   "browserslist": [
     "defaults",
     "node 8",

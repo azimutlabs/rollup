@@ -3,7 +3,7 @@
   "private": true,
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.js",
-  "typings": "lib/index.es.d.ts",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "compile": "yarn rollup -c"
   },
@@ -30,6 +30,7 @@
     "babel-plugin-macros": "^3.0.1",
     "react": "^17.0.2",
     "rollup": "^2.44.0",
+    "tslib": "^2.2.0",
     "twin.macro": "^2.3.2",
     "typescript": "^4.1.4"
   },

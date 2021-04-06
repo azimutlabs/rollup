@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "module": "lib/index.es.js",
-  "typings": "lib/index.es.d.ts",
+  "typings": "lib/index.d.ts",
   "browserslist": [
     "defaults",
     "node 8",

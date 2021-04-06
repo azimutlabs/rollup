@@ -41,16 +41,16 @@ export default compose(__dirname, babel('cjs'), typescriptBabel('es'));
 lib/
   # index.ts - module entry
   index.cjs.js
-  index.es.d.ts
   index.es.js
-
-  # props.ts - contains only types
-  props-${hash}.d.ts
+  index.d.ts
 
   # component.tsx - React JSX and Emotion/Tailwind macros
   component.cjs.js
-  component.es.d.ts
   component.es.js
+  component.d.ts
+
+  # props.ts - contains only types
+  props.d.ts
 ```
 
 ## Scripts

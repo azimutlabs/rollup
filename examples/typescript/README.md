@@ -38,11 +38,11 @@ export default typescript('cjs')(__dirname);
 ```shell
 lib/
   # index.ts
-  index.cjs.d.ts
+  index.d.ts
   index.cjs.js
 
   # Result.ts
-  Result.cjs.d.ts
+  Result.d.ts
   Result.cjs.js
 ```
 

@@ -2,7 +2,7 @@
   "name": "@azimutlabs/rollup-example-typescript",
   "private": true,
   "main": "lib/index.cjs.js",
-  "typings": "lib/index.cjs.d.ts",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "compile": "yarn rollup -c"
   },

@@ -54,26 +54,26 @@ module.exports = typescript()(__dirname);
 colors/
   lib/
     # index.ts
-    index.es.d.ts
     index.es.js
+    index.d.ts
 
     # colors.ts
-    colors.es.d.ts
     colors.es.js
+    colors.d.ts
 
 components/
   lib/
     # index.ts - module entry
-    index.es.d.ts
     index.es.js
-
-    # Input/props.ts - contains only types
-    props-${hash}.d.ts
+    index.d.ts
 
     Input/
       # Input/component.ts - React JSX and Emotion/Tailwind macros
       component.es.d.ts
       component.es.js
+
+      # Input/props.ts - contains only types
+      props.d.ts
 ```
 
 ## Scripts
