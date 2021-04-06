@@ -1,3 +1,5 @@
-const { typescriptBabel } = require('@azimutlabs/rollup-config-typescript');
+const { combine } = require('@azimutlabs/rollup-config');
+const { babel } = require('@azimutlabs/rollup-config-babel');
+const { typescript } = require('@azimutlabs/rollup-config-typescript');
 
-module.exports = typescriptBabel()(__dirname);
+module.exports = combine(babel(), typescript())(__dirname);

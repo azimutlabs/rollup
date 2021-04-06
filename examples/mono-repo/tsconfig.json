@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "strictNullChecks": true,

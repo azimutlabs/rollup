@@ -44,8 +44,6 @@ $ yarn add -D @azimutlabs/rollup-{config,config-typescript}
 ```
 
 ## Usage
-We use [`@wessberg/rollup-plugin-ts`](https://github.com/wessberg/rollup-plugin-ts), so the
-configuration could be in two forms. Using default transpiler `typescript`:
 ```javascript
 // rollup.config.js
 import typescript from '@azimutlabs/rollup-config-typescript';
@@ -59,27 +57,9 @@ export default typescript(
     // Optional RollupConfigPlugins<P> object that will be merged with
     // configuration plugins.
     pluginBuilders: {
-      // Merge with default '@wessberg/rollup-plugin-ts' plugin options.
-      typescript: {
-        browserlist: ['not dead'],
-      },
-    },
-  }
-)('path/to/package');
-```
-...or with `babel` transpiler:
-```javascript
-// rollup.config.js
-import { typescriptBabel } from '@azimutlabs/rollup-config-typescript';
-
-export default typescriptBabel(
-  // Output format. Defaults to 'es'
-  'cjs',
-  {
-    pluginBuilders: {
       // Merge with default '@rollup/plugin-typescript' plugin options.
       typescript: {
-        babelConfig: './babel.config.prod.js',
+        tsconfig: false,
       },
     },
   }
