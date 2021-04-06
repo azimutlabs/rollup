@@ -115,7 +115,7 @@ All those requirements are accomplished by this rollup config:
 // rollup.config.js
 import { combine, compose } from '@azimutlabs/rollup-config';
 import { babel } from '@azimutlabs/rollup-config-babel';
-import { typescriptBabel } from '@azimutlabs/rollup-config-typescript';
+import { typescript } from '@azimutlabs/rollup-config-typescript';
 
 // Compose multiple configurations into a singular array of 'RollupOptions'.
 export default compose(
