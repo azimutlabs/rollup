@@ -1,8 +1,9 @@
 import { collect, fromWorkspaces, sortDependencies } from '@azimutlabs/rollup';
 import { Graph } from '@azimutlabs/rollup/lib/graph';
 import { resolve } from 'path';
+import type { NormalizedOutputOptions, RollupOptions } from 'rollup';
 
-const result = [
+const result: readonly RollupOptions[] = [
   {
     input: 'a.js',
     output: {
@@ -14,7 +15,7 @@ const result = [
     input: 'b.js',
     output: {
       file: 'b.js',
-      format: 'esnext',
+      format: 'esm',
     },
   },
   {
@@ -47,10 +48,21 @@ const result = [
   },
 ];
 
+const getMeaningfulConfig = (config: RollupOptions = {}): RollupOptions => {
+  const [output] = config.output as readonly NormalizedOutputOptions[];
+  return {
+    input: config.input,
+    output: {
+      file: output.file,
+      format: output.format,
+    },
+  };
+};
+
 describe('rollup', () => {
   it('collect should work properly', async () => {
     const config = await collect(['**/rollup.config.js']);
-    expect(config).toStrictEqual(result);
+    expect(config.map(getMeaningfulConfig)).toStrictEqual(result);
   });
 
   it('graph should work', () => {
@@ -136,6 +148,6 @@ describe('rollup', () => {
 
   it('collect should work with fromWorkspaces', async () => {
     const config = await collect(fromWorkspaces('packages/*/rollup.config.js'));
-    expect(config).toStrictEqual(result);
+    expect(config.map(getMeaningfulConfig)).toStrictEqual(result);
   });
 });
