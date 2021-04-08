@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup@0.1.4...@azimutlabs/rollup@0.1.5) (2021-04-08)
+
+
+### Bug Fixes
+
+* resolve file relative to cwd in collect ([c36bb76](https://github.com/azimutlabs/rollup/commit/c36bb76697921257091390d414045e3b1335abd8))
+* **rollup:** use loadConfigFile from rollup/dist/shared to load configs ([#41](https://github.com/azimutlabs/rollup/issues/41)) ([71ef820](https://github.com/azimutlabs/rollup/commit/71ef8201b1de9e1ed27d2d3cb422b039d779061d))
+
+
+
+
+
 ## [0.1.4](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup@0.1.3...@azimutlabs/rollup@0.1.4) (2021-04-06)
 
 **Note:** Version bump only for package @azimutlabs/rollup

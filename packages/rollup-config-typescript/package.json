@@ -1,6 +1,6 @@
 {
   "name": "@azimutlabs/rollup-config-typescript",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Rollup configuration for TypeScript",
   "keywords": [
     "config",

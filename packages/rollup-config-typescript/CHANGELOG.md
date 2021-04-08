@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-typescript@0.2.4...@azimutlabs/rollup-config-typescript@0.3.0) (2021-04-08)
+
+
+### Features
+
+* **rollup-config-typescript:** add @zerollup/ts-transform-paths to transform absolute paths ([a92cf16](https://github.com/azimutlabs/rollup/commit/a92cf16bd240c6c501990bcf816cd8cc9b30f076))
+
+
+
+
+
 ## [0.2.4](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-typescript@0.2.3...@azimutlabs/rollup-config-typescript@0.2.4) (2021-04-06)
 
 
