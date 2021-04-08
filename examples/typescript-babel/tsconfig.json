@@ -4,6 +4,7 @@
     "module": "esnext",
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
+    "moduleResolution": "node",
     "declaration": true,
     "baseUrl": "src",
     "rootDir": "src",

@@ -4,6 +4,7 @@
     "module": "esnext",
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
+    "moduleResolution": "node",
     "strictNullChecks": true,
     "declaration": true
   }
