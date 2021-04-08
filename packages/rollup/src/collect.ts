@@ -1,13 +1,28 @@
 import { sync } from 'glob';
-import { resolve } from 'path';
-import type { RollupOptions } from 'rollup';
+import { extname } from 'path';
+import type { InternalModuleFormat, RollupOptions } from 'rollup';
+import loadConfigFile from 'rollup/dist/loadConfigFile';
+
+const formatByExtname: Record<string, InternalModuleFormat> = {
+  js: 'es',
+  mjs: 'es',
+  cjs: 'cjs',
+};
 
 export const collect = async (
   filePatterns: readonly string[],
-  dirname = process.cwd()
-): Promise<readonly RollupOptions[]> =>
-  Promise.all(
-    filePatterns
-      .flatMap((pattern) => sync(pattern) as readonly string[])
-      .map(async (file) => import(resolve(dirname, file)).then((config) => config.default))
-  ).then((res) => res.flat());
+  cwd = process.cwd()
+): Promise<readonly RollupOptions[]> => {
+  const configPromises = filePatterns
+    .flatMap((pattern) => sync(pattern, { cwd }) as readonly string[])
+    .map(async (file) => {
+      const format = formatByExtname[extname(file)];
+      const { warnings, options } = await loadConfigFile(file, { format });
+
+      warnings.flush();
+
+      return options;
+    });
+
+  return Promise.all(configPromises).then((configs) => configs.flat());
+};
