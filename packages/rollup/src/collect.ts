@@ -1,5 +1,5 @@
 import { sync } from 'glob';
-import { extname } from 'path';
+import { extname, resolve } from 'path';
 import type { InternalModuleFormat, RollupOptions } from 'rollup';
 import loadConfigFile from 'rollup/dist/loadConfigFile';
 
@@ -17,7 +17,7 @@ export const collect = async (
     .flatMap((pattern) => sync(pattern, { cwd }) as readonly string[])
     .map(async (file) => {
       const format = formatByExtname[extname(file)];
-      const { warnings, options } = await loadConfigFile(file, { format });
+      const { warnings, options } = await loadConfigFile(resolve(cwd, file), { format });
 
       warnings.flush();
 
