@@ -1,3 +1,3 @@
-const { typescript } = require('@azimutlabs/rollup-config-typescript');
+import { typescript } from '@azimutlabs/rollup-config-typescript';
 
-module.exports = typescript()(__dirname);
+export default typescript()(__dirname);
