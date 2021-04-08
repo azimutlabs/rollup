@@ -546,6 +546,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/rollup", null],
             ["@types/tslib", null],
             ["@types/typescript", null],
+            ["@zerollup/ts-transform-paths", "virtual:20e3971a4eb766b33a0dc5d98bca723633886efdb871996ae88b391c4f400d900de87ee9fb0954fdc178f290c6f0b6545cd0f8a91a2ad63a163c6754a405ebe8#npm:1.7.18"],
             ["rollup", "npm:2.44.0"],
             ["tsconfig", "npm:7.0.0"],
             ["tslib", "npm:2.2.0"],
@@ -570,6 +571,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@azimutlabs/rollup-config-essentials", "virtual:52ca7bc440018657998e187f9cb7f5c88a8fb91285b9d0cc3d58edef6c19b6f29aea4d2e55e58581c14b452cf19ced36cb9e710165f8ccbc98c69d6ab16d699a#workspace:packages/rollup-config-essentials"],
             ["@rollup/plugin-typescript", "virtual:69203cbdf49f16fcff0d506420e299355b01847ce58f415e21baed82e1bd08582e51489faa7313400dfaa12d7bb3ad09b19f6cb0219a1da2f5203af9662e4fb7#npm:8.2.1"],
             ["@types/node", "npm:14.14.31"],
+            ["@zerollup/ts-transform-paths", "virtual:20e3971a4eb766b33a0dc5d98bca723633886efdb871996ae88b391c4f400d900de87ee9fb0954fdc178f290c6f0b6545cd0f8a91a2ad63a163c6754a405ebe8#npm:1.7.18"],
             ["rollup", "npm:2.38.0"],
             ["tsconfig", "npm:7.0.0"],
             ["tslib", "npm:2.2.0"],
@@ -6254,6 +6256,52 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/visitor-keys", "npm:4.15.1"],
             ["@typescript-eslint/types", "npm:4.15.1"],
             ["eslint-visitor-keys", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@zerollup/ts-helpers", [
+        ["npm:1.7.18", {
+          "packageLocation": "./.yarn/cache/@zerollup-ts-helpers-npm-1.7.18-fa39b91899-c787542dff.zip/node_modules/@zerollup/ts-helpers/",
+          "packageDependencies": [
+            ["@zerollup/ts-helpers", "npm:1.7.18"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:f6704ea9c3db111c91c7857f0307f22210c96c0640a786f494e1ecb49ccbbeae655318072fca90f40c8f563600e195654e46facd0ff28ada9dfe642cfd944300#npm:1.7.18", {
+          "packageLocation": "./.yarn/$$virtual/@zerollup-ts-helpers-virtual-cb1fba7636/0/cache/@zerollup-ts-helpers-npm-1.7.18-fa39b91899-c787542dff.zip/node_modules/@zerollup/ts-helpers/",
+          "packageDependencies": [
+            ["@zerollup/ts-helpers", "virtual:f6704ea9c3db111c91c7857f0307f22210c96c0640a786f494e1ecb49ccbbeae655318072fca90f40c8f563600e195654e46facd0ff28ada9dfe642cfd944300#npm:1.7.18"],
+            ["@types/typescript", null],
+            ["resolve", "patch:resolve@npm%3A1.20.0#builtin<compat/resolve>::version=1.20.0&hash=3388aa"],
+            ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
+          ],
+          "packagePeers": [
+            "@types/typescript",
+            "typescript"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@zerollup/ts-transform-paths", [
+        ["npm:1.7.18", {
+          "packageLocation": "./.yarn/cache/@zerollup-ts-transform-paths-npm-1.7.18-14319406c9-d622799d56.zip/node_modules/@zerollup/ts-transform-paths/",
+          "packageDependencies": [
+            ["@zerollup/ts-transform-paths", "npm:1.7.18"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:20e3971a4eb766b33a0dc5d98bca723633886efdb871996ae88b391c4f400d900de87ee9fb0954fdc178f290c6f0b6545cd0f8a91a2ad63a163c6754a405ebe8#npm:1.7.18", {
+          "packageLocation": "./.yarn/$$virtual/@zerollup-ts-transform-paths-virtual-f6704ea9c3/0/cache/@zerollup-ts-transform-paths-npm-1.7.18-14319406c9-d622799d56.zip/node_modules/@zerollup/ts-transform-paths/",
+          "packageDependencies": [
+            ["@zerollup/ts-transform-paths", "virtual:20e3971a4eb766b33a0dc5d98bca723633886efdb871996ae88b391c4f400d900de87ee9fb0954fdc178f290c6f0b6545cd0f8a91a2ad63a163c6754a405ebe8#npm:1.7.18"],
+            ["@types/typescript", null],
+            ["@zerollup/ts-helpers", "virtual:f6704ea9c3db111c91c7857f0307f22210c96c0640a786f494e1ecb49ccbbeae655318072fca90f40c8f563600e195654e46facd0ff28ada9dfe642cfd944300#npm:1.7.18"],
+            ["typescript", "patch:typescript@npm%3A4.1.4#builtin<compat/typescript>::version=4.1.4&hash=cc6730"]
+          ],
+          "packagePeers": [
+            "@types/typescript",
+            "typescript"
           ],
           "linkType": "HARD",
         }]

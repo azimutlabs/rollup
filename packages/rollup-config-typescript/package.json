@@ -35,6 +35,7 @@
   "dependencies": {
     "@azimutlabs/rollup-config-essentials": "^0.3.2",
     "@rollup/plugin-typescript": "^8.2.1",
+    "@zerollup/ts-transform-paths": "^1.7.18",
     "tsconfig": "^7.0.0"
   },
   "peerDependencies": {

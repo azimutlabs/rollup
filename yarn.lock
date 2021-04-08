@@ -124,6 +124,7 @@ __metadata:
     "@azimutlabs/rollup-config-essentials": ^0.3.2
     "@rollup/plugin-typescript": ^8.2.1
     "@types/node": ^14.14.31
+    "@zerollup/ts-transform-paths": ^1.7.18
     rollup: ^2.38.0
     tsconfig: ^7.0.0
     tslib: ^2.2.0
@@ -4235,6 +4236,28 @@ __metadata:
     "@typescript-eslint/types": 4.15.1
     eslint-visitor-keys: ^2.0.0
   checksum: 779711aa95940738507eeb97e18efa0244d8513846284f497fb9b400d0d2e0791cc746829fd6870eb95a6256f4ab30b53b518d59a2e005d050f0cfcf8caa3ea2
+  languageName: node
+  linkType: hard
+
+"@zerollup/ts-helpers@npm:^1.7.18":
+  version: 1.7.18
+  resolution: "@zerollup/ts-helpers@npm:1.7.18"
+  dependencies:
+    resolve: ^1.12.0
+  peerDependencies:
+    typescript: ">=3.7.2"
+  checksum: c787542dff0af39776316e66896f17b68de2bcea41789f402383ab38d9ca6a80756717bbab17a0e127a3624982ebd4124d6c488db400f0cd9d3f523d970dd1f6
+  languageName: node
+  linkType: hard
+
+"@zerollup/ts-transform-paths@npm:^1.7.18":
+  version: 1.7.18
+  resolution: "@zerollup/ts-transform-paths@npm:1.7.18"
+  dependencies:
+    "@zerollup/ts-helpers": ^1.7.18
+  peerDependencies:
+    typescript: ">=3.7.2"
+  checksum: d622799d5688d6af2c7c32b547e28c8ddaccbfffd57ec83f3467f10ad5bd50a171b92f22328c23b8fe306217dd069955670d31bb881252bd816909419545e2d6
   languageName: node
   linkType: hard
 
