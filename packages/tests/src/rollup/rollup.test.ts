@@ -81,6 +81,17 @@ describe('rollup', () => {
     expect(graph.getAdjacents(2)).toStrictEqual([3]);
   });
 
+  it('graph should detect cycles', () => {
+    const graph = new Graph<number>();
+    graph.addEdge(5, 2);
+    graph.addEdge(5, 0);
+    graph.addEdge(2, 3);
+    graph.addEdge(3, 1);
+    graph.addEdge(1, 5);
+
+    expect(graph.getCycle()).toStrictEqual([5, 2, 3, 1, 5]);
+  });
+
   it('topological sort of the graph should work', () => {
     const graph = new Graph<string>();
     graph.addEdge('a', 'b');
@@ -92,6 +103,18 @@ describe('rollup', () => {
 
     const topologicalSort = graph.topologicalSort();
     expect(topologicalSort).toStrictEqual(['a', 'c', 'd', 'b', 'e']);
+  });
+
+  it('topological sort of the graph should throw error if cycle detected', () => {
+    const graph = new Graph<string>();
+    graph.addEdge('a', 'b');
+    graph.addEdge('a', 'c');
+    graph.addEdge('c', 'd');
+    graph.addEdge('a', 'd');
+    graph.addEdge('d', 'b');
+    graph.addEdge('b', 'c');
+
+    expect(() => graph.topologicalSort()).toThrow('Dependency cycle was found: [b,c,d,b]');
   });
 
   it('sortDependencies should work correctly', () => {
