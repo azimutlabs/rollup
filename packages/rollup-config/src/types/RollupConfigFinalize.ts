@@ -1,3 +1,3 @@
 import type { RollupOptions } from 'rollup';
 
-export type RollupConfigFinalize = (dirname: string) => RollupOptions;
+export type RollupConfigFinalize = (dirnameOrOptions: RollupOptions | string) => RollupOptions;
