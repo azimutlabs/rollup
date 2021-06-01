@@ -7,6 +7,10 @@ export type RollupConfigFinalizeOptions<
   P extends Record<string, unknown>
 > = Partial<RollupOptions> & {
   /**
+   * Directory that will be considered the root of the package.
+   */
+  readonly rootDir?: string;
+  /**
    * Directory that claims to have `index.*` file as an entry point.
    */
   readonly sourceDir?: string;

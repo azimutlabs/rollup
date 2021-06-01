@@ -10,10 +10,9 @@ const isComposeFinalizeWithEnv = (value: unknown): value is ComposeFinalizeWithE
   Array.isArray(value) && typeof value[0] === 'function';
 
 export const compose = (
-  dirname: string,
   // eslint-disable-next-line functional/functional-parameters
   ...configs: readonly [ComposeFinalize, ...(readonly ComposeFinalize[])]
-): readonly RollupOptions[] => {
+) => (optionsOrDirname: RollupOptions | string): readonly RollupOptions[] => {
   const currentEnv = getCurrentEnv();
   return (
     configs
@@ -24,7 +23,6 @@ export const compose = (
         if (Array.isArray(env)) return env.includes(Envs.All) || env.includes(currentEnv);
         return env === Envs.All || env === currentEnv;
       })
-      // Apply.
-      .map(([finalize]) => finalize(dirname))
+      .map(([finalize]) => finalize(optionsOrDirname))
   );
 };

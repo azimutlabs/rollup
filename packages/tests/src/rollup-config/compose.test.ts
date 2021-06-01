@@ -14,7 +14,7 @@ describe('compose', () => {
     const cfg1Finalize = cfg1.finalize();
     const cfg2Finalize = cfg2.finalize();
 
-    const [cfg1RollupOptions, cfg2RollupOptions] = compose(__dirname, cfg1Finalize, cfg2Finalize);
+    const [cfg1RollupOptions, cfg2RollupOptions] = compose(cfg1Finalize, cfg2Finalize)(__dirname);
 
     expect(cfg1RollupOptions.shimMissingExports).toStrictEqual(cfg1Options.shimMissingExports);
     expect(cfg2RollupOptions.treeshake).toStrictEqual(cfg2Options.treeshake);

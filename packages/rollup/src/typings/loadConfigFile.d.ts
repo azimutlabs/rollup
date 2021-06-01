@@ -1,5 +1,6 @@
 declare module 'rollup/dist/loadConfigFile' {
-  import type { OutputOptions, RollupOptions } from 'rollup';
+  import type { InputOptions, OutputOptions, RollupOptions } from 'rollup';
+  import type { RollupConfigInjectOptions } from '@azimutlabs/rollup-config';
 
   export type BatchedWarnings = {
     readonly count: number;
@@ -13,12 +14,12 @@ declare module 'rollup/dist/loadConfigFile' {
 
   /**
    * @param fileName - path to config.
-   * @param commandOptions - should be command line options. OutputOption is an alternative.
+   * @param commandOptions - should be command line options. OutputOption & RollupOptions is an alternative.
    * @private
    */
   function loadConfigFile(
     fileName: string,
-    commandOptions?: OutputOptions
+    commandOptions?: InputOptions & OutputOptions & RollupConfigInjectOptions
   ): Promise<LoadConfigFileResult>;
 
   export = loadConfigFile;

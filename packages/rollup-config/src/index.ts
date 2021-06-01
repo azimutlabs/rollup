@@ -1,4 +1,5 @@
 export * from './RollupConfig';
+export * from './RollupConfigInjectOptions';
 export * from './services/combine';
 export { compose, compose as default } from './services/compose';
 export * from './services/types/ComposeFinalize';

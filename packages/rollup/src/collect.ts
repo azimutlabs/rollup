@@ -1,23 +1,28 @@
+import { RollupConfigInjectOptions } from '@azimutlabs/rollup-config';
 import { sync } from 'glob';
-import { extname, resolve } from 'path';
-import type { InternalModuleFormat, RollupOptions } from 'rollup';
+import { dirname, resolve } from 'path';
+import readPkgUp from 'read-pkg-up';
+import type { RollupOptions } from 'rollup';
 import loadConfigFile from 'rollup/dist/loadConfigFile';
-
-const formatByExtname: Record<string, InternalModuleFormat> = {
-  js: 'es',
-  mjs: 'es',
-  cjs: 'cjs',
-};
 
 export const collect = async (
   filePatterns: readonly string[],
   cwd = process.cwd()
 ): Promise<readonly RollupOptions[]> => {
+  const packagePath = readPkgUp.sync({ cwd })?.path ?? cwd;
+  const rootDir = dirname(packagePath);
+
   const configPromises = filePatterns
-    .flatMap((pattern) => sync(pattern, { cwd }) as readonly string[])
+    .flatMap((pattern) => sync(pattern, { cwd: rootDir }) as readonly string[])
     .map(async (file) => {
-      const format = formatByExtname[extname(file)];
-      const { warnings, options } = await loadConfigFile(resolve(cwd, file), { format });
+      class InjectOptions extends RollupConfigInjectOptions {
+        // eslint-disable-next-line class-methods-use-this
+        public get rootDir(): string {
+          return dirname(file);
+        }
+      }
+
+      const { warnings, options } = await loadConfigFile(resolve(cwd, file), new InjectOptions());
 
       warnings.flush();
 

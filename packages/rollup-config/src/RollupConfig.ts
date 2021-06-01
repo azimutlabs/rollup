@@ -1,5 +1,6 @@
 import { existsSync, readdirSync } from 'fs';
 import { dirname, resolve } from 'path';
+import readPkgUp from 'read-pkg-up';
 import type {
   InputOption,
   InternalModuleFormat,
@@ -7,7 +8,9 @@ import type {
   Plugin,
   RollupOptions,
 } from 'rollup';
+import { mergeOptions } from 'rollup/dist/shared/mergeOptions';
 
+import { RollupConfigInjectOptions } from './RollupConfigInjectOptions';
 import { getCurrentEnv } from './services/getCurrentEnv';
 import { merge } from './services/merge';
 import { nonNullableArray } from './services/nonNullableArray';
@@ -40,64 +43,106 @@ export class RollupConfig<P extends Record<string, unknown>> {
       merge([this.options, options])
     );
 
-  public readonly finalize = (
-    format: InternalModuleFormat = defaultFormat,
-    options: RollupConfigFinalizeOptions<P> = {}
-  ): RollupConfigFinalize => (rootDir) => {
-    /* eslint-disable functional/no-throw-statement */
-    if (!rootDir) throw Error(`Received undefined 'rootDir'`);
+  public finalize(options?: RollupConfigFinalizeOptions<P>): RollupConfigFinalize;
+  public finalize(
+    format: InternalModuleFormat,
+    options?: RollupConfigFinalizeOptions<P>
+  ): RollupConfigFinalize;
+  public finalize(
+    optionsOrFormat?: InternalModuleFormat | RollupConfigFinalizeOptions<P>,
+    maybeOptions?: RollupConfigFinalizeOptions<P>
+  ): RollupConfigFinalize {
+    const format = typeof optionsOrFormat === 'string' ? optionsOrFormat : defaultFormat;
+    const options = (typeof optionsOrFormat === 'object' ? optionsOrFormat : maybeOptions) ?? {};
 
-    const {
-      sourceDir,
-      outputDir,
-      shouldGenerateSourcemaps,
-      env = getCurrentEnv(),
-      pluginBuilders: additionalPlugins,
-      ...additionalOptions
-    } = options;
+    return (maybeRootDir) => {
+      const cliOptions = typeof maybeRootDir === 'object' ? maybeRootDir : {};
 
-    const shouldGenerateSourcemap = shouldGenerateSourcemaps ?? true;
+      const maybeInjectedRootDir =
+        cliOptions instanceof RollupConfigInjectOptions ? cliOptions.rootDir : null;
 
-    const safeSourceDir = sourceDir ?? defaultSourceDir;
-    const safeOutputDir = outputDir ?? defaultOutputDir;
+      const rootDir = options.rootDir ?? maybeInjectedRootDir ?? this.getRootDir(maybeRootDir);
 
-    const inputOptions = additionalOptions.input ?? this.options?.input;
-    const input = inputOptions ?? this.getInput(rootDir, safeSourceDir);
-    // Throw input, if this.getInput is returning an Error.
-    if (input instanceof Error) throw input;
-    // We can't predicate the sourceDir if there is multiple entry points.
-    if (typeof input !== 'string' && !sourceDir)
-      throw Error(`'sourceDir' must be specified if 'RollupOptions.input' is not 'string'`);
+      /* eslint-disable functional/no-throw-statement */
+      if (!rootDir) throw Error(`Received undefined 'rootDir'`);
 
-    const outputOptions = additionalOptions.output ?? this.options?.output;
-    // We can't predicate the outputDir if there is multiple output options.
-    if (Array.isArray(outputOptions) && !outputDir)
-      throw Error(`'outputDir' must be specified if 'RollupOptions.output' is an Array`);
+      const {
+        sourceDir,
+        outputDir,
+        shouldGenerateSourcemaps,
+        env = getCurrentEnv(),
+        pluginBuilders: additionalPlugins,
+        ...additionalOptions
+      } = options;
 
-    const predicatedOutput = this.getOutput(
-      rootDir,
-      safeOutputDir,
-      shouldGenerateSourcemap,
-      format
-    );
-    // If 'RollupOptions.output' turns out to be an Array, we have to iterate it and merge with 'predicatedOutput'.
-    const output = Array.isArray(outputOptions)
-      ? outputOptions.map((opts) => merge([predicatedOutput, opts]))
-      : merge([predicatedOutput, outputOptions]);
+      const shouldGenerateSourcemap = shouldGenerateSourcemaps ?? true;
 
-    const pluginBuildersOptions: RollupConfigPluginBuildersOptions = {
-      env,
-      rootDir,
-      sourceDir: typeof input === 'string' ? dirname(input) : safeSourceDir,
-      outputDir: Array.isArray(output) ? safeOutputDir : output.dir ?? safeOutputDir,
+      const safeSourceDir = sourceDir ?? defaultSourceDir;
+      const safeOutputDir = outputDir ?? defaultOutputDir;
+
+      const inputOptions = cliOptions.input ?? additionalOptions.input ?? this.options?.input;
+      const input = inputOptions ?? this.getInput(rootDir, safeSourceDir);
+      // Throw input, if this.getInput is returning an Error.
+      if (input instanceof Error) throw input;
+      // We can't predicate the sourceDir if there is multiple entry points.
+      if (typeof input !== 'string' && !sourceDir)
+        throw Error(`'sourceDir' must be specified if 'RollupOptions.input' is not 'string'`);
+
+      const outputOptions = cliOptions.output ?? additionalOptions.output ?? this.options?.output;
+      // We can't predicate the outputDir if there is multiple output options.
+      if (Array.isArray(outputOptions) && !outputDir)
+        throw Error(`'outputDir' must be specified if 'RollupOptions.output' is an Array`);
+
+      const predicatedOutput = this.getOutput(
+        rootDir,
+        safeOutputDir,
+        shouldGenerateSourcemap,
+        format
+      );
+      // If 'RollupOptions.output' turns out to be an Array, we have to iterate it and merge with 'predicatedOutput'.
+      const output = Array.isArray(outputOptions)
+        ? outputOptions.map((opts) => merge([predicatedOutput, opts]))
+        : merge([predicatedOutput, outputOptions]);
+
+      const pluginBuildersOptions: RollupConfigPluginBuildersOptions = {
+        env,
+        rootDir,
+        sourceDir: typeof input === 'string' ? dirname(input) : safeSourceDir,
+        outputDir: Array.isArray(output) ? safeOutputDir : output.dir ?? safeOutputDir,
+      };
+
+      const plugins = this.getPlugins(pluginBuildersOptions, additionalPlugins)
+        .concat(...nonNullableArray([additionalOptions.plugins, this.options?.plugins]))
+        .concat(...(cliOptions.plugins ?? []));
+
+      // Ignoring because we already merged cliOptions before.
+      // eslint-disable-next-line @typescript-eslint/naming-convention,@typescript-eslint/no-unused-vars
+      const { input: _input, output: _output, ...normalizedCliOptions } = mergeOptions(
+        {},
+        cliOptions
+      );
+
+      return merge<RollupOptions>([
+        this.options,
+        additionalOptions,
+        normalizedCliOptions,
+        { input, output, plugins },
+      ]);
+      /* eslint-enable functional/no-throw-statement */
     };
+  }
 
-    const plugins = this.getPlugins(pluginBuildersOptions, additionalPlugins).concat(
-      ...nonNullableArray([additionalOptions.plugins, this.options?.plugins])
-    );
+  protected readonly getRootDir = (dirnameOrOptions: RollupOptions | string): string => {
+    if (typeof dirnameOrOptions === 'string') return dirnameOrOptions;
 
-    return merge<RollupOptions>([this.options, additionalOptions, { input, output, plugins }]);
-    /* eslint-enable functional/no-throw-statement */
+    const cwd = process.cwd();
+    const cwdOrSrc =
+      typeof dirnameOrOptions.input === 'string' ? dirname(dirnameOrOptions.input) : cwd;
+
+    const packagePath = readPkgUp.sync({ cwd: cwdOrSrc });
+    if (packagePath) return dirname(packagePath.path);
+
+    return cwd;
   };
 
   protected readonly getOutput = (
