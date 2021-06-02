@@ -43,7 +43,11 @@
 ### `combine`
 **Combine several configurations into a single `RollupOptions` object.**
 ```typescript
-function combine(...configs: readonly RollupConfigFinalize[]): RollupConfigFinalize;
+function combine(
+  finalizers: ReadonlyArray<RollupConfig['finalize']>,
+  format?: InternalModuleFormat,
+  options?: RollupOptions
+): RollupConfigFinalize;
 ```
 
 Given example:
@@ -54,7 +58,7 @@ import babel from '@azimutlabs/rollup-config-babel';
 import typescript from '@azimutlabs/rollup-config-typescript';
 // Order is important, because 'combine' will prefer to add the latest plugins in case of
 // plugin merge conflicts.
-export default combine(babel(), typescript())('path/to/package');
+export default combine([babel, typescript]);
 ```
 ...will result in:
 ```javascript
@@ -77,7 +81,7 @@ export default {
 ### `compose`
 **Compose multiple configurations into a singular array of `RollupOptions`.**
 ```typescript
-function compose(dirname: string, ...configs: readonly ComposeFinalize[]): readonly RollupOptions[];
+function compose(...configs: ComposeFinalize[]): RollupConfigFinalize;
 ```
 
 Just by using `RollupConfigFinalize`:
@@ -86,9 +90,8 @@ Just by using `RollupConfigFinalize`:
 import compose from '@azimutlabs/rollup-config';
 import babel from '@azimutlabs/rollup-config-babel';
 import typescript from '@azimutlabs/rollup-config-typescript';
-// If your `rollup.config.js` file is already located at the root of your package
-// you can just pass down '__dirname' as the first argument.
-export default compose('path/to/package', typescript('es'), babel('cjs'));
+
+export default compose(typescript('es'), babel('cjs'));
 ```
 ...will result in:
 ```javascript
@@ -109,7 +112,6 @@ import babel from '@azimutlabs/rollup-config-babel';
 import typescript from '@azimutlabs/rollup-config-typescript';
 
 export default compose(
-  'path/to/package',
   babel('cjs'),
   /**
    * You can even pass down multiple envs:

@@ -38,20 +38,17 @@
  $ yarn add -D @azimutlabs/rollup
  ```
 
-## Known issues
-+ `collect` does not work with `esm`, so in order to use it, it is required to use `CommonJS` modules
-  in rollup config. See [#41](https://github.com/azimutlabs/rollup/issues/41) for more info.
-
 ## Usage
 
 ### `collect`
 **Collect configurations by the given array of glob patterns.**
+
 ```typescript
 /**
- * @param patterns - packages glob patterns.
- * @param dirname - working directory root. defaults to process.cwd()
+ * @param packages - packages glob patterns.
+ * @param dirname - working directory root. defaults to the nearest package.json or process.cwd()
  */
-function collect(patterns: readonly string[], dirname?: string): Promise<readonly RollupOptions[]>;
+function collect(packages: string[]): RollupConfigFinalize;
 ```
 
 Given example:
@@ -60,13 +57,13 @@ Given example:
 import compose from '@azimutlabs/rollup-config';
 import babel from '@azimutlabs/rollup-config-babel';
 
-export default compose(__dirname, babel());
+export default babel();
 ```
 ```javascript
 // rollup.config.js
 import { collect } from '@azimutlabs/rollup';
 
-export default collect(['packages/*/rollup.config.js']);
+export default collect(['packages/*']);
 ```
 ...will result in:
 ```javascript
@@ -81,10 +78,7 @@ export default [
 ### `fromWorkspaces`
 **Get packages glob patterns from the `workspaces` field in the nearest `package.json`**
 ```typescript
-/**
- * @param pattern - rollup config files pattern. defaults to 'rollup.config.js'
- */
-function fromWorkspaces(pattern?: string): readonly string[];
+function fromWorkspaces(): string[];
 ```
 
 This is recommended usage when using yarn/npm
@@ -102,8 +96,8 @@ This is recommended usage when using yarn/npm
 import { collect, fromWorkspaces } from '@azimutlabs/rollup';
 
 export default collect(
-  // Final collect scope will be: ['packages/*/rollup.config.js']
-  fromWorkspaces(/* glob pattern for config files, e.g. rollup.config*.js */)
+  // Final collect scope will be: ['packages/*']
+  fromWorkspaces()
 );
 ```
 

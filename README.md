@@ -32,14 +32,14 @@ This repo provides everything you need to use [Rollup](https://github.com/rollup
 main **library** bundler: plugins, configurations, and utilities to work with them.
 
 Simply import and call:
-```javascript
+```js
 // rollup.config.js
 import babel from '@azimutlabs/rollup-config-babel';
-// You can pass '__dirname' if 'rollup.config.js' file is placed at the root of the library dir.
-export default babel()('path/to/library');
+
+export default babel();
 ```
 ...and output is a single `RollupOptions` objects:
-```javascript
+```js
 export default {
   /* ...other RollupOptions */
   input: '/root/project/src/index.js',
@@ -111,24 +111,42 @@ Here we have some general usage descriptions.
 Consider that we are writing a **TypeScript** + **React** ui library. We want to have `commonjs` support
 to work properly inside a `node` environment and `es6` import/export to support tree-shaking.
 All those requirements are accomplished by this rollup config:
-```typescript
+```js
 // rollup.config.js
-import { combine, compose } from '@azimutlabs/rollup-config';
+import { combine, compose, Envs } from '@azimutlabs/rollup-config';
 import { babel } from '@azimutlabs/rollup-config-babel';
 import { typescript } from '@azimutlabs/rollup-config-typescript';
 
 // Compose multiple configurations into a singular array of 'RollupOptions'.
 export default compose(
-  // Take the 'rollup.config.js' files location as the package root.
-  __dirname,
   // Change the default 'es' format to 'cjs'.
-  babel('cjs'),
-  // Will only be present in the final config when the 'NODE_ENV' var is set to 'production'.
-  [combine(babel(), typescript()), Envs.Prod]
+  babel('es', /* { shimMissingExports: true } */),
+  // Will only be present in the final config
+  // when the 'NODE_ENV' var is set to either 'production' or 'test'.
+  [
+    combine(
+      // Array of configurations.
+      [babel, typescript],
+      // Internal module format.
+      'cjs',
+      {
+        // Rollup options that will be merged with options provided by configurations.
+        shimMissingExports: true,
+        // Additional options for internally used plugins.
+        pluginBuilders: {
+          typescript: {
+            // @rollup/plugin-typescript options.
+            tslib: require.resolve('tslib.custom'),
+          },
+        },
+      }
+    ),
+    [Envs.Prod, Envs.Test]
+  ],
 );
 ```
 Output will be:
-```javascript
+```js
 // NODE_ENV === 'production'
 // lib/
 //   ...

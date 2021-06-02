@@ -67,7 +67,7 @@ export default essentials(
       },
     },
   }
-)('path/to/package');
+);
 ```
 
 ## Contributing

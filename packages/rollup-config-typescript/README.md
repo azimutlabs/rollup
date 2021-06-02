@@ -63,7 +63,7 @@ export default typescript(
       },
     },
   }
-)('path/to/package');
+);
 ```
 
 ## Contributing

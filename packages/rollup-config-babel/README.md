@@ -63,7 +63,7 @@ export default babel(
       },
     },
   }
-)('path/to/package');
+);
 ```
 
 ## Contributing

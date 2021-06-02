@@ -37,16 +37,18 @@ export default collect(fromWorkspaces());
 
 [**components**](components/rollup.config.js) package configuration:
 ```js
-const { typescriptBabel } = require('@azimutlabs/rollup-config-typescript');
+import { combine } from '@azimutlabs/rollup-config';
+import { babel } from '@azimutlabs/rollup-config-babel';
+import { typescript } from '@azimutlabs/rollup-config-typescript';
 
-module.exports = typescriptBabel()(__dirname);
+export default combine([babel, typescript]);
 ```
 
 [**colors**](components/rollup.config.js) package configuration:
 ```js
-const { typescript } = require('@azimutlabs/rollup-config-typescript');
+import { typescript } from '@azimutlabs/rollup-config-typescript';
 
-module.exports = typescript()(__dirname);
+export default typescript();
 ```
 
 ## Output

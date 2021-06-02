@@ -49,12 +49,12 @@ Now all that's left is to `finalize` the config.
 // lib/anotherConfig.js
 export const anotherConfigFinalize = anotherConfig.finalize.bind(anotherConfig);
 // rollup.config.js
-export default anotherConfigFinalize()(__dirname);
+export default anotherConfigFinalize();
 ```
 Usage with `compose` and multiple formats:
 ```javascript
 // rollup.config.js
-export default compose('path/to/package', anotherConfigFinalize('cjs'));
+export default compose(anotherConfigFinalize('cjs'));
 ```
 
 ## PnP and Yarn Berry
