@@ -1,6 +1,6 @@
 {
   "name": "@azimutlabs/rollup-config-babel",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0",
   "description": "Rollup configuration for Babel",
   "keywords": [
     "config",
@@ -33,7 +33,7 @@
     "compile": "yarn tsc"
   },
   "dependencies": {
-    "@azimutlabs/rollup-config-essentials": "^1.0.0-rc.0",
+    "@azimutlabs/rollup-config-essentials": "^1.0.0",
     "@rollup/plugin-babel": "^5.3.0"
   },
   "peerDependencies": {
@@ -42,7 +42,7 @@
     "rollup": "^2.15"
   },
   "devDependencies": {
-    "@azimutlabs/rollup-config": "^1.0.0-rc.0",
+    "@azimutlabs/rollup-config": "^1.0.0",
     "@babel/core": "^7.13.10",
     "@types/babel__core": "^7.1.12",
     "@types/node": "^14.14.31",
