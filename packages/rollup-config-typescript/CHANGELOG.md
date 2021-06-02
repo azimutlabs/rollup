@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-typescript@0.3.0...@azimutlabs/rollup-config-typescript@1.0.0-rc.0) (2021-06-02)
+
+**Note:** Version bump only for package @azimutlabs/rollup-config-typescript
+
+
+
+
+
 # [0.3.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config-typescript@0.2.4...@azimutlabs/rollup-config-typescript@0.3.0) (2021-04-08)
 
 

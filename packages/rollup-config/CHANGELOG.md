@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config@0.3.0...@azimutlabs/rollup-config@1.0.0-rc.0) (2021-06-02)
+
+
+### Features
+
+* **rollup-config:** expose 'getRootDir' method as public static ([12813a1](https://github.com/azimutlabs/rollup/commit/12813a16fac8810528298014f680ea945c7197e8))
+
+
+
+
+
 # [0.3.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup-config@0.2.1...@azimutlabs/rollup-config@0.3.0) (2021-04-06)
 
 

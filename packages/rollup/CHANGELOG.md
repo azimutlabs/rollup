@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.0](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup@0.1.5...@azimutlabs/rollup@1.0.0-rc.0) (2021-06-02)
+
+
+### Bug Fixes
+
+* **rollup:** add check for cycles in graph ([#61](https://github.com/azimutlabs/rollup/issues/61)) ([96ab865](https://github.com/azimutlabs/rollup/commit/96ab8656f3c38fd29230f2c366a7390a4ec9ae3f))
+
+
+### Features
+
+* **rollup:** collect sort packages by dependencies first ([11bcc47](https://github.com/azimutlabs/rollup/commit/11bcc47de2e59e4fe7e01a51262ed42eb6dbc00d))
+
+
+
+
+
 ## [0.1.5](https://github.com/azimutlabs/rollup/compare/@azimutlabs/rollup@0.1.4...@azimutlabs/rollup@0.1.5) (2021-04-08)
 
 
