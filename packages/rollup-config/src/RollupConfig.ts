@@ -58,7 +58,7 @@ export class RollupConfig<P extends Record<string, unknown>> {
 
   public finalize(options?: RollupConfigFinalizeOptions<P>): RollupConfigFinalize;
   public finalize(
-    format: InternalModuleFormat,
+    format?: InternalModuleFormat,
     options?: RollupConfigFinalizeOptions<P>
   ): RollupConfigFinalize;
   public finalize(
