@@ -32,6 +32,19 @@ export class RollupConfig<P extends Record<string, unknown>> {
     private readonly options?: Partial<RollupOptions>
   ) {}
 
+  public static readonly getRootDir = (dirnameOrOptions: RollupOptions | string): string => {
+    if (typeof dirnameOrOptions === 'string') return dirnameOrOptions;
+
+    const cwd = process.cwd();
+    const cwdOrSrc =
+      typeof dirnameOrOptions.input === 'string' ? dirname(dirnameOrOptions.input) : cwd;
+
+    const packagePath = readPkgUp.sync({ cwd: cwdOrSrc });
+    if (packagePath) return dirname(packagePath.path);
+
+    return cwd;
+  };
+
   public readonly derive = <C extends Record<string, unknown>>(
     plugins: (
       options: RollupConfigPluginBuildersOptions
@@ -61,7 +74,8 @@ export class RollupConfig<P extends Record<string, unknown>> {
       const maybeInjectedRootDir =
         cliOptions instanceof RollupConfigInjectOptions ? cliOptions.rootDir : null;
 
-      const rootDir = options.rootDir ?? maybeInjectedRootDir ?? this.getRootDir(maybeRootDir);
+      const rootDir =
+        options.rootDir ?? maybeInjectedRootDir ?? RollupConfig.getRootDir(maybeRootDir);
 
       /* eslint-disable functional/no-throw-statement */
       if (!rootDir) throw Error(`Received undefined 'rootDir'`);
@@ -131,19 +145,6 @@ export class RollupConfig<P extends Record<string, unknown>> {
       /* eslint-enable functional/no-throw-statement */
     };
   }
-
-  protected readonly getRootDir = (dirnameOrOptions: RollupOptions | string): string => {
-    if (typeof dirnameOrOptions === 'string') return dirnameOrOptions;
-
-    const cwd = process.cwd();
-    const cwdOrSrc =
-      typeof dirnameOrOptions.input === 'string' ? dirname(dirnameOrOptions.input) : cwd;
-
-    const packagePath = readPkgUp.sync({ cwd: cwdOrSrc });
-    if (packagePath) return dirname(packagePath.path);
-
-    return cwd;
-  };
 
   protected readonly getOutput = (
     rootDir: string,
