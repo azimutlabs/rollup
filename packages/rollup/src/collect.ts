@@ -1,33 +1,47 @@
-import { RollupConfigInjectOptions } from '@azimutlabs/rollup-config';
+import { RollupConfig, RollupConfigInjectOptions } from '@azimutlabs/rollup-config';
 import { sync } from 'glob';
-import { dirname, resolve } from 'path';
-import readPkgUp from 'read-pkg-up';
+import { resolve } from 'path';
 import type { RollupOptions } from 'rollup';
 import loadConfigFile from 'rollup/dist/loadConfigFile';
 
-export const collect = async (
-  filePatterns: readonly string[],
-  cwd = process.cwd()
-): Promise<readonly RollupOptions[]> => {
-  const packagePath = readPkgUp.sync({ cwd })?.path ?? cwd;
-  const rootDir = dirname(packagePath);
+const configFilePattern = 'rollup.config.@(js|mjs|cjs)';
 
-  const configPromises = filePatterns
-    .flatMap((pattern) => sync(pattern, { cwd: rootDir }) as readonly string[])
-    .map(async (file) => {
-      class InjectOptions extends RollupConfigInjectOptions {
-        // eslint-disable-next-line class-methods-use-this
-        public get rootDir(): string {
-          return dirname(file);
+export function collect(
+  packages: readonly string[]
+): (dirname: string) => Promise<readonly RollupOptions[]>;
+export function collect(
+  packages: readonly string[]
+): (options: RollupOptions) => Promise<readonly RollupOptions[]>;
+export function collect(packages: readonly string[]) {
+  return async (dirnameOrOptions: RollupOptions | string): Promise<readonly RollupOptions[]> => {
+    const rootDir = RollupConfig.getRootDir(dirnameOrOptions);
+    const configPromises = packages
+      .flatMap((pattern) => sync(pattern, { cwd: rootDir }) as readonly string[])
+      .map(async (pkg) => {
+        const absolutePkgPath = resolve(rootDir, pkg);
+
+        const [firstFoundFile] = sync(configFilePattern, { cwd: absolutePkgPath });
+        if (!firstFoundFile) return null;
+
+        class InjectOptions extends RollupConfigInjectOptions {
+          // eslint-disable-next-line class-methods-use-this
+          public get rootDir(): string {
+            return absolutePkgPath;
+          }
         }
-      }
 
-      const { warnings, options } = await loadConfigFile(resolve(cwd, file), new InjectOptions());
+        const { warnings, options } = await loadConfigFile(
+          resolve(absolutePkgPath, firstFoundFile),
+          new InjectOptions()
+        );
 
-      warnings.flush();
+        warnings.flush();
 
-      return options;
-    });
+        return options;
+      });
 
-  return Promise.all(configPromises).then((configs) => configs.flat());
-};
+    return Promise.all(configPromises).then((configs) =>
+      configs.flat().filter((it): it is RollupOptions => it !== null)
+    );
+  };
+}

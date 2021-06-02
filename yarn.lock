@@ -4286,23 +4286,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"a@file:../a::locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb":
-  version: 0.0.0
-  resolution: "a@file:../a#../a::hash=49c627&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb"
-  dependencies:
-    c: "file:../c"
-  checksum: 35e9ca42e57cbd492b9d499dca48b5233116e4fb59f03c3b3e81e4ef602adb967f1ca877ef7ae492e180f5b30df942cc6eecd7a18960d850d8ae439684dfe0da
-  languageName: node
-  linkType: hard
-
-"a@workspace:packages/tests/src/rollup/packages/a":
-  version: 0.0.0-use.local
-  resolution: "a@workspace:packages/tests/src/rollup/packages/a"
-  dependencies:
-    c: "file:../c"
-  languageName: unknown
-  linkType: soft
-
 "abab@npm:^2.0.3":
   version: 2.0.5
   resolution: "abab@npm:2.0.5"
@@ -4767,15 +4750,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"b@workspace:packages/tests/src/rollup/packages/b":
-  version: 0.0.0-use.local
-  resolution: "b@workspace:packages/tests/src/rollup/packages/b"
-  dependencies:
-    a: "file:../a"
-    c: "file:../c"
-  languageName: unknown
-  linkType: soft
-
 "babel-jest@npm:^26.6.3":
   version: 26.6.3
   resolution: "babel-jest@npm:26.6.3"
@@ -5097,33 +5071,6 @@ __metadata:
   checksum: c3f64645ef37922c8194fef88a052de2a28101882dfdf8a225493888c4941a26ea15164957e7492e5c5e3a8e98ee6276f4834efacb68e2d8ad4d91f903250b6c
   languageName: node
   linkType: hard
-
-"c@file:../c::locator=a%40file%3A..%2Fa%23..%2Fa%3A%3Ahash%3D49c627%26locator%3Db%2540workspace%253Apackages%252Ftests%252Fsrc%252Frollup%252Fpackages%252Fb":
-  version: 0.0.0
-  resolution: "c@file:../c#../c::hash=269aec&locator=a%40file%3A..%2Fa%23..%2Fa%3A%3Ahash%3D49c627%26locator%3Db%2540workspace%253Apackages%252Ftests%252Fsrc%252Frollup%252Fpackages%252Fb"
-  checksum: 7d3da9612be7b952116aaa48056651fe813dfbbb87a6809e7f1681a391501e29c80b912eabffb33364b43fec8705aad37119e2acbc50a0a5d21820b11110a22d
-  languageName: node
-  linkType: hard
-
-"c@file:../c::locator=a%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fa":
-  version: 0.0.0
-  resolution: "c@file:../c#../c::hash=269aec&locator=a%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fa"
-  checksum: 7d3da9612be7b952116aaa48056651fe813dfbbb87a6809e7f1681a391501e29c80b912eabffb33364b43fec8705aad37119e2acbc50a0a5d21820b11110a22d
-  languageName: node
-  linkType: hard
-
-"c@file:../c::locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb":
-  version: 0.0.0
-  resolution: "c@file:../c#../c::hash=269aec&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb"
-  checksum: 7d3da9612be7b952116aaa48056651fe813dfbbb87a6809e7f1681a391501e29c80b912eabffb33364b43fec8705aad37119e2acbc50a0a5d21820b11110a22d
-  languageName: node
-  linkType: hard
-
-"c@workspace:packages/tests/src/rollup/packages/c":
-  version: 0.0.0-use.local
-  resolution: "c@workspace:packages/tests/src/rollup/packages/c"
-  languageName: unknown
-  linkType: soft
 
 "cacache@npm:^12.0.0, cacache@npm:^12.0.3":
   version: 12.0.4
@@ -5990,12 +5937,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d@workspace:packages/tests/src/rollup/packages/d":
-  version: 0.0.0-use.local
-  resolution: "d@workspace:packages/tests/src/rollup/packages/d"
-  languageName: unknown
-  linkType: soft
-
 "dargs@npm:^4.0.1":
   version: 4.1.0
   resolution: "dargs@npm:4.1.0"
@@ -6351,12 +6292,6 @@ __metadata:
   checksum: 9581cdb8f6304fdaacb8bbe2b8b393a8da3ece3086dd24070601b70f08ca417305b4f3a94699b984c4981dceb6eebb4c132abfe0445baacfd04f2b66a0524cda
   languageName: node
   linkType: hard
-
-"e@workspace:packages/tests/src/rollup/packages/e":
-  version: 0.0.0-use.local
-  resolution: "e@workspace:packages/tests/src/rollup/packages/e"
-  languageName: unknown
-  linkType: soft
 
 "ecc-jsbn@npm:~0.1.1":
   version: 0.1.2
