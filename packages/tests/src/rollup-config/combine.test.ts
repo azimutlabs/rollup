@@ -60,10 +60,7 @@ describe('combine', () => {
     const cfg1 = new RollupConfig(cfg1Plugins, cfg1Options);
     const cfg2 = new RollupConfig(cfg2Plugins, cfg2Options);
 
-    const cfg1Finalize = cfg1.finalize();
-    const cfg2Finalize = cfg2.finalize();
-
-    const rollupOptions = combine(cfg1Finalize, cfg2Finalize)(__dirname);
+    const rollupOptions = combine([cfg1.finalize.bind(cfg1), cfg2.finalize.bind(cfg2)])(__dirname);
 
     expect(rollupOptions.output).toStrictEqual(expectedMergeOptions.output);
     expect(rollupOptions.plugins).toStrictEqual([cfg1Plugin2, cfg2Plugin1]);
