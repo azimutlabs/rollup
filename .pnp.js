@@ -69,26 +69,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {
         "name": "@azimutlabs/rollup-example-mono-repo.components",
         "reference": "workspace:examples/mono-repo/components"
-      },
-      {
-        "name": "a",
-        "reference": "workspace:packages/tests/src/rollup/packages/a"
-      },
-      {
-        "name": "b",
-        "reference": "workspace:packages/tests/src/rollup/packages/b"
-      },
-      {
-        "name": "c",
-        "reference": "workspace:packages/tests/src/rollup/packages/c"
-      },
-      {
-        "name": "d",
-        "reference": "workspace:packages/tests/src/rollup/packages/d"
-      },
-      {
-        "name": "e",
-        "reference": "workspace:packages/tests/src/rollup/packages/e"
       }
     ],
     "enableTopLevelFallback": true,
@@ -106,11 +86,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@azimutlabs/rollup-example-typescript-babel", ["workspace:examples/typescript-babel"]],
       ["@azimutlabs/rollup-plugin-external", ["workspace:packages/rollup-plugin-external"]],
       ["@azimutlabs/rollup-root", ["workspace:."]],
-      ["a", ["workspace:packages/tests/src/rollup/packages/a"]],
-      ["b", ["workspace:packages/tests/src/rollup/packages/b"]],
-      ["c", ["workspace:packages/tests/src/rollup/packages/c"]],
-      ["d", ["workspace:packages/tests/src/rollup/packages/d"]],
-      ["e", ["workspace:packages/tests/src/rollup/packages/e"]],
       ["tests", ["workspace:packages/tests"]]
     ],
     "fallbackPool": [
@@ -6335,24 +6310,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["a", [
-        ["file:../a#../a::hash=49c627&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb", {
-          "packageLocation": "./.yarn/cache/a-file-a3c0d44d94-35e9ca42e5.zip/node_modules/a/",
-          "packageDependencies": [
-            ["a", "file:../a#../a::hash=49c627&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb"],
-            ["c", "file:../c#../c::hash=269aec&locator=a%40file%3A..%2Fa%23..%2Fa%3A%3Ahash%3D49c627%26locator%3Db%2540workspace%253Apackages%252Ftests%252Fsrc%252Frollup%252Fpackages%252Fb"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["workspace:packages/tests/src/rollup/packages/a", {
-          "packageLocation": "./packages/tests/src/rollup/packages/a/",
-          "packageDependencies": [
-            ["a", "workspace:packages/tests/src/rollup/packages/a"],
-            ["c", "file:../c#../c::hash=269aec&locator=a%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fa"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
       ["abab", [
         ["npm:2.0.5", {
           "packageLocation": "./.yarn/cache/abab-npm-2.0.5-ae8d5b629e-a42b91bd9d.zip/node_modules/abab/",
@@ -6902,17 +6859,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["b", [
-        ["workspace:packages/tests/src/rollup/packages/b", {
-          "packageLocation": "./packages/tests/src/rollup/packages/b/",
-          "packageDependencies": [
-            ["b", "workspace:packages/tests/src/rollup/packages/b"],
-            ["a", "file:../a#../a::hash=49c627&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb"],
-            ["c", "file:../c#../c::hash=269aec&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
       ["babel-jest", [
         ["npm:26.6.3", {
           "packageLocation": "./.yarn/cache/babel-jest-npm-26.6.3-5630fee2b8-89231d00e6.zip/node_modules/babel-jest/",
@@ -7332,36 +7278,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["bytes", "npm:3.1.0"]
           ],
           "linkType": "HARD",
-        }]
-      ]],
-      ["c", [
-        ["file:../c#../c::hash=269aec&locator=a%40file%3A..%2Fa%23..%2Fa%3A%3Ahash%3D49c627%26locator%3Db%2540workspace%253Apackages%252Ftests%252Fsrc%252Frollup%252Fpackages%252Fb", {
-          "packageLocation": "./.yarn/cache/c-file-083aeffd4e-7d3da9612b.zip/node_modules/c/",
-          "packageDependencies": [
-            ["c", "file:../c#../c::hash=269aec&locator=a%40file%3A..%2Fa%23..%2Fa%3A%3Ahash%3D49c627%26locator%3Db%2540workspace%253Apackages%252Ftests%252Fsrc%252Frollup%252Fpackages%252Fb"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["file:../c#../c::hash=269aec&locator=a%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fa", {
-          "packageLocation": "./.yarn/cache/c-file-44c983d2e6-7d3da9612b.zip/node_modules/c/",
-          "packageDependencies": [
-            ["c", "file:../c#../c::hash=269aec&locator=a%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fa"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["file:../c#../c::hash=269aec&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb", {
-          "packageLocation": "./.yarn/cache/c-file-84f8fece2d-7d3da9612b.zip/node_modules/c/",
-          "packageDependencies": [
-            ["c", "file:../c#../c::hash=269aec&locator=b%40workspace%3Apackages%2Ftests%2Fsrc%2Frollup%2Fpackages%2Fb"]
-          ],
-          "linkType": "HARD",
-        }],
-        ["workspace:packages/tests/src/rollup/packages/c", {
-          "packageLocation": "./packages/tests/src/rollup/packages/c/",
-          "packageDependencies": [
-            ["c", "workspace:packages/tests/src/rollup/packages/c"]
-          ],
-          "linkType": "SOFT",
         }]
       ]],
       ["cacache", [
@@ -8311,15 +8227,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["d", [
-        ["workspace:packages/tests/src/rollup/packages/d", {
-          "packageLocation": "./packages/tests/src/rollup/packages/d/",
-          "packageDependencies": [
-            ["d", "workspace:packages/tests/src/rollup/packages/d"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
       ["dargs", [
         ["npm:4.1.0", {
           "packageLocation": "./.yarn/cache/dargs-npm-4.1.0-cce908ea5a-27345b5881.zip/node_modules/dargs/",
@@ -8756,15 +8663,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stream-shift", "npm:1.0.1"]
           ],
           "linkType": "HARD",
-        }]
-      ]],
-      ["e", [
-        ["workspace:packages/tests/src/rollup/packages/e", {
-          "packageLocation": "./packages/tests/src/rollup/packages/e/",
-          "packageDependencies": [
-            ["e", "workspace:packages/tests/src/rollup/packages/e"]
-          ],
-          "linkType": "SOFT",
         }]
       ]],
       ["ecc-jsbn", [
