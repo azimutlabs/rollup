@@ -4,44 +4,43 @@ import { resolve } from 'path';
 import type { RollupOptions } from 'rollup';
 import loadConfigFile from 'rollup/dist/loadConfigFile';
 
+import { sortDependencies } from './sortDependencies';
+
 const configFilePattern = 'rollup.config.@(js|mjs|cjs)';
 
-export function collect(
-  packages: readonly string[]
-): (dirname: string) => Promise<readonly RollupOptions[]>;
-export function collect(
-  packages: readonly string[]
-): (options: RollupOptions) => Promise<readonly RollupOptions[]>;
-export function collect(packages: readonly string[]) {
-  return async (dirnameOrOptions: RollupOptions | string): Promise<readonly RollupOptions[]> => {
-    const rootDir = RollupConfig.getRootDir(dirnameOrOptions);
-    const configPromises = packages
-      .flatMap((pattern) => sync(pattern, { cwd: rootDir }) as readonly string[])
-      .map(async (pkg) => {
-        const absolutePkgPath = resolve(rootDir, pkg);
+export const collect = (packages: readonly string[]) => async (
+  dirnameOrOptions: RollupOptions | string
+): Promise<readonly RollupOptions[]> => {
+  const rootDir = RollupConfig.getRootDir(dirnameOrOptions);
 
-        const [firstFoundFile] = sync(configFilePattern, { cwd: absolutePkgPath });
-        if (!firstFoundFile) return null;
+  const packagePaths = packages.flatMap(
+    (pattern) => sync(pattern, { cwd: rootDir }) as readonly string[]
+  );
 
-        class InjectOptions extends RollupConfigInjectOptions {
-          // eslint-disable-next-line class-methods-use-this
-          public get rootDir(): string {
-            return absolutePkgPath;
-          }
-        }
+  const configPromises = sortDependencies(packagePaths).map(async (pkg) => {
+    const absolutePkgPath = resolve(rootDir, pkg);
 
-        const { warnings, options } = await loadConfigFile(
-          resolve(absolutePkgPath, firstFoundFile),
-          new InjectOptions()
-        );
+    const [firstFoundFile] = sync(configFilePattern, { cwd: absolutePkgPath });
+    if (!firstFoundFile) return null;
 
-        warnings.flush();
+    class InjectOptions extends RollupConfigInjectOptions {
+      // eslint-disable-next-line class-methods-use-this
+      public get rootDir(): string {
+        return absolutePkgPath;
+      }
+    }
 
-        return options;
-      });
-
-    return Promise.all(configPromises).then((configs) =>
-      configs.flat().filter((it): it is RollupOptions => it !== null)
+    const { warnings, options } = await loadConfigFile(
+      resolve(absolutePkgPath, firstFoundFile),
+      new InjectOptions()
     );
-  };
-}
+
+    warnings.flush();
+
+    return options;
+  });
+
+  return Promise.all(configPromises).then((configs) =>
+    configs.flat().filter((it): it is RollupOptions => it !== null)
+  );
+};
