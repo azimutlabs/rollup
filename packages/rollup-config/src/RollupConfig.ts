@@ -10,7 +10,7 @@ import type {
 } from 'rollup';
 import { mergeOptions } from 'rollup/dist/shared/mergeOptions';
 
-import { RollupConfigInjectOptions } from './RollupConfigInjectOptions';
+import type { RollupConfigInjectOptions } from './RollupConfigInjectOptions';
 import { getCurrentEnv } from './services/getCurrentEnv';
 import { merge } from './services/merge';
 import { nonNullableArray } from './services/nonNullableArray';
@@ -71,8 +71,9 @@ export class RollupConfig<P extends Record<string, unknown>> {
     return (maybeRootDir) => {
       const cliOptions = typeof maybeRootDir === 'object' ? maybeRootDir : {};
 
+      const maybeInjectOptions = cliOptions as RollupConfigInjectOptions;
       const maybeInjectedRootDir =
-        cliOptions instanceof RollupConfigInjectOptions ? cliOptions.rootDir : null;
+        typeof maybeInjectOptions.rootDir === 'string' ? maybeInjectOptions.rootDir : null;
 
       const rootDir =
         options.rootDir ?? maybeInjectedRootDir ?? RollupConfig.getRootDir(maybeRootDir);
