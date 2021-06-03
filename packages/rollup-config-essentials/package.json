@@ -35,8 +35,8 @@
     "@rollup/plugin-node-resolve": "^11.2.0"
   },
   "peerDependencies": {
-    "@azimutlabs/rollup-config": ">=0",
-    "rollup": "^2.15"
+    "@azimutlabs/rollup-config": "^1",
+    "rollup": "^2.38"
   },
   "devDependencies": {
     "@azimutlabs/rollup-config": "^1.0.0",

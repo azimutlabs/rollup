@@ -39,8 +39,8 @@
     "tsconfig": "^7.0.0"
   },
   "peerDependencies": {
-    "@azimutlabs/rollup-config": ">=0",
-    "rollup": "^2.15",
+    "@azimutlabs/rollup-config": "^1",
+    "rollup": "^2.38",
     "tslib": "^2",
     "typescript": ">=3.4.0"
   },
